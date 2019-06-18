@@ -1,4 +1,4 @@
-default: github
+default: page
 
 SRC=2019-07-15_CNS
 

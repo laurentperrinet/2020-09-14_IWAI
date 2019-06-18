@@ -1,8 +1,8 @@
-# Should I stay or should I go? Humans adapt to the volatility of visual motion properties, and know about it
+# Learning where to look: a foveated visuomotor control model
 
 * What:: talk @ [conference](conference_url)
 * Who:: Emmanuel Daucé, Pierre Albigès & Laurent Perrinet
-* Where: Marseille (France), see https://laurentperrinet.github.io/talk/2019-07-15-cns
+* Where: Barcelona (Spain), see https://laurentperrinet.github.io/talk/2019-07-15-cns
 * When: 15/07/2019, time: 12:20:00-12:40:00
 
 * What:
