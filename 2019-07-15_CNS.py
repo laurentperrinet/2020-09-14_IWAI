@@ -267,7 +267,7 @@ if slides_filename is None:
         text_file.write("""\
 # {title}
 
-* What:: talk @ [conference](conference_url)
+* What:: talk @ [conference]({conference_url})
 * Who:: {author}
 * Where: {location}, see {url}
 * When: {DD:02d}/{MM:02d}/{YYYY}, time: {time_start}-{time_end}
