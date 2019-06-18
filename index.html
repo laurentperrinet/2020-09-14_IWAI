@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+
+        <title>Detecting switches in a volatile environment - Colloque international de la Société des Neurosciences 2019</title>
+
+        <meta name="description" content="Should I stay or should I go? Humans adapt to the volatility of visual motion properties, and know about it">
+        <meta name="author" content="Emmanuel Daucé, Pierre Albigès & Laurent Perrinet">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" >
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- General and theme style sheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/simple.css" id="theme">
+
+    	<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+         <script>
+                 var link = document.createElement( 'link' );
+                 link.rel = 'stylesheet';
+                 link.type = 'text/css';
+                 link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/paper.css';
+                 document.getElementsByTagName( 'head' )[0].appendChild( link );
+         </script>
+
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+         <!--[if lt IE 9]>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/html5shiv.js"></script>
+         <![endif]-->
+    
+        <!-- Get Font-awesome from cdn -->
+        <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
+    </head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+        <section><section>
+<h2 class="title">Should I stay or should I go? Humans adapt to the volatility of visual motion properties, and know about it</h2>
+<h3><a href="https://laurentperrinet.github.io/talk/2019-07-15-cns/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a></h3>
+<img class="plain" data-src="http://laurentperrinet.github.io/slides.py/figures/troislogos.png"  height="200.0px" />
+<h4><a href="https://www.neurosciences.asso.fr/V2/colloques/SN19/">Colloque international de la Société des Neurosciences 2019</a>, 15/7/2019 </h4>
+
+
+<small>
+<h5>Acknowledgements:</h5>
+<ul>
+    <li>Rick Adams and Karl Friston @ UCL - Wellcome Trust Centre for Neuroimaging</li>
+    <li>Jean-Bernard Damasse and Laurent Madelain - ANR REM</li>
+    <li>Frédéric Chavane - INT</li>
+</ul>
+<BR>
+<img class="plain" data-src="https://laurentperrinet.github.io/authors/rick-a.-adams/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/karl-friston/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/jean-bernard-damasse/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/laurent-madelain/avatar.png"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/anna-montagnini/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/frédéric-chavane/avatar.png"  height="80px" /><a href="https://github.com/laurentperrinet/slides.py"><img class="plain" data-src="https://www.python.org/static/community_logos/python-powered-h-140x182.png"  height="80px" /></a>
+<BR>
+    This work was supported by the <a href="https://laurentperrinet.github.io/project/pace-itn/">PACE-ITN Project</a>.
+</small>
+
+
+
+                <aside class="notes">
+                 <ul>
+<li>
+<p>(AUTHOR) Hello, I am Laurent Perrinet from the Institute of Neurosciences of
+la Timone in Marseille, a joint unit from the CNRS and the AMU</p>
+</li>
+<li>
+<p>(OBJECTIVE)</p>
+</li>
+<li>
+<p>Let's me first describe the motivation of this work...</p>
+</li>
+<li>
+<p>(SHOW TITLE)</p>
+</li>
+</ul>
+                </aside>
+                
+</section>
+        <section><h3>Motivation: XXX</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/Experiment_block_0.svg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 
+                </aside>
+                
+</section>
+        
+</section>
+<section><section><h3>Outline</h3>
+<ol>
+
+                    <h3>
+                    <li>
+                    Motivation: XXX
+                    </li>
+                    </h3>
+                    
+                    <h3>
+                    <li>
+                    <p class="fragment highlight-red">
+                    Methods: Experimental protocol
+                    </p>
+                    </li>
+                    </h3>
+                    
+                    <h3>
+                    <li>
+                    Results: XXX
+                    </li>
+                    </h3>
+                    
+                     </ol>
+                    
+                <aside class="notes">
+                 <p>Indeed, ...</p>
+                </aside>
+                
+</section>
+        <section><h3>Methods: Experimental protocol</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/Experiment_block_0.svg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 
+                </aside>
+                
+</section>
+        
+</section>
+<section><section><h3>Outline</h3>
+<ol>
+
+                    <h3>
+                    <li>
+                    Motivation: XXX
+                    </li>
+                    </h3>
+                    
+                    <h3>
+                    <li>
+                    Methods: Experimental protocol
+                    </li>
+                    </h3>
+                    
+                    <h3>
+                    <li>
+                    <p class="fragment highlight-red">
+                    Results: XXX
+                    </p>
+                    </li>
+                    </h3>
+                    
+                     </ol>
+                    
+                <aside class="notes">
+                 <p>Indeed, these raw psycholophysical results are encouraging but since we used a generative model for generating the sequence, let's see if we can build a Bayesian model which would be optimal wrt to this generative model.</p>
+<p>Indeed, such a model already exists, the onlin BCP, and we will adapt it for our specific setting.</p>
+                </aside>
+                
+</section>
+        <section><h3>Results: XXX</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/Experiment_block_0.svg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 
+                </aside>
+                
+</section>
+        
+</section>
+<section><section>
+<h2 class="title">Should I stay or should I go? Humans adapt to the volatility of visual motion properties, and know about it</h2>
+<h3><a href="https://laurentperrinet.github.io/talk/2019-07-15-cns/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a></h3>
+<img class="plain" data-src="http://laurentperrinet.github.io/slides.py/figures/troislogos.png"  height="200.0px" />
+<h4><a href="https://www.neurosciences.asso.fr/V2/colloques/SN19/">Colloque international de la Société des Neurosciences 2019</a>, 15/7/2019 </h4>
+
+
+<small>
+<h5>Acknowledgements:</h5>
+<ul>
+    <li>Rick Adams and Karl Friston @ UCL - Wellcome Trust Centre for Neuroimaging</li>
+    <li>Jean-Bernard Damasse and Laurent Madelain - ANR REM</li>
+    <li>Frédéric Chavane - INT</li>
+</ul>
+<BR>
+<img class="plain" data-src="https://laurentperrinet.github.io/authors/rick-a.-adams/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/karl-friston/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/jean-bernard-damasse/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/laurent-madelain/avatar.png"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/anna-montagnini/avatar.jpg"  height="80px" /><img class="plain" data-src="https://laurentperrinet.github.io/authors/frédéric-chavane/avatar.png"  height="80px" /><a href="https://github.com/laurentperrinet/slides.py"><img class="plain" data-src="https://www.python.org/static/community_logos/python-powered-h-140x182.png"  height="80px" /></a>
+<BR>
+    This work was supported by the <a href="https://laurentperrinet.github.io/project/pace-itn/">PACE-ITN Project</a>.
+</small>
+
+
+
+                <aside class="notes">
+                 <p>perspectives:
+- XXX
+- XXX</p>
+<ul>
+<li>Thanks for your attention!</li>
+</ul>
+                </aside>
+                
+</section>
+        <section>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=700.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=700 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/qr.png"  height="700px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        <BR><a href="https://laurentperrinet.github.io/talk/2019-07-15-cns"> https://laurentperrinet.github.io/talk/2019-07-15-cns </a>
+                <aside class="notes">
+                 <p>All the material is available online - please flash this code this leads to a page with links to further references and code </p>
+                </aside>
+                
+</section>
+        
+</section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+
+        
+	<script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+
+        
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                width: 1600,
+                height: 1000,
+
+                // Factor of the display size that should remain empty around the content
+                margin: 0.1618,
+        
+                // Display a presentation progress bar
+                progress: true,
+                slideNumber: 'c/t',
+
+                // Push each slide change to the browser history
+                //history: false,
+
+                // Vertical centering of slides
+                center: false,
+
+                // Enables touch navigation on devices with touch input
+                touch: true,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.2,
+                maxScale: 2.5,
+
+                // Display controls in the bottom right corner
+                controls: false,
+
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+
+                // Enable the slide overview mode
+                overview: true,
+
+                // Loop the presentation
+                //loop: false,
+
+                // Change the presentation direction to be RTL
+                //rtl: false,
+
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                //autoSlide: 0,
+
+                // Enable slide navigation via mouse wheel
+                //mouseWheel: false,
+
+                // Parallax background image
+                //parallaxBackgroundImage: '/Users/laurentperrinet/cloud_nas/2015_RTC/2014-04-17_HDR/figures/p4100011.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+                // Parallax background size
+                //parallaxBackgroundSize: '3200px 2000px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+                // This slide transition gives best results:
+                transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Transition speed
+                transitionSpeed: 'slow', // default/fast/slow
+
+                // Transition style for full page backgrounds
+                backgroundTransition: 'none', // default/linear/none
+
+			    // Turns fragments on and off globally
+                fragments: true,
+
+                // Theme
+                theme: 'simple', // available themes are in /css/theme
+
+        
+                math: {
+            		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
+            	chalkboard: {
+            		// optionally load pre-recorded chalkboard drawing from file
+            		src: "chalkboard.json",
+            	},
+                // Optional reveal.js plugins
+                dependencies: [
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/chalkboard/chalkboard.js' },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/zoom-js/zoom.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/notes/notes.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/math/math.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/mathsvg/math.js', async: true },
+        
+                ],
+	keyboard: {
+	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
+	    66: function() {{ RevealChalkboard.toggleChalkboard() }},	// toggle chalkboard when 'b' is pressed
+	    46: function() {{ RevealChalkboard.clear() }},	// clear chalkboard when 'DEL' is pressed
+	     8: function() {{ RevealChalkboard.reset() }},	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+	    68: function() {{ RevealChalkboard.download() }},	// downlad recorded chalkboard drawing when 'd' is pressed
+	},
+        });
+        </script>
+
+
+
+    </body>
+</html>
+        
