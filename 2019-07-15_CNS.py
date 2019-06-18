@@ -218,15 +218,16 @@ s.add_slide_outline(i_section,
 notes="""
 Indeed, t...
 """)
+
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_params.jpg')],
+[os.path.join(figpath_talk, 'fig_result.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
 """)
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_result.jpg')],
+[os.path.join(figpath_talk, 'fig_params.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
