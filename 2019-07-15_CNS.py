@@ -173,7 +173,7 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 title = meta['sections'][i_section]
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'Experiment_block_0.svg')],
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
@@ -198,7 +198,7 @@ Indeed, ...
 url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">github.com/chloepasturel/AnticipatorySPEM</a>'
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'Experiment_block_0.svg')],
+[os.path.join(figpath_talk, 'fig_methods.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
@@ -208,7 +208,7 @@ s.close_section()
 
 i_section = 2
 #############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄 The Bayesian Changepoint Detector  🏄🏄🏄🏄🏄🏄🏄🏄
+# 🏄🏄🏄🏄🏄🏄🏄🏄 RESULTS  🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
 #############################################################################
 
@@ -216,12 +216,17 @@ s.open_section()
 title = meta['sections'][i_section]
 s.add_slide_outline(i_section,
 notes="""
-Indeed, these raw psycholophysical results are encouraging but since we used a generative model for generating the sequence, let's see if we can build a Bayesian model which would be optimal wrt to this generative model.
-
-Indeed, such a model already exists, the onlin BCP, and we will adapt it for our specific setting.
+Indeed, t...
 """)
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'Experiment_block_0.svg')],
+[os.path.join(figpath_talk, 'fig_params.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+
+""")
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_result.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
