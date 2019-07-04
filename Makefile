@@ -2,6 +2,9 @@ default: github
 
 SRC=2019-07-15_CNS
 
+install:
+	pip3 install git+https://github.com/laurentperrinet/slides.py
+
 edit:
 	atom $(SRC).py
 
