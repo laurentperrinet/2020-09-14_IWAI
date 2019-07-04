@@ -19,7 +19,7 @@ get_figures:
 	# from the paper
 	rsync -a ../WhereIsMyMNIST/paper/*.jpg figures
 
-html: 
+html:
 	python3 $(SRC).py index.html
 
 show: html
@@ -30,9 +30,10 @@ github: html
 	git add figures
 	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
 	git push
-	open https://SpikeAI.github.io/$(SRC)
+	firefox  --new-tab https://SpikeAI.github.io/$(SRC)
 
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true
 	#open "https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true"
-	/Applications/Chromium.app/Contents/MacOS/Chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
+	# /Applications/Chromium.app/Contents/MacOS/Chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
+	chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
