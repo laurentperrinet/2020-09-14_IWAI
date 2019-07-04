@@ -18,7 +18,11 @@ if len(sys.argv)>1:
 else:
     slides_filename = None
 
-from academic import slugify
+try:
+    from academic import slugify
+    slugified = slugify(tag)
+except:
+    slugified = '2019-07-15-cns'
 
 print('😎 Welcome to the script generating the slides for ', tag)
 YYYY = int(tag[:4])
@@ -44,7 +48,7 @@ meta = dict(
  theme='simple',
  bgcolor="white",
  author='Emmanuel Daucé, Pierre Albigès & Laurent Perrinet',
- author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugify(tag)}/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a>',
+ author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugified}/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a>',
  short_title='Learning where to look: a foveated visuomotor control model',
  title='Learning where to look: a foveated visuomotor control model',
  conference_url='https://www.cnsorg.org/cns-2019',
@@ -57,7 +61,7 @@ meta = dict(
  projects='spikeai',
  time_start = '12:20:00',
  time_end = '12:40:00',
- url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
+ url=f'https://laurentperrinet.github.io/talk/{slugified}',
  sections=['Motivation',
           'Methods',
           'Results',
@@ -164,11 +168,11 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 
 * (OBJECTIVE)
 
-Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by 
-the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity 
+Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by
+the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
 through weight sharing convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
-to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are 
-systematically scanned and processed in parallel fashion at high computational cost. 
+to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
+systematically scanned and processed in parallel fashion at high computational cost.
 
 
 
@@ -189,7 +193,7 @@ Shortcuts proposed in the literature:
 - affine/geometric transform (transformer networks)
 - attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non 
 
-When human vision is considered, the things work quite differently. 
+When human vision is considered, the things work quite differently.
 The human vision is **dynamic**.
 Human (and animal) vision rely on a non isotropic sencor (the retina) that has a very high resolution at the center of fixation and a very poor
 resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
@@ -209,6 +213,7 @@ Bottom up :
     Workshop, 2015
     
 Top down : (sequential decision)
+
 - J Najemnik and Wilson S. Geisler. **Optimal eye movement
         strategies in visual search**. In: Nature reviews. Neuroscience
         434 (2005)
@@ -223,6 +228,8 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
+
+
 """)
 
 s.close_section()
