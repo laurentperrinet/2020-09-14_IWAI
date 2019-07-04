@@ -288,17 +288,21 @@ notes="""
 Indeed, t...
 """)
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_result' + s + '.jpg') for s in ['', '', ''] ],
-        title=title, height=s.meta['height']*.825, transpose=True),
-notes="""
+for kind in ['correct', 'error']:
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'fig_result' + s + '.jpg') for s in ['', ''] ],
+            title=title + '- ' + kind, height=s.meta['height']*.825, transpose=True),
+    notes="""
 
-""")
+    TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+
+    """)
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_params.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
+TODO Manu : insérer résultats avec différents contrastes
 
 """)
 
@@ -310,6 +314,35 @@ s.close_section()
 #############################################################################
 #############################################################################
 s.open_section()
+
+s.add_slide(content="""
+Bayesian Online Changepoint Detector
+------------------------------------
+
+* an implementation of
+[Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
+in Python.
+
+````
+@TECHREPORT{ adams-mackay-2007,
+AUTHOR = "Ryan Prescott Adams and David J.C. MacKay",
+TITLE  = "Bayesian Online Changepoint Detection",
+INSTITUTION = "University of Cambridge",
+ADDRESS = "Cambridge, UK",
+YEAR = "2007",
+NOTE = "arXiv:0710.3742v1 [stat.ML]",
+URL = "http://arxiv.org/abs/0710.3742"
+}
+````
+
+* adapted from https://github.com/JackKelly/bayesianchangepoint by Jack Kelly (2013) for a binomial input.
+
+* This code is based on the  [MATLAB implementation](http://www.inference.phy.cam.ac.uk/rpa23/changepoint.php) provided by Ryan Adam. Was available at http://hips.seas.harvard.edu/content/bayesian-online-changepoint-detection
+
+* full code @ https://github.com/laurentperrinet/bayesianchangepoint
+
+""", notes='TODO Manu update with perspectives', md=True)
+
 s.add_slide(content=intro,
             notes="""
 perspectives:
