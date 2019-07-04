@@ -195,6 +195,36 @@ Human (and animal) vision rely on a non isotropic sencor (the retina) that has a
 resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 """)
 
+####################### SLIDE 3 : MODELLING #########################
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+Bottom up :
+- Laurent Itti and Christof Koch. **A saliency-based search mechanism
+    for overt and covert shifts of visual attention**. In: Vision
+    Research 40.10-12 (2000), pp. 1489--1506.
+- M. Kümmerer, L. Theis, and M. Bethge **Deep Gaze I: Boosting
+    Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
+    Workshop, 2015
+    
+Top down :
+- J Najemnik and Wilson S. Geisler. **Optimal eye movement
+        strategies in visual search**. In: Nature reviews. Neuroscience
+        434 (2005)
+- Nicholas J Butko and Javier R Movellan. **Infomax control of eye
+        movements**. In: Autonomous Mental Development, IEEE
+        Transactions on 2.2 (2010)
+""")
+
+
+####################### SLIDE  : XXXXXXXXXXXXXXXXXX #########################
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+""")
+
 s.close_section()
 
 i_section = 1
