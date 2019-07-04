@@ -267,7 +267,7 @@ url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">
 ####################### SLIDE B 2, 3 & 4 ##################################
 for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
     s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, fname)],
+    [os.path.join(figpath_talk, fname + '.svg')],
             title=title, height=s.meta['height']*.825),
     notes="""
 
