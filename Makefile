@@ -16,7 +16,7 @@ get_figures:
 	# from the paper
 	rsync -a ../WhereIsMyMNIST/paper/*.jpg figures
 
-html: get_figures
+html: 
 	python3 $(SRC).py index.html
 
 show: html

@@ -187,7 +187,7 @@ notes="""
 Shortcuts proposed in the literature:
 - bounding boxes (yolo, fast-RCNN)
 - affine/geometric transform (transformer networks)
-- attention networks
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non 
 
 When human vision is considered, the things work quite differently. 
 The human vision is **dynamic**.
@@ -208,7 +208,7 @@ Bottom up :
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
     
-Top down :
+Top down : (sequential decision)
 - J Najemnik and Wilson S. Geisler. **Optimal eye movement
         strategies in visual search**. In: Nature reviews. Neuroscience
         434 (2005)
