@@ -58,9 +58,10 @@ meta = dict(
  time_start = '12:20:00',
  time_end = '12:40:00',
  url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
- sections=['Motivation: XXX',
-          'Methods: Experimental protocol',
-          'Results: XXX',
+ sections=['Motivation',
+          'Methods',
+          'Results',
+          'Conclusion'
           ]
 )
 
@@ -105,10 +106,10 @@ s.meta['Acknowledgements'] =f"""
 </small>
 
 """
-#############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄 Should I stay or should I go? 🏄🏄🏄🏄🏄🏄🏄🏄
-#############################################################################
 i_section = 0
+#############################################################################
+# 🏄🏄🏄🏄🏄🏄🏄🏄 Learning where to look 🏄🏄🏄🏄🏄🏄🏄🏄
+#############################################################################
 s.open_section()
 intro = """
 <h2 class="title">{title}</h2>
@@ -148,11 +149,13 @@ intro += """
 #############################################################################
 #############################################################################
 #############################################################################
+###################### M O T I V A T I O N S ################################
 #############################################################################
 #############################################################################
 #############################################################################
 #############################################################################
-#############################################################################
+
+####################### SLIDE 1 : GENERAL MOTIVATION ########################
 
 s.add_slide(content=intro,
             notes="""
@@ -161,8 +164,11 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 
 * (OBJECTIVE)
 
-
-* Let's me first describe the motivation of this work...
+Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by 
+the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity 
+through weight sharing convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
+to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are 
+systematically scanned and processed in parallel fashion at high computational cost. 
 
 
 
@@ -172,18 +178,28 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 
 title = meta['sections'][i_section]
 
+####################### SLIDE 2 : ATTENTION NETWORKS #########################
+
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
+Shortcuts proposed in the literature:
+- bounding boxes (yolo, fast-RCNN)
+- affine/geometric transform (transformer networks)
+- attention networks
 
+When human vision is considered, the things work quite differently. 
+The human vision is **dynamic**.
+Human (and animal) vision rely on a non isotropic sencor (the retina) that has a very high resolution at the center of fixation and a very poor
+resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 """)
 
 s.close_section()
 
 i_section = 1
 #############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄     The Experimental protocol             🏄🏄🏄🏄🏄🏄🏄🏄
+# 🏄🏄🏄🏄🏄🏄🏄🏄     Attention networks         🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
 #############################################################################
 
@@ -196,6 +212,15 @@ Indeed, ...
 
 
 url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">github.com/chloepasturel/AnticipatorySPEM</a>'
+
+####################### SLIDE 1 ##################################
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_methods.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+
+""")
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_methods.jpg')],
