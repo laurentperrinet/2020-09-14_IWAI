@@ -202,7 +202,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 ####################### SLIDE 3 : MODELLING #########################
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Biology', height=s.meta['height']*.825),
 notes="""
 Bottom up :
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
@@ -226,9 +226,14 @@ Top down : (sequential decision)
 ####################### SLIDE  : XXXXXXXXXXXXXXXXXX #########################
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Active Vision', height=s.meta['height']*.825),
 notes="""
 
+go further in the predictive coding framework
+
+motivation : can we make a network that detects where *before* actually knowing what?
+
+what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?
 
 """)
 
@@ -244,25 +249,26 @@ s.open_section()
 title = meta['sections'][i_section]
 s.add_slide_outline(i_section,
 notes="""
-Indeed, ...
+Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds
+
 
 """)
 
 
-url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">github.com/chloepasturel/AnticipatorySPEM</a>'
+url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.com/SpikeAI/2019-07-15_CNS/</a>'
 
 ####################### SLIDE B 1 ##################################
 
-# s.add_slide(content=s.content_figures(
-# [os.path.join(figpath_talk, 'fig_methods.jpg')],
-#         title=title, height=s.meta['height']*.825),
-# notes="""
-#
-# protocol
-#
-# TODO-LAurent = génére les frames pour un "film"
-#
-# """)
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+
+protocol
+
+TODO-LAurent = génére les frames pour un "film"
+
+""")
 
 ####################### SLIDE B 2, 3 & 4 ##################################
 for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
