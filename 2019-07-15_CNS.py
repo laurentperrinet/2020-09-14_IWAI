@@ -316,8 +316,7 @@ s.close_section()
 s.open_section()
 
 s.add_slide(content="""
-Bayesian Online Changepoint Detector
-------------------------------------
+# Bayesian Online Changepoint Detector
 
 * an implementation of
 [Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
