@@ -186,12 +186,12 @@ title = meta['sections'][i_section]
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Attention', height=s.meta['height']*.825),
 notes="""
 Shortcuts proposed in the literature:
 - bounding boxes (yolo, fast-RCNN)
 - affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non 
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
 
 When human vision is considered, the things work quite differently.
 The human vision is **dynamic**.
@@ -211,7 +211,7 @@ Bottom up :
 - M. Kümmerer, L. Theis, and M. Bethge **Deep Gaze I: Boosting
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
-    
+
 Top down : (sequential decision)
 
 - J Najemnik and Wilson S. Geisler. **Optimal eye movement
@@ -236,7 +236,7 @@ s.close_section()
 
 i_section = 1
 #############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄     Attention networks         🏄🏄🏄🏄🏄🏄🏄🏄
+# 🏄🏄🏄🏄🏄🏄🏄🏄     METHODS         🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
 #############################################################################
 
@@ -245,26 +245,33 @@ title = meta['sections'][i_section]
 s.add_slide_outline(i_section,
 notes="""
 Indeed, ...
+
 """)
 
 
 url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">github.com/chloepasturel/AnticipatorySPEM</a>'
 
-####################### SLIDE 1 ##################################
+####################### SLIDE B 1 ##################################
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_methods.jpg')],
-        title=title, height=s.meta['height']*.825),
-notes="""
+# s.add_slide(content=s.content_figures(
+# [os.path.join(figpath_talk, 'fig_methods.jpg')],
+#         title=title, height=s.meta['height']*.825),
+# notes="""
+#
+# protocol
+#
+# TODO-LAurent = génére les frames pour un "film"
+#
+# """)
 
-""")
+####################### SLIDE B 2, 3 & 4 ##################################
+for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, fname)],
+            title=title, height=s.meta['height']*.825),
+    notes="""
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_methods.jpg')],
-        title=title, height=s.meta['height']*.825),
-notes="""
-
-""")
+    """)
 
 s.close_section()
 
@@ -314,7 +321,7 @@ perspectives:
 
 
 s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
-            notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
+            notes="All the material is available online - please flash this code this leads to a page with links to further references and code - TODO : use ArXiV instead ")
 
 s.close_section()
 
