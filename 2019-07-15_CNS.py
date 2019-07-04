@@ -289,7 +289,7 @@ Indeed, t...
 """)
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_result.jpg')],
+[os.path.join(figpath_talk, 'fig_result.jpg'), os.path.join(figpath_talk, 'fig_result.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
