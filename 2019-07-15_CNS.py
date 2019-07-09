@@ -62,8 +62,7 @@ meta = dict(
  time_start = '12:20:00',
  time_end = '12:40:00',
  url=f'https://laurentperrinet.github.io/talk/{slugified}',
- sections=['Title page',
-          'Motivation',
+ sections=['Motivation',
           'Methods',
           'Results',
           'Conclusion'
@@ -171,7 +170,6 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 """)
 
 
-i_section = 1
 
 ####################### OUTLINE ########################
 
@@ -263,7 +261,7 @@ what is the most ecological (best compression of information) to achieve that in
 
 s.close_section()
 
-i_section = 2
+i_section = 1
 #############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄     METHODS         🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
@@ -305,7 +303,7 @@ for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']
 
 s.close_section()
 
-i_section = 3
+i_section = 2
 #############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄 RESULTS  🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
