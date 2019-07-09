@@ -171,6 +171,13 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU
 
 title = meta['sections'][i_section]
 
+s.add_slide_outline(i_section,
+notes="""
+
+
+""")
+
+
 ####################### SLIDE 2 : GENERAL MOTIVATION #########################
 
 s.add_slide(content=s.content_figures(
