@@ -107,7 +107,7 @@ la Timone in Marseille, a joint unit from the CNRS and the AMU</li>
                 </aside>
                 
 </section>
-        <section><h3>Motivation- Artificial and Natural vision</h3>
+        <section><h3>Artificial and Natural vision</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -140,7 +140,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 </aside>
                 
 </section>
-        <section><h3>Motivation- Attention</h3>
+        <section><h3>Motivation- Biology</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -148,7 +148,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
             
                 <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
+                    <img class="plain" data-src="figures/CNS - Modelling - I.svg"  height="825px"   />
                 </p>
                 </td>
                 
@@ -170,7 +170,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
             
                 <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
+                    <img class="plain" data-src="figures/CNS - Modelling - II.svg"  height="825px"   />
                 </p>
                 </td>
                 
@@ -180,11 +180,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 <p>Shortcuts proposed in the literature:
-- bounding boxes (yolo, fast-RCNN)
-- affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non</p>
-<p>Bottom up :
+                 <p>Bottom up :
 - Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
     for overt and covert shifts of visual attention</strong>. In: Vision
     Research 40.10-12 (2000), pp. 1489--1506.
@@ -199,31 +195,8 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 <li>Nicholas J Butko and Javier R Movellan. <strong>Infomax control of eye
         movements</strong>. In: Autonomous Mental Development, IEEE
         Transactions on 2.2 (2010)</li>
+<li>Fu, J., Zheng, H., &amp; Mei, T. (2017). Look closer to see better: Recurrent attention convolutional neural network for fine-grained image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 4438-4446).</li>
 </ul>
-                </aside>
-                
-</section>
-        <section><h3>Motivation- Active Vision</h3>
-            <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=825.0>
-            
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
-                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <p>go further in the predictive coding framework</p>
-<p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
-<p>what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?</p>
                 </aside>
                 
 </section>
@@ -262,6 +235,33 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                     
                 <aside class="notes">
                  <p>Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds</p>
+                </aside>
+                
+</section>
+        <section><h3>Methods- Active Vision</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 <p>So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
+(Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)</p>
+<p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.</p>
+<p>go further in the predictive coding framework</p>
+<p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
+<p>what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?</p>
                 </aside>
                 
 </section>

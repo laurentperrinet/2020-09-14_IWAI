@@ -186,7 +186,7 @@ notes="""
 
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'CNS-2-general.svg')],
-    title=title + '- Artificial and Natural vision', height=s.meta['height']*.825),
+    title='Artificial and Natural vision', height=s.meta['height']*.825),
 notes="""
 * (OBJECTIVE)
 
@@ -201,30 +201,37 @@ The human vision is **dynamic**.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
 resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
-
 """)
     
 
 ####################### SLIDE 3 : ATTENTION NETWORKS #########################
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + '- Attention', height=s.meta['height']*.825),
-notes="""
-
-
-
-""")
+#s.add_slide(content=s.content_figures(
+#[os.path.join(figpath_talk, 'fig_intro.jpg')],
+#        title=title + '- Attention', height=s.meta['height']*.825),
+#notes="""
+#On the machine learning side, There has been lot of efforts to address the scaling shortcoming.
+#
+#Shortcuts proposed in the literature:
+#- bounding boxes (yolo, fast-RCNN)
+#- affine/geometric transform (transformer networks)
+#- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
+#
+#""")
 
 ####################### SLIDE 3 : MODELLING #########################
+
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
+[os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
         title=title + '- Biology', height=s.meta['height']*.825),
 notes="""
-Shortcuts proposed in the literature:
-- bounding boxes (yolo, fast-RCNN)
-- affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
+""")
+####################### SLIDE 4 : MODELLING (CONTINUED) #########################
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'CNS - Modelling - II.svg')],
+        title=title + '- Biology', height=s.meta['height']*.825),
+notes="""
 
 Bottom up :
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
@@ -242,21 +249,7 @@ Top down : (sequential decision)
 - Nicholas J Butko and Javier R Movellan. **Infomax control of eye
         movements**. In: Autonomous Mental Development, IEEE
         Transactions on 2.2 (2010)
-""")
-
-
-####################### SLIDE  : XXXXXXXXXXXXXXXXXX #########################
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + '- Active Vision', height=s.meta['height']*.825),
-notes="""
-
-go further in the predictive coding framework
-
-motivation : can we make a network that detects where *before* actually knowing what?
-
-what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?
-
+- Fu, J., Zheng, H., & Mei, T. (2017). Look closer to see better: Recurrent attention convolutional neural network for fine-grained image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 4438-4446).
 """)
 
 s.close_section()
@@ -278,6 +271,28 @@ Indeed, we will use the separation of the 2 problemes (where and what) as they a
 
 
 url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.com/SpikeAI/2019-07-15_CNS/</a>'
+
+####################### SLIDE B 0 ##################################
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
+        title=title + '- Active Vision', height=s.meta['height']*.825),
+notes="""
+
+So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
+(Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
+
+
+So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
+
+
+go further in the predictive coding framework
+
+motivation : can we make a network that detects where *before* actually knowing what?
+
+what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?
+
+""")
 
 ####################### SLIDE B 1 ##################################
 
