@@ -78,9 +78,10 @@ the incredible capability of convolution-based deep networks to capture the sema
 through weight sharing convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.</p>
-<ul>
-<li>(SHOW TITLE)</li>
-</ul>
+<p>When human vision is considered, the things work quite differently.
+The human vision is <strong>dynamic</strong>.
+Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
+resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
                 </aside>
                 
 </section>
@@ -102,14 +103,7 @@ systematically scanned and processed in parallel fashion at high computational c
         </div>
         
                 <aside class="notes">
-                 <p>Shortcuts proposed in the literature:
-- bounding boxes (yolo, fast-RCNN)
-- affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non</p>
-<p>When human vision is considered, the things work quite differently.
-The human vision is <strong>dynamic</strong>.
-Human (and animal) vision rely on a non isotropic sencor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
+                 
                 </aside>
                 
 </section>
@@ -131,7 +125,11 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 <p>Bottom up :
+                 <p>Shortcuts proposed in the literature:
+- bounding boxes (yolo, fast-RCNN)
+- affine/geometric transform (transformer networks)
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non</p>
+<p>Bottom up :
 - Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
     for overt and covert shifts of visual attention</strong>. In: Vision
     Research 40.10-12 (2000), pp. 1489--1506.

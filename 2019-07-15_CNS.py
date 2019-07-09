@@ -174,10 +174,10 @@ through weight sharing convolutional neural networks applied over the full image
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.
 
-
-
-* (SHOW TITLE)
-
+When human vision is considered, the things work quite differently.
+The human vision is **dynamic**.
+Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
+resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 """)
 
 title = meta['sections'][i_section]
@@ -188,15 +188,9 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title + '- Attention', height=s.meta['height']*.825),
 notes="""
-Shortcuts proposed in the literature:
-- bounding boxes (yolo, fast-RCNN)
-- affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
 
-When human vision is considered, the things work quite differently.
-The human vision is **dynamic**.
-Human (and animal) vision rely on a non isotropic sencor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+
+
 """)
 
 ####################### SLIDE 3 : MODELLING #########################
@@ -204,6 +198,11 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title + '- Biology', height=s.meta['height']*.825),
 notes="""
+Shortcuts proposed in the literature:
+- bounding boxes (yolo, fast-RCNN)
+- affine/geometric transform (transformer networks)
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
+
 Bottom up :
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
     for overt and covert shifts of visual attention**. In: Vision
