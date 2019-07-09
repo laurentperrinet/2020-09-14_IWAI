@@ -303,7 +303,7 @@ url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.
 ####################### SLIDE B 0 ##################################
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-what-where-diagram.svg')],
+[os.path.join(figpath_talk, '' )],
         title='Active Vision', height=s.meta['height']*.825),
 notes="""
 
@@ -353,7 +353,7 @@ TODO-LAurent = génére les frames pour un "film"
 """)
 
 ####################### SLIDE B 2, 3 & 4 ##################################
-for fname in ['CNS-what-diagram', 'CNS-where-diagram']:
+for fname in ['CNS-what-where-diagram.svg', 'CNS-what-diagram', 'CNS-where-diagram']:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title, height=s.meta['height']*.825),
