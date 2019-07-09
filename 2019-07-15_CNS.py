@@ -185,8 +185,8 @@ notes="""
 ####################### SLIDE 2 : GENERAL MOTIVATION #########################
 
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'CNS-2-general.svg')],
-    title='Artificial and Natural vision', height=s.meta['height']*.825),
+    [os.path.join(figpath_talk, 'CNS-general-I.svg')],
+    title='Computer vision', height=s.meta['height']*.825),
 notes="""
 * (OBJECTIVE)
 
@@ -196,6 +196,18 @@ through weight sharing convolutional neural networks applied over the full image
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.
 
+""")
+    
+
+####################### SLIDE 2bis : GENERAL MOTIVATION #########################
+
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'CNS-general-II.svg')],
+    title='Human vision', height=s.meta['height']*.825),
+notes="""
+* (OBJECTIVE)
+
+
 When human vision is considered, the things work quite differently.
 The human vision is **dynamic**.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
@@ -203,8 +215,6 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 
 """)
     
-
-####################### SLIDE 3 : ATTENTION NETWORKS #########################
 
 #s.add_slide(content=s.content_figures(
 #[os.path.join(figpath_talk, 'fig_intro.jpg')],
