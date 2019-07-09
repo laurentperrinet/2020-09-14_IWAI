@@ -174,7 +174,7 @@ title = meta['sections'][i_section]
 ####################### SLIDE 2 : GENERAL MOTIVATION #########################
 
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, '2-general.svg')],
+    [os.path.join(figpath_talk, 'CNS-2-general.svg')],
     title=title + '- Artificial and Natural vision', height=s.meta['height']*.825),
 notes="""
 * (OBJECTIVE)
