@@ -233,7 +233,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
-        title=title + 'Statistical Viewpoint', height=s.meta['height']*.825),
+        title='Statistical Viewpoint', height=s.meta['height']*.825),
 notes="""
 This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of 
 a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to 
@@ -303,8 +303,8 @@ url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.
 ####################### SLIDE B 0 ##################################
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + '- Active Vision', height=s.meta['height']*.825),
+[os.path.join(figpath_talk, 'CNS-what-where-diagram')],
+        title='Active Vision', height=s.meta['height']*.825),
 notes="""
 
 So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
@@ -353,7 +353,7 @@ TODO-LAurent = génére les frames pour un "film"
 """)
 
 ####################### SLIDE B 2, 3 & 4 ##################################
-for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
+for fname in ['CNS-what-diagram', 'CNS-where-diagram']:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title, height=s.meta['height']*.825),
