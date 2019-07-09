@@ -304,7 +304,7 @@ url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where-principles.svg' )],
-    title='Active Vision', 
+    title='Principles for central and peripheric vision', 
     height=s.meta['height']*.825),
 notes="""
 
