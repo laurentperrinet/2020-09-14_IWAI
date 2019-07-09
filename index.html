@@ -84,7 +84,7 @@ systematically scanned and processed in parallel fashion at high computational c
                 </aside>
                 
 </section>
-        <section><h3>Motivation</h3>
+        <section><h3>Motivation- Attention</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -105,7 +105,7 @@ systematically scanned and processed in parallel fashion at high computational c
                  <p>Shortcuts proposed in the literature:
 - bounding boxes (yolo, fast-RCNN)
 - affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non </p>
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non</p>
 <p>When human vision is considered, the things work quite differently.
 The human vision is <strong>dynamic</strong>.
 Human (and animal) vision rely on a non isotropic sencor (the retina) that has a very high resolution at the center of fixation and a very poor
@@ -113,7 +113,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 </aside>
                 
 </section>
-        <section><h3>Motivation</h3>
+        <section><h3>Motivation- Biology</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -150,7 +150,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 </aside>
                 
 </section>
-        <section><h3>Motivation</h3>
+        <section><h3>Motivation- Active Vision</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -168,7 +168,9 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 
+                 <p>go further in the predictive coding framework</p>
+<p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
+<p>what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?</p>
                 </aside>
                 
 </section>
@@ -206,7 +208,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                      </ol>
                     
                 <aside class="notes">
-                 <p>Indeed, ...</p>
+                 <p>Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds</p>
                 </aside>
                 
 </section>
@@ -218,7 +220,30 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
             
                 <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/fig_methods.jpg"  height="825px"   />
+                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 <p>protocol</p>
+<p>TODO-LAurent = génére les frames pour un "film"</p>
+                </aside>
+                
+</section>
+        <section><h3>Methods</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="825px"   />
                 </p>
                 </td>
                 
@@ -240,7 +265,29 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
             
                 <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/fig_methods.jpg"  height="825px"   />
+                    <img class="plain" data-src="figures/CNS-what-diagram.svg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 
+                </aside>
+                
+</section>
+        <section><h3>Methods</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/CNS-where-diagram.svg"  height="825px"   />
                 </p>
                 </td>
                 
@@ -292,25 +339,61 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 </aside>
                 
 </section>
-        <section><h3>Results</h3>
+        <section><h3>Results- correct</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
-                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/fig_result.jpg"  height="825px"   />
-                </p>
-                </td>
+                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                    </p>
+                    </td>
+                </tr>
                 
-            </tr>
-            
+                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                    </p>
+                    </td>
+                </tr>
+                
         </table>
         </div>
         
                 <aside class="notes">
-                 
+                 <pre><code>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+</code></pre>
+                </aside>
+                
+</section>
+        <section><h3>Results- error</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                    </p>
+                    </td>
+                </tr>
+                
+                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                    </p>
+                    </td>
+                </tr>
+                
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 <pre><code>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+</code></pre>
                 </aside>
                 
 </section>
@@ -332,13 +415,49 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 
+                 <p>TODO Manu : insérer résultats avec différents contrastes</p>
                 </aside>
                 
 </section>
         
 </section>
-<section><section>
+<section>
+<section data-markdown>
+<script type="text/template">
+        
+# Bayesian Online Changepoint Detector
+
+* an implementation of
+[Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
+in Python.
+
+````
+@TECHREPORT{ adams-mackay-2007,
+AUTHOR = "Ryan Prescott Adams and David J.C. MacKay",
+TITLE  = "Bayesian Online Changepoint Detection",
+INSTITUTION = "University of Cambridge",
+ADDRESS = "Cambridge, UK",
+YEAR = "2007",
+NOTE = "arXiv:0710.3742v1 [stat.ML]",
+URL = "http://arxiv.org/abs/0710.3742"
+}
+````
+
+* adapted from https://github.com/JackKelly/bayesianchangepoint by Jack Kelly (2013) for a binomial input.
+
+* This code is based on the  [MATLAB implementation](http://www.inference.phy.cam.ac.uk/rpa23/changepoint.php) provided by Ryan Adam. Was available at http://hips.seas.harvard.edu/content/bayesian-online-changepoint-detection
+
+* full code @ https://github.com/laurentperrinet/bayesianchangepoint
+
+
+</script>
+            
+                <aside class="notes">
+                 <p>TODO Manu update with perspectives</p>
+                </aside>
+                
+</section>
+        <section>
 <h2 class="title">Learning where to look: a foveated visuomotor control model</h2>
 <h3><a href="https://laurentperrinet.github.io/talk/2019-07-15-cns/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a></h3>
 <img class="plain" data-src="http://laurentperrinet.github.io/slides.py/figures/troislogos.png"  height="200.0px" />
@@ -388,7 +507,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         <BR><a href="https://laurentperrinet.github.io/talk/2019-07-15-cns"> https://laurentperrinet.github.io/talk/2019-07-15-cns </a>
                 <aside class="notes">
-                 <p>All the material is available online - please flash this code this leads to a page with links to further references and code </p>
+                 <p>All the material is available online - please flash this code this leads to a page with links to further references and code - TODO : use ArXiV instead </p>
                 </aside>
                 
 </section>

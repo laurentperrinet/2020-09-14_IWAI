@@ -30,7 +30,7 @@ github: html
 	git add figures
 	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
 	git push
-	firefox  --new-tab https://SpikeAI.github.io/$(SRC)
+	#firefox  --new-tab https://SpikeAI.github.io/$(SRC)
 
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true

@@ -186,12 +186,12 @@ title = meta['sections'][i_section]
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Attention', height=s.meta['height']*.825),
 notes="""
 Shortcuts proposed in the literature:
 - bounding boxes (yolo, fast-RCNN)
 - affine/geometric transform (transformer networks)
-- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non 
+- attention networks : Mnih et al, Recurrent Models of Visual Attention, NIPS 2014 (non
 
 When human vision is considered, the things work quite differently.
 The human vision is **dynamic**.
@@ -202,7 +202,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 ####################### SLIDE 3 : MODELLING #########################
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Biology', height=s.meta['height']*.825),
 notes="""
 Bottom up :
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
@@ -211,7 +211,7 @@ Bottom up :
 - M. Kümmerer, L. Theis, and M. Bethge **Deep Gaze I: Boosting
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
-    
+
 Top down : (sequential decision)
 
 - J Najemnik and Wilson S. Geisler. **Optimal eye movement
@@ -226,9 +226,14 @@ Top down : (sequential decision)
 ####################### SLIDE  : XXXXXXXXXXXXXXXXXX #########################
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + '- Active Vision', height=s.meta['height']*.825),
 notes="""
 
+go further in the predictive coding framework
+
+motivation : can we make a network that detects where *before* actually knowing what?
+
+what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?
 
 """)
 
@@ -236,7 +241,7 @@ s.close_section()
 
 i_section = 1
 #############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄     Attention networks         🏄🏄🏄🏄🏄🏄🏄🏄
+# 🏄🏄🏄🏄🏄🏄🏄🏄     METHODS         🏄🏄🏄🏄🏄🏄🏄🏄
 #############################################################################
 #############################################################################
 
@@ -244,27 +249,35 @@ s.open_section()
 title = meta['sections'][i_section]
 s.add_slide_outline(i_section,
 notes="""
-Indeed, ...
+Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds
+
+
 """)
 
 
-url =  'full code @ <a href="https://github.com/chloepasturel/AnticipatorySPEM">github.com/chloepasturel/AnticipatorySPEM</a>'
+url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.com/SpikeAI/2019-07-15_CNS/</a>'
 
-####################### SLIDE 1 ##################################
+####################### SLIDE B 1 ##################################
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_methods.jpg')],
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
 
-""")
+protocol
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_methods.jpg')],
-        title=title, height=s.meta['height']*.825),
-notes="""
+TODO-LAurent = génére les frames pour un "film"
 
 """)
+
+####################### SLIDE B 2, 3 & 4 ##################################
+for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, fname + '.svg')],
+            title=title, height=s.meta['height']*.825),
+    notes="""
+
+    """)
 
 s.close_section()
 
@@ -281,17 +294,21 @@ notes="""
 Indeed, t...
 """)
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_result.jpg')],
-        title=title, height=s.meta['height']*.825),
-notes="""
+for kind in ['correct', 'error']:
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'fig_result' + s + '.jpg') for s in ['', ''] ],
+            title=title + '- ' + kind, height=s.meta['height']*.825, transpose=True),
+    notes="""
 
-""")
+    TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+
+    """)
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_params.jpg')],
         title=title, height=s.meta['height']*.825),
 notes="""
+TODO Manu : insérer résultats avec différents contrastes
 
 """)
 
@@ -303,6 +320,34 @@ s.close_section()
 #############################################################################
 #############################################################################
 s.open_section()
+
+s.add_slide(content="""
+# Bayesian Online Changepoint Detector
+
+* an implementation of
+[Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
+in Python.
+
+````
+@TECHREPORT{ adams-mackay-2007,
+AUTHOR = "Ryan Prescott Adams and David J.C. MacKay",
+TITLE  = "Bayesian Online Changepoint Detection",
+INSTITUTION = "University of Cambridge",
+ADDRESS = "Cambridge, UK",
+YEAR = "2007",
+NOTE = "arXiv:0710.3742v1 [stat.ML]",
+URL = "http://arxiv.org/abs/0710.3742"
+}
+````
+
+* adapted from https://github.com/JackKelly/bayesianchangepoint by Jack Kelly (2013) for a binomial input.
+
+* This code is based on the  [MATLAB implementation](http://www.inference.phy.cam.ac.uk/rpa23/changepoint.php) provided by Ryan Adam. Was available at http://hips.seas.harvard.edu/content/bayesian-online-changepoint-detection
+
+* full code @ https://github.com/laurentperrinet/bayesianchangepoint
+
+""", notes='TODO Manu update with perspectives', md=True)
+
 s.add_slide(content=intro,
             notes="""
 perspectives:
@@ -314,7 +359,7 @@ perspectives:
 
 
 s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
-            notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
+            notes="All the material is available online - please flash this code this leads to a page with links to further references and code - TODO : use ArXiV instead ")
 
 s.close_section()
 
