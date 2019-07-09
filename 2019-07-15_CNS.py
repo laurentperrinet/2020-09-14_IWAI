@@ -159,13 +159,24 @@ intro += """
 #############################################################################
 #############################################################################
 
-####################### SLIDE 1 : GENERAL MOTIVATION ########################
+####################### SLIDE 1 : TITLE PAGE ########################
 
 s.add_slide(content=intro,
             notes="""
 * (AUTHOR) Hello, I am Laurent Perrinet from the Institute of Neurosciences of
 la Timone in Marseille, a joint unit from the CNRS and the AMU
 
+
+""")
+
+title = meta['sections'][i_section]
+
+####################### SLIDE 2 : GENERAL MOTIVATION #########################
+
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, '2-general.svg')],
+    title=title + '- Artificial and Natural vision', height=s.meta['height']*.825),
+notes="""
 * (OBJECTIVE)
 
 Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by
@@ -178,11 +189,12 @@ When human vision is considered, the things work quite differently.
 The human vision is **dynamic**.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
 resolution at the periphery. Most importantly, the human vision is dynamic. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+
+
 """)
+    
 
-title = meta['sections'][i_section]
-
-####################### SLIDE 2 : ATTENTION NETWORKS #########################
+####################### SLIDE 3 : ATTENTION NETWORKS #########################
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
