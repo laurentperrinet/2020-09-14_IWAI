@@ -140,7 +140,7 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 </aside>
                 
 </section>
-        <section><h3>Motivation- Biology</h3>
+        <section><h3>MotivationStatistical Viewpoint</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -158,11 +158,16 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 
+                 <p>This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of 
+a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to 
+disambiguate the scene. </p>
+<p>In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the 
+current view point (model inversion).  </p>
+<p>The more viewpoints you have, the more certain you are about the content of the scene.</p>
                 </aside>
                 
 </section>
-        <section><h3>Motivation- Biology</h3>
+        <section><h3>Attention vs. Scene Understanding</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
@@ -180,14 +185,18 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         </div>
         
                 <aside class="notes">
-                 <p>Bottom up :
-- Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
+                 <p>Bottom up :</p>
+<p>Uses <strong>local</strong> image statistics to estimate which part of the image departs the most from the baseline statistiscs </p>
+<ul>
+<li>Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
     for overt and covert shifts of visual attention</strong>. In: Vision
-    Research 40.10-12 (2000), pp. 1489--1506.
-- M. Kümmerer, L. Theis, and M. Bethge <strong>Deep Gaze I: Boosting
+    Research 40.10-12 (2000), pp. 1489--1506.</li>
+<li>M. Kümmerer, L. Theis, and M. Bethge <strong>Deep Gaze I: Boosting
     Saliency Prediction with Feature Maps Trained on ImageNet</strong> ICLR
-    Workshop, 2015</p>
+    Workshop, 2015</li>
+</ul>
 <p>Top down : (sequential decision)</p>
+<p>In an active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the <strong>posterior entropy</strong> given an history of past actions (viewpoints)</p>
 <ul>
 <li>J Najemnik and Wilson S. Geisler. <strong>Optimal eye movement
         strategies in visual search</strong>. In: Nature reviews. Neuroscience
@@ -258,6 +267,13 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
                 <aside class="notes">
                  <p>So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)</p>
+<p>Objective : build an effective artificial foveal vision 
+We concentrate her on the foveal vision case
+What is specific with foveal vision? 
+Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)<br />
+The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
+In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
+identify the person.</p>
 <p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.</p>
 <p>go further in the predictive coding framework</p>
 <p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
@@ -284,6 +300,12 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
         
                 <aside class="notes">
                  <p>protocol</p>
+<p>We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
+This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
+we control :
+background noise frequency (crowding), 
+target contrast, 
+target eccentricity </p>
 <p>TODO-LAurent = génére les frames pour un "film"</p>
                 </aside>
                 

@@ -223,17 +223,30 @@ resolution at the periphery. Most importantly, the human vision is dynamic. The 
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
-        title=title + '- Biology', height=s.meta['height']*.825),
+        title=title + 'Statistical Viewpoint', height=s.meta['height']*.825),
 notes="""
+This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of 
+a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to 
+disambiguate the scene. 
+
+
+In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the 
+current view point (model inversion).  
+
+The more viewpoints you have, the more certain you are about the content of the scene.
+
 """)
 ####################### SLIDE 4 : MODELLING (CONTINUED) #########################
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - II.svg')],
-        title=title + '- Biology', height=s.meta['height']*.825),
+        title='Attention vs. Scene Understanding', height=s.meta['height']*.825),
 notes="""
 
 Bottom up :
+
+Uses **local** image statistics to estimate which part of the image departs the most from the baseline statistiscs 
+
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
     for overt and covert shifts of visual attention**. In: Vision
     Research 40.10-12 (2000), pp. 1489--1506.
@@ -242,6 +255,11 @@ Bottom up :
     Workshop, 2015
 
 Top down : (sequential decision)
+
+In an active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the **posterior entropy** given an history of past actions (viewpoints)
+
+
+
 
 - J Najemnik and Wilson S. Geisler. **Optimal eye movement
         strategies in visual search**. In: Nature reviews. Neuroscience
@@ -282,6 +300,15 @@ notes="""
 So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
 
+Objective : build an effective artificial foveal vision 
+We concentrate her on the foveal vision case
+What is specific with foveal vision? 
+Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)  
+The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
+In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
+identify the person.
+
+
 
 So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
 
@@ -302,6 +329,14 @@ s.add_slide(content=s.content_figures(
 notes="""
 
 protocol
+
+We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
+This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
+we control :
+background noise frequency (crowding), 
+target contrast, 
+target eccentricity 
+
 
 TODO-LAurent = génére les frames pour un "film"
 
