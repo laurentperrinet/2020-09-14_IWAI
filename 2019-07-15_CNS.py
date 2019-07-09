@@ -354,7 +354,7 @@ TODO-LAurent = génére les frames pour un "film"
 """)
 
 ####################### SLIDE B 2, 3 & 4 ##################################
-for fname in ['CNS-what-where-diagram.svg', 'CNS-what-diagram', 'CNS-where-diagram']:
+for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title, height=s.meta['height']*.825),
