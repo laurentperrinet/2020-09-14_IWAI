@@ -216,8 +216,6 @@ When human vision is considered, the things work quite differently.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
 resolution at the periphery. 
 
-In this example, uman-like central vision is idealized as a logpolar transform of an original image, that results in a strong compression (95%), and the image reconstruction from logplar encoding shows a strong resolution at the center and a poor reslution at the periphery.
-
 Most importantly, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
 ("non isotropic" convolution) 
@@ -334,8 +332,11 @@ In a foveal vision setting, the current view may allow you to tell there is an o
 identify the person.
 
 
-
 So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
+
+1. This is reminiscent of the What/where visual processing separatino observed in monkeys and humans...
+
+2. Put in a mathematic form, this is also reminiscent of the information gain action selection metric that is defined as the difference 
 
 
 go further in the predictive coding framework
@@ -366,6 +367,28 @@ target eccentricity
 TODO-LAurent = génére les frames pour un "film"
 
 """)
+
+####################### SLIDE B 1 ##################################
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'fig_intro.jpg')],
+        title=title, height=s.meta['height']*.825),
+notes="""
+
+protocol
+
+We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
+This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
+we control :
+background noise frequency (crowding), 
+target contrast, 
+target eccentricity 
+
+
+TODO-LAurent = génére les frames pour un "film"
+
+""")
+
 
 ####################### SLIDE B 2, 3 & 4 ##################################
 for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:

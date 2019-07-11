@@ -163,7 +163,6 @@ systematically scanned and processed in parallel fashion at high computational c
 <p>When human vision is considered, the things work quite differently.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
 resolution at the periphery. </p>
-<p>In this example, uman-like central vision is idealized as a logpolar transform of an original image, that results in a strong compression (95%), and the image reconstruction from logplar encoding shows a strong resolution at the center and a poor reslution at the periphery.</p>
 <p>Most importantly, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
 <p>("non isotropic" convolution) </p>
                 </aside>
@@ -306,9 +305,46 @@ The fovea that concentrates most of the photoreceptors, represents less than 2% 
 In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
 identify the person.</p>
 <p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.</p>
+<ol>
+<li>
+<p>This is reminiscent of the What/where visual processing separatino observed in monkeys and humans...</p>
+</li>
+<li>
+<p>Put in a mathematic form, this is also reminiscent of the information gain action selection metric that is defined as the difference </p>
+</li>
+</ol>
 <p>go further in the predictive coding framework</p>
 <p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
 <p>what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?</p>
+                </aside>
+                
+</section>
+        <section><h3>Methods</h3>
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor=white height=825.0>
+            
+            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            
+                <td height=825 width="1600" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/fig_intro.jpg"  height="825px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 <p>protocol</p>
+<p>We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
+This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
+we control :
+background noise frequency (crowding), 
+target contrast, 
+target eccentricity </p>
+<p>TODO-LAurent = génére les frames pour un "film"</p>
                 </aside>
                 
 </section>
