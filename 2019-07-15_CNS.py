@@ -357,12 +357,14 @@ protocol
 We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
 This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
 
-The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen and must move the eye as fast as possible toward the target and give an answer about the label of the digit (10 choices).
+The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.  
 Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.
 
+(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target. 
 
-target eccentricity 
+(C) The agent subjective perpection is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
+
 
 
 TODO-LAurent = génére les frames pour un "film"
