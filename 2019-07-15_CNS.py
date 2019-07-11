@@ -349,16 +349,19 @@ what is the most ecological (best compression of information) to achieve that in
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + " - ``Experimental'' setup", height=s.meta['height']*.825),
 notes="""
 
 protocol
 
 We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
 This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
-we control :
-background noise frequency (crowding), 
-target contrast, 
+
+The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen and must move the eye as fast as possible toward the target and give an answer about the label of the digit (10 choices).
+This corresponds to a classic environment control in psychophysic experiments.  
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.
+
+
 target eccentricity 
 
 
@@ -370,14 +373,15 @@ TODO-LAurent = génére les frames pour un "film"
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where.svg')],
-        title=title, height=s.meta['height']*.825),
+        title=title + "What/where separation", height=s.meta['height']*.825),
 notes="""
-Consider our simplified visual scene containing a non-centered digit over a noisy background. 
+Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with infrmation-gain based actin selection.
 
-If we now make a slight simplification, that is sampling the prior and the posterior on the true interpretation, the information gain beomes the difference of the future accuracy and the 
+We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label. 
+, the information gain beomes the difference of the future accuracy and the 
 The accuracy is thus a proxy for the posterior entropy
 
-2. This is reminiscent of the What/where visual processing separatino observed in monkeys and humans...
+2. This is reminiscent of the What/where visual processing separation observed in monkeys and humans...
 
 
 - 
