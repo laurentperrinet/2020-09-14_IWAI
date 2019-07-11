@@ -196,6 +196,10 @@ through weight sharing convolutional neural networks applied over the full image
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.
 
+Typical ML processing :
+- bounding boxes around objects of interest
+- (at best) Linear scaing in #pixels 
+
 """)
     
 
@@ -210,7 +214,13 @@ notes="""
 
 When human vision is considered, the things work quite differently.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery. Most importantly, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+resolution at the periphery. 
+
+In this example, uman-like central vision is idealized as a logpolar transform of an original image, that results in a strong compression (95%), and the image reconstruction from logplar encoding shows a strong resolution at the center and a poor reslution at the periphery.
+
+Most importantly, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+
+("non isotropic" convolution) 
 
 """)
     
@@ -252,9 +262,10 @@ s.add_slide(content=s.content_figures(
         title='Attention vs. Scene Understanding', height=s.meta['height']*.825),
 notes="""
 
-Bottom up :
+When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess. 
+Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics. 
+This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological. 
 
-Uses **local** image statistics to estimate which part of the image departs the most from the baseline statistiscs 
 
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
     for overt and covert shifts of visual attention**. In: Vision
@@ -263,9 +274,13 @@ Uses **local** image statistics to estimate which part of the image departs the 
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
 
+
+
 Top down : (sequential decision)
 
-In an active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the **posterior entropy** given an history of past actions (viewpoints)
+A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field (an ideal observer that knows everything about how the visual data is generated), and given a statistics over the hypothesis space (Where is Waldo?), the model decides **where to look next** : choose the next viewpoint that will provide the best **information gain**. The selection is reiterated several times until enough evidence is gathered.
+
+In general, the active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the **posterior entropy** given an history of past actions (viewpoints)
 
 
 

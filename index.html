@@ -133,6 +133,9 @@ the incredible capability of convolution-based deep networks to capture the sema
 through weight sharing convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.</p>
+<p>Typical ML processing :
+- bounding boxes around objects of interest
+- (at best) Linear scaing in #pixels </p>
                 </aside>
                 
 </section>
@@ -159,7 +162,10 @@ systematically scanned and processed in parallel fashion at high computational c
 </ul>
 <p>When human vision is considered, the things work quite differently.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery. Most importantly, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
+resolution at the periphery. </p>
+<p>In this example, uman-like central vision is idealized as a logpolar transform of an original image, that results in a strong compression (95%), and the image reconstruction from logplar encoding shows a strong resolution at the center and a poor reslution at the periphery.</p>
+<p>Most importantly, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
+<p>("non isotropic" convolution) </p>
                 </aside>
                 
 </section>
@@ -208,8 +214,9 @@ current view point (model inversion).  </p>
         </div>
         
                 <aside class="notes">
-                 <p>Bottom up :</p>
-<p>Uses <strong>local</strong> image statistics to estimate which part of the image departs the most from the baseline statistiscs </p>
+                 <p>When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess. 
+Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics. 
+This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological. </p>
 <ul>
 <li>Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
     for overt and covert shifts of visual attention</strong>. In: Vision
@@ -219,7 +226,8 @@ current view point (model inversion).  </p>
     Workshop, 2015</li>
 </ul>
 <p>Top down : (sequential decision)</p>
-<p>In an active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the <strong>posterior entropy</strong> given an history of past actions (viewpoints)</p>
+<p>A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field (an ideal observer that knows everything about how the visual data is generated), and given a statistics over the hypothesis space (Where is Waldo?), the model decides <strong>where to look next</strong> : choose the next viewpoint that will provide the best <strong>information gain</strong>. The selection is reiterated several times until enough evidence is gathered.</p>
+<p>In general, the active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the <strong>posterior entropy</strong> given an history of past actions (viewpoints)</p>
 <ul>
 <li>J Najemnik and Wilson S. Geisler. <strong>Optimal eye movement
         strategies in visual search</strong>. In: Nature reviews. Neuroscience
