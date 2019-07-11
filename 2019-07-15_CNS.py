@@ -331,12 +331,10 @@ The fovea that concentrates most of the photoreceptors, represents less than 2% 
 In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
 identify the person.
 
-
 So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
 
-1. This is reminiscent of the What/where visual processing separatino observed in monkeys and humans...
+If we consider now the information gain metric, it also shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.
 
-2. Put in a mathematic form, this is also reminiscent of the information gain action selection metric that is defined as the difference 
 
 
 go further in the predictive coding framework
@@ -368,26 +366,25 @@ TODO-LAurent = génére les frames pour un "film"
 
 """)
 
-####################### SLIDE B 1 ##################################
+####################### SLIDE B 1.5 ##################################
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
+[os.path.join(figpath_talk, 'CNS-what-where.svg')],
         title=title, height=s.meta['height']*.825),
 notes="""
+Consider our simplified visual scene containing a non-centered digit over a noisy background. 
 
-protocol
+If we now make a slight simplification, that is sampling the prior and the posterior on the true interpretation, the information gain beomes the difference of the future accuracy and the 
+The accuracy is thus a proxy for the posterior entropy
 
-We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
-This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
-we control :
-background noise frequency (crowding), 
-target contrast, 
-target eccentricity 
+2. This is reminiscent of the What/where visual processing separatino observed in monkeys and humans...
 
 
-TODO-LAurent = génére les frames pour un "film"
+- 
+- Where is not exactly where but rather: what should I do to increase my accuracy?
 
 """)
+
 
 
 ####################### SLIDE B 2, 3 & 4 ##################################
@@ -396,6 +393,14 @@ for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title, height=s.meta['height']*.825),
     notes="""
+    
+    COMPUTATIONAL GRAPH :
+    
+    WHAT :
+    At the core of the vision system is the identification module (the what) . It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.
+    
+    WHERE : 
+    
 
     """)
 
