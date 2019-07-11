@@ -349,13 +349,12 @@ what is the most ecological (best compression of information) to achieve that in
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + " - ``Experimental'' setup", height=s.meta['height']*.825),
+        title=title + " - ''Experimental'' setup", height=s.meta['height']*.825),
 notes="""
 
 protocol
 
 We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
-This setup allows to control the difficulty of the task and test our foveal vision in different conditions.
 
 The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.  
@@ -394,10 +393,11 @@ The accuracy is thus a proxy for the posterior entropy
 
 
 ####################### SLIDE B 2, 3 & 4 ##################################
-for fname in ['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']:
+subtitle = ['- Computational Graph', '- What', '- Where']
+for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']):
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
-            title=title, height=s.meta['height']*.825),
+            title=title + subtitle[i], height=s.meta['height']*.825),
     notes="""
     
     COMPUTATIONAL GRAPH :
