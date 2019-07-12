@@ -374,26 +374,24 @@ TODO-LAurent = génére les frames pour un "film"
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where.svg')],
-        title=title + "What/where separation", height=s.meta['height']*.825),
+        title=title + ": What/Where separation", height=s.meta['height']*.825),
 notes="""
 Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with infrmation-gain based actin selection.
 
 We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label. 
-, the information gain beomes the difference of the future accuracy and the 
+, the information gain becomes the difference of the future accuracy and the central accuracy.
 The accuracy is thus a proxy for the posterior entropy
+Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.
 
 2. This is reminiscent of the What/where visual processing separation observed in monkeys and humans...
-
-
-- 
-- Where is not exactly where but rather: what should I do to increase my accuracy?
+The "Where" is not exactly where but rather: where should I look at in order to increase my accuracy?
 
 """)
 
 
 
 ####################### SLIDE B 2, 3 & 4 ##################################
-subtitle = ['- Computational Graph', '- What', '- Where']
+subtitle = [': Computational Graph', ': What', ': Where']
 for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']):
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
