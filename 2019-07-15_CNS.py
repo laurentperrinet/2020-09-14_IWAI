@@ -338,10 +338,10 @@ If we consider now the information gain metric, it shows an interesting correspo
 """)
 
 ####################### SLIDE B 1 ##################################
-import sys
-sys.path.append('../WhereIsMyMNIST/figures')
 
 if not os.path.isfile('figures/film_FIX.png'):
+    import sys
+    sys.path.append('../WhereIsMyMNIST/figures')
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -535,33 +535,33 @@ s.close_section()
 #############################################################################
 #############################################################################
 s.open_section()
-
-s.add_slide(content="""
-# Bayesian Online Changepoint Detector
-
-* an implementation of
-[Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
-in Python.
-
-````
-@TECHREPORT{ adams-mackay-2007,
-AUTHOR = "Ryan Prescott Adams and David J.C. MacKay",
-TITLE  = "Bayesian Online Changepoint Detection",
-INSTITUTION = "University of Cambridge",
-ADDRESS = "Cambridge, UK",
-YEAR = "2007",
-NOTE = "arXiv:0710.3742v1 [stat.ML]",
-URL = "http://arxiv.org/abs/0710.3742"
-}
-````
-
-* adapted from https://github.com/JackKelly/bayesianchangepoint by Jack Kelly (2013) for a binomial input.
-
-* This code is based on the  [MATLAB implementation](http://www.inference.phy.cam.ac.uk/rpa23/changepoint.php) provided by Ryan Adam. Was available at http://hips.seas.harvard.edu/content/bayesian-online-changepoint-detection
-
-* full code @ https://github.com/laurentperrinet/bayesianchangepoint
-
-""", notes='TODO Manu update with perspectives', md=True)
+# 
+# s.add_slide(content="""
+# # Bayesian Online Changepoint Detector
+#
+# * an implementation of
+# [Adams &amp; MacKay 2007 "Bayesian Online Changepoint Detection"](http://arxiv.org/abs/0710.3742)
+# in Python.
+#
+# ````
+# @TECHREPORT{ adams-mackay-2007,
+# AUTHOR = "Ryan Prescott Adams and David J.C. MacKay",
+# TITLE  = "Bayesian Online Changepoint Detection",
+# INSTITUTION = "University of Cambridge",
+# ADDRESS = "Cambridge, UK",
+# YEAR = "2007",
+# NOTE = "arXiv:0710.3742v1 [stat.ML]",
+# URL = "http://arxiv.org/abs/0710.3742"
+# }
+# ````
+#
+# * adapted from https://github.com/JackKelly/bayesianchangepoint by Jack Kelly (2013) for a binomial input.
+#
+# * This code is based on the  [MATLAB implementation](http://www.inference.phy.cam.ac.uk/rpa23/changepoint.php) provided by Ryan Adam. Was available at http://hips.seas.harvard.edu/content/bayesian-online-changepoint-detection
+#
+# * full code @ https://github.com/laurentperrinet/bayesianchangepoint
+#
+# """, notes='TODO Manu update with perspectives', md=True)
 
 s.add_slide(content=intro,
             notes="""
