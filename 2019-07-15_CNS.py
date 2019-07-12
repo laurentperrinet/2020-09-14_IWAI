@@ -437,15 +437,17 @@ TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
 
 """)
 
+
+
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, fname) for fname in ['fig_result_robust_contrast_linear_0.7_1.png',
-                                                 'fig_result_robust_contrast_linear_0.5_1.png',
-                                                 'fig_result_robust_contrast_linear_0.3_1.png']],
-title=title, height=s.meta['height']*.8, transpose=True),
+[os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png') ],
+title=title, height=s.meta['height']*.6, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
 """)
+
+
 
 s.close_section()
 
