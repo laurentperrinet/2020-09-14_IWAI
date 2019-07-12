@@ -502,7 +502,7 @@ TODO Manu : je mettrais plus d'exemple de fakes
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png') ],
-title=title + ': one saccade', height=s.meta['height']*.7, transpose=True),
+title=title + ': one saccade', height=s.meta['height']*.55, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
