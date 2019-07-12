@@ -50,7 +50,7 @@ meta = dict(
  author='Emmanuel Daucé, Pierre Albigès & Laurent Perrinet',
  author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugified}/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a>',
  short_title='Learning where to look: a foveated visuomotor control model',
- title='Learning where to look: a foveated visuomotor control model',
+ title='Learning where to look: <<BR>> a foveated visuomotor control model',
  conference_url='https://www.cnsorg.org/cns-2019',
  short_conference='28th Annual Computational Neuroscience Meeting',
  conference='CNS*2019',
@@ -93,7 +93,7 @@ Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), 
 Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
 LM = s.content_imagelet(os.path.join(url_people, 'laurent-madelain/avatar.png'), height_px)
 JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-Fredo = s.content_imagelet(os.path.join(url_people, 'frédéric-chavane/avatar.png'), height_px)
+Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
@@ -272,7 +272,7 @@ This allows to define salient regions in an image and draw saliency maps over an
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
 
- 
+
 Top down : (sequential decision)
 
 A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field (an ideal observer that knows everything about how the visual data is generated), and given a statistics over the hypothesis space (Where is Waldo?), the model decides **where to look next** : choose the next viewpoint that will provide the best **information gain**. The selection is reiterated several times until enough evidence is gathered.
