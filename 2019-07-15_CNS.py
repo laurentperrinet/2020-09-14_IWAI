@@ -448,6 +448,14 @@ TODO Manu : insérer résultats avec différents contrastes
 """)
 
 
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
+title=title, height=s.meta['height']*.825, transpose=True),
+notes="""
+TODO Manu : insérer résultats avec différents contrastes
+
+""")
+
 
 s.close_section()
 
