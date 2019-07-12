@@ -2,7 +2,7 @@ default: github
 
 SRC=2019-07-15_CNS
 CHROMIUM=chromium
-CHROMIUM=/Applications/Chromium.app/Contents/MacOS/Chromium
+# CHROMIUM=/Applications/Chromium.app/Contents/MacOS/Chromium
 
 install:
 	pip3 install git+https://github.com/laurentperrinet/slides.py
