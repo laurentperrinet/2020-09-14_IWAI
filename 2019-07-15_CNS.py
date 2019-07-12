@@ -416,7 +416,7 @@ Indeed, t...
 
 #for kind in ['correct', 'error']:
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [8, 12, 20] ],
+[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [8, 20] ],
         title=title + ': success', height=s.meta['height']*.825, transpose=True),
 notes="""
 
@@ -425,7 +425,7 @@ TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
 """)
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [46, 47, 32] ],
+[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [46, 32] ],
         title=title + ': failure', height=s.meta['height']*.825, transpose=True),
 notes="""
 
