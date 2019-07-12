@@ -33,7 +33,7 @@ DD = int(tag[8:10])
 from slides import Slides
 
 height_px = 80
-height_ratio = .7
+height_ratio = .85
 
 meta = dict(
  embed = False,
@@ -163,9 +163,7 @@ intro += """
 
 s.add_slide(content=intro,
             notes="""
-* (AUTHOR) Hello, I am Laurent Perrinet from the Institute of Neurosciences of
-la Timone in Marseille, a joint unit from the CNRS and the AMU
-
+* (AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences of Systems in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Pierre Albiges and Laurent Perrinet from the Institute of Neurosciences of la Timone also in Marseille
 
 """)
 
@@ -186,13 +184,13 @@ notes="""
 
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'CNS-general-I.svg')],
-    title='Computer vision', height=s.meta['height']*.825),
+    title='Computer vision', height=s.meta['height']*height_ratio),
 notes="""
 * (OBJECTIVE)
 
 Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by
 the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
-through weight sharing convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
+through weight sharing  in convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.
 
@@ -207,7 +205,7 @@ Typical ML processing :
 
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'CNS-general-II.svg')],
-    title='Human vision', height=s.meta['height']*.825),
+    title='Human vision', height=s.meta['height']*height_ratio),
 notes="""
 * (OBJECTIVE)
 
@@ -225,7 +223,7 @@ Most importantly, the human vision is **dynamic**. The scanning of a full visual
 
 #s.add_slide(content=s.content_figures(
 #[os.path.join(figpath_talk, 'fig_intro.jpg')],
-#        title=title + '- Attention', height=s.meta['height']*.825),
+#        title=title + '- Attention', height=s.meta['height']*height_ratio),
 #notes="""
 #On the machine learning side, There has been lot of efforts to address the scaling shortcoming.
 #
@@ -240,7 +238,7 @@ Most importantly, the human vision is **dynamic**. The scanning of a full visual
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
-        title='Statistical Viewpoint', height=s.meta['height']*.825),
+        title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
 notes="""
 This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of
 a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
@@ -257,7 +255,7 @@ The more viewpoints you have, the more certain you are about the content of the 
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - II.svg')],
-        title='Attention vs. Scene Understanding', height=s.meta['height']*.825),
+        title='Attention vs. Scene Understanding', height=s.meta['height']*height_ratio),
 notes="""
 
 When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
@@ -316,7 +314,7 @@ url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where-principles.svg' )],
     title='Principles for central and peripheric vision',
-    height=s.meta['height']*.825),
+    height=s.meta['height']*height_ratio),
 notes="""
 
 So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
@@ -340,7 +338,7 @@ If we consider now the information gain metric, it shows an interesting correspo
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + " - ''Experimental'' setup", height=s.meta['height']*.825),
+        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio),
 notes="""
 
 
@@ -364,7 +362,7 @@ TODO-LAurent = génére les frames pour un "film"
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where.svg')],
-        title=title + ": What/Where separation", height=s.meta['height']*.825),
+        title=title + ": What/Where separation", height=s.meta['height']*height_ratio),
 notes="""
 Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
 
@@ -385,7 +383,7 @@ subtitle = [': Computational Graph', ': What', ': Where']
 for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']):
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
-            title=title + subtitle[i], height=s.meta['height']*.825),
+            title=title + subtitle[i], height=s.meta['height']*height_ratio),
     notes="""
 
     COMPUTATIONAL GRAPH :
@@ -449,7 +447,7 @@ TODO Manu : insérer résultats avec différents contrastes
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-title=title, height=s.meta['height']*.825, transpose=True),
+title=title, height=s.meta['height']*height_ratio, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
@@ -458,7 +456,7 @@ TODO Manu : insérer résultats avec différents contrastes
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-results-saccades.svg') ],
-title=title, height=s.meta['height']*.825, transpose=True),
+title=title, height=s.meta['height']*height_ratio, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
