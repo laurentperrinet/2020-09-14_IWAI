@@ -50,7 +50,7 @@ meta = dict(
  author='Emmanuel Daucé, Pierre Albigès & Laurent Perrinet',
  author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugified}/">Emmanuel Daucé, Pierre Albigès & Laurent Perrinet</a>',
  short_title='Learning where to look: a foveated visuomotor control model',
- title='Learning where to look: <<BR>> a foveated visuomotor control model',
+ title='Learning where to look: <BR>A foveated visuomotor control model',
  conference_url='https://www.cnsorg.org/cns-2019',
  short_conference='28th Annual Computational Neuroscience Meeting',
  conference='CNS*2019',
