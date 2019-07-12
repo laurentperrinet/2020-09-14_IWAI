@@ -333,15 +333,7 @@ identify the person.
 
 So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
 
-If we consider now the information gain metric, it also shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.
-
-
-
-go further in the predictive coding framework
-
-motivation : can we make a network that detects where *before* actually knowing what?
-
-what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?
+If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.
 
 """)
 
@@ -352,9 +344,8 @@ s.add_slide(content=s.content_figures(
         title=title + " - ''Experimental'' setup", height=s.meta['height']*.825),
 notes="""
 
-protocol
 
-We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. 
+We reproduce in simulation the conditions of a psychophysic experiment.
 
 The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.  
@@ -362,7 +353,7 @@ Different parameters are controlled, such as the target eccentricity, the backgr
 
 (B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target. 
 
-(C) The agent subjective perpection is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
+(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
 
 
 
@@ -376,16 +367,16 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where.svg')],
         title=title + ": What/Where separation", height=s.meta['height']*.825),
 notes="""
-Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with infrmation-gain based actin selection.
+Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
 
 We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label. 
-, the information gain becomes the difference of the future accuracy and the central accuracy.
-The accuracy is thus a proxy for the posterior entropy
+The information gain becomes the difference of the future accuracy and the central accuracy.
+The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.
 
-2. This is reminiscent of the What/where visual processing separation observed in monkeys and humans...
-The "Where" is not exactly where but rather: where should I look at in order to increase my accuracy?
-
+The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
+Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade. 
+The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?
 """)
 
 
@@ -423,15 +414,24 @@ notes="""
 Indeed, t...
 """)
 
-for kind in ['correct', 'error']:
-    s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_result' + s + '.jpg') for s in ['', ''] ],
-            title=title + '- ' + kind, height=s.meta['height']*.825, transpose=True),
-    notes="""
+#for kind in ['correct', 'error']:
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [8, 12, 20] ],
+        title=title + ': success', height=s.meta['height']*.825, transpose=True),
+notes="""
 
-    TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
 
-    """)
+""")
+
+s.add_slide(content=s.content_figures(
+[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [46, 47, 32] ],
+        title=title + ': failure', height=s.meta['height']*.825, transpose=True),
+notes="""
+
+TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+
+""")
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_params.jpg')],
@@ -479,9 +479,12 @@ URL = "http://arxiv.org/abs/0710.3742"
 
 s.add_slide(content=intro,
             notes="""
-perspectives:
-- XXX
-- XXX
+open questions:
+- centering / log polar
+- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
+- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
+- overt/covert attention
+- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding. 
 
 * Thanks for your attention!
 """)

@@ -305,10 +305,7 @@ The fovea that concentrates most of the photoreceptors, represents less than 2% 
 In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
 identify the person.</p>
 <p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.</p>
-<p>If we consider now the information gain metric, it also shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.</p>
-<p>go further in the predictive coding framework</p>
-<p>motivation : can we make a network that detects where <em>before</em> actually knowing what?</p>
-<p>what is the most ecological (best compression of information) to achieve that in the form of log-polar maps for instance?</p>
+<p>If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.</p>
                 </aside>
                 
 </section>
@@ -330,13 +327,12 @@ identify the person.</p>
         </div>
         
                 <aside class="notes">
-                 <p>protocol</p>
-<p>We consider here a restricted setup is the one that could be used in a psychophysic experiment for a visual search task. </p>
+                 <p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.<br />
 Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
 <p>(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target. </p>
-<p>(C) The agent subjective perpection is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.</p>
+<p>(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.</p>
 <p>TODO-LAurent = génére les frames pour un "film"</p>
                 </aside>
                 
@@ -359,15 +355,14 @@ Different parameters are controlled, such as the target eccentricity, the backgr
         </div>
         
                 <aside class="notes">
-                 <p>Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with infrmation-gain based actin selection.</p>
+                 <p>Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.</p>
 <p>We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label. 
-, the information gain becomes the difference of the future accuracy and the central accuracy.
-The accuracy is thus a proxy for the posterior entropy
+The information gain becomes the difference of the future accuracy and the central accuracy.
+The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.</p>
-<ol>
-<li>This is reminiscent of the What/where visual processing separation observed in monkeys and humans...
-The "Where" is not exactly where but rather: where should I look at in order to increase my accuracy?</li>
-</ol>
+<p>The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
+Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade. 
+The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?</p>
                 </aside>
                 
 </section>
@@ -493,22 +488,30 @@ WHERE :
                 </aside>
                 
 </section>
-        <section><h3>Results- correct</h3>
+        <section><h3>Results: success</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
-                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
-                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                        <img class="plain" data-src="figures/CNS-saccade-8.png"  height="275px"  />
                     </p>
                     </td>
                 </tr>
                 
-                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
-                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                        <img class="plain" data-src="figures/CNS-saccade-12.png"  height="275px"  />
+                    </p>
+                    </td>
+                </tr>
+                
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/CNS-saccade-20.png"  height="275px"  />
                     </p>
                     </td>
                 </tr>
@@ -517,27 +520,34 @@ WHERE :
         </div>
         
                 <aside class="notes">
-                 <pre><code>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
-</code></pre>
+                 <p>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)</p>
                 </aside>
                 
 </section>
-        <section><h3>Results- error</h3>
+        <section><h3>Results: failure</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=825.0>
             
-                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
-                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                        <img class="plain" data-src="figures/CNS-saccade-46.png"  height="275px"  />
                     </p>
                     </td>
                 </tr>
                 
-                <tr style="vertical-align:middle" bgcolor="white"  height="412px">
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
-                        <img class="plain" data-src="figures/fig_result.jpg"  height="412px"  />
+                        <img class="plain" data-src="figures/CNS-saccade-47.png"  height="275px"  />
+                    </p>
+                    </td>
+                </tr>
+                
+                <tr style="vertical-align:middle" bgcolor="white"  height="275px">
+                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <p>
+                        <img class="plain" data-src="figures/CNS-saccade-32.png"  height="275px"  />
                     </p>
                     </td>
                 </tr>
@@ -546,8 +556,7 @@ WHERE :
         </div>
         
                 <aside class="notes">
-                 <pre><code>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
-</code></pre>
+                 <p>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)</p>
                 </aside>
                 
 </section>
@@ -634,9 +643,12 @@ URL = "http://arxiv.org/abs/0710.3742"
 
 
                 <aside class="notes">
-                 <p>perspectives:
-- XXX
-- XXX</p>
+                 <p>open questions:
+- centering / log polar
+- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
+- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
+- overt/covert attention
+- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding. </p>
 <ul>
 <li>Thanks for your attention!</li>
 </ul>
