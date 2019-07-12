@@ -441,7 +441,7 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, fname) for fname in ['fig_result_robust_contrast_linear_0.7_1.png',
                                                  'fig_result_robust_contrast_linear_0.5_1.png',
                                                  'fig_result_robust_contrast_linear_0.3_1.png']],
-title=title, height=s.meta['height']*.5),
+title=title, height=s.meta['height']*.5, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
