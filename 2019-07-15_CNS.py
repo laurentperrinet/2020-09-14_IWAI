@@ -272,7 +272,7 @@ This allows to define salient regions in an image and draw saliency maps over an
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
 
-
+ 
 Top down : (sequential decision)
 
 A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field (an ideal observer that knows everything about how the visual data is generated), and given a statistics over the hypothesis space (Where is Waldo?), the model decides **where to look next** : choose the next viewpoint that will provide the best **information gain**. The selection is reiterated several times until enough evidence is gathered.
