@@ -33,7 +33,7 @@ DD = int(tag[8:10])
 from slides import Slides
 
 height_px = 80
-height_ratio = .85
+height_ratio = .9
 
 meta = dict(
  embed = False,
@@ -510,7 +510,8 @@ TODO Manu : insérer résultats avec différents contrastes
 
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
+[os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png'),
+os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
 title=title + ': role of contrast', height=s.meta['height']*height_ratio, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
