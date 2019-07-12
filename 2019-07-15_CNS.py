@@ -354,11 +354,11 @@ if not os.path.isfile('figures/film_FIX.png'):
     data, label = next(iter(d.loader_test))
 
     figsize = (16, 10)
-    N_plot = 3
+    N_plot = 12
 
     for i in range(N_plot):
         opts = dict(ms=24, markeredgewidth=1, alpha=.4)
-        data_fullfield, i_offset, j_offset = d.draw(data[i+42+9, 0, :, :].numpy())
+        data_fullfield, i_offset, j_offset = d.draw(data[i+42, 0, :, :].numpy())
 
         fig, ax = plt.subplots(1, 1, figsize=figsize)
         ax = d.show(ax, data_fullfield, do_cross=True)
@@ -374,6 +374,7 @@ if not os.path.isfile('figures/film_FIX.png'):
         ax.arrow(args.N_pic//2, args.N_pic//2, j_offset, i_offset, width=.3, color='r',
                  head_width=4., length_includes_head=True, edgecolor='k')
         fig.savefig(f'figures/film_display{i}_SAC.png', bbox_inches='tight', pad_inches=0.1)
+        fig.close('all')
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
@@ -389,7 +390,7 @@ if not os.path.isfile('figures/film_FIX.png'):
     ax.set_yticks([])
     fig.savefig(f'figures/film_ANS.png', bbox_inches='tight', pad_inches=0.1)
 
-for i in [0, 1, 2]:
+for i in [0, 4, 8, 9]:
     s.add_slide(image_fname='figures/film_FIX.png')
     s.add_slide(image_fname=f'figures/film_display{i}.png')
     s.add_slide(image_fname='figures/film_ANS.png')
