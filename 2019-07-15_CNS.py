@@ -96,20 +96,23 @@ JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jp
 Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
-<small>
-<h5>Acknowledgements:</h5>
-<ul>
-    <li>Rick Adams and Karl Friston @ UCL - Wellcome Trust Centre for Neuroimaging</li>
-    <li>Jean-Bernard Damasse and Laurent Madelain - ANR REM</li>
-    <li>Frédéric Chavane - INT</li>
-</ul>
-<BR>
-{Rick}{Karl}{JB}{LM}{Anna}{Fredo}<a href="https://github.com/laurentperrinet/slides.py">{Python}</a>
-<BR>
-    This work was supported by the <a href="https://laurentperrinet.github.io/project/pace-itn/">PACE-ITN Project</a>.
-</small>
 
 """
+
+# <small>
+# <h5>Acknowledgements:</h5>
+# <ul>
+#     <li>Rick Adams and Karl Friston @ UCL - Wellcome Trust Centre for Neuroimaging</li>
+#     <li>Jean-Bernard Damasse and Laurent Madelain - ANR REM</li>
+#     <li>Frédéric Chavane - INT</li>
+# </ul>
+# <BR>
+# {Rick}{Karl}{JB}{LM}{Anna}{Fredo}<a href="https://github.com/laurentperrinet/slides.py">{Python}</a>
+# <BR>
+#     This work was supported by the <a href="https://laurentperrinet.github.io/project/pace-itn/">PACE-ITN Project</a>.
+# </small>
+#
+# """
 i_section = 0
 #############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄 Learning where to look 🏄🏄🏄🏄🏄🏄🏄🏄
@@ -438,7 +441,7 @@ TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png') ],
-title=title, height=s.meta['height']*.45, transpose=True),
+title=title + ': one saccade', height=s.meta['height']*.7, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
@@ -447,7 +450,7 @@ TODO Manu : insérer résultats avec différents contrastes
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-title=title, height=s.meta['height']*height_ratio, transpose=True),
+title=title + ': role of contrast', height=s.meta['height']*height_ratio, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 
@@ -456,7 +459,7 @@ TODO Manu : insérer résultats avec différents contrastes
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-results-saccades.svg') ],
-title=title, height=s.meta['height']*height_ratio, transpose=True),
+title=title + ': more saccades', height=s.meta['height']*height_ratio, transpose=True),
 notes="""
 TODO Manu : insérer résultats avec différents contrastes
 

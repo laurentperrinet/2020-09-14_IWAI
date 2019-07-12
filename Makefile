@@ -1,6 +1,8 @@
 default: github
 
 SRC=2019-07-15_CNS
+CHROMIUM=chromium
+CHROMIUM=/Applications/Chromium.app/Contents/MacOS/Chromium
 
 install:
 	pip3 install git+https://github.com/laurentperrinet/slides.py
@@ -36,5 +38,4 @@ github: html
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true
 	#open "https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true"
-	# /Applications/Chromium.app/Contents/MacOS/Chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
-	chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
+	$(CHROMIUM) --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
