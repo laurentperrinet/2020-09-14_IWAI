@@ -147,11 +147,10 @@ systematically scanned and processed in parallel fashion at high computational c
                  <ul>
 <li>(OBJECTIVE)</li>
 </ul>
-<p>When human vision is considered, the things work quite differently.
-Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery.</p>
-<p>Most importantly, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
-<p>("non isotropic" convolution)</p>
+<p>In contrast, when human vision is considered, things work quite differently.
+Indeed, human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.</p>
+<p>Crucially, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
+<p>We propose here that such a strategy ("non isotropic" convolution) allows for an economic processing of images by processing independently the position from the category of objects</p>
                 </aside>
                 
 </section>
@@ -200,7 +199,7 @@ current view point (model inversion).</p>
         </div>
         
                 <aside class="notes">
-                 <p>When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
+                 <p>Given a generative model of the environment, one can define a quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
 Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
 This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological.</p>
 <ul>
@@ -295,6 +294,24 @@ identify the person.</p>
 <p>If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.</p>
                 </aside>
                 
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_display0.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_display1.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_display2.png" data-background-size="1600px"> 
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1600px"> 
 </section>
         <section><h3>Methods - ''Experimental'' setup</h3>
             <div align="center">

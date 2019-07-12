@@ -212,14 +212,12 @@ s.add_slide(content=s.content_figures(
 notes="""
 * (OBJECTIVE)
 
+In contrast, when human vision is considered, things work quite differently.
+Indeed, human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.
 
-When human vision is considered, the things work quite differently.
-Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery.
+Crucially, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
-Most importantly, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
-
-("non isotropic" convolution)
+We propose here that such a strategy ("non isotropic" convolution) allows for an economic processing of images by processing independently the position from the category of objects
 
 """)
 
@@ -255,13 +253,15 @@ The more viewpoints you have, the more certain you are about the content of the 
 
 """)
 ####################### SLIDE 4 : MODELLING (CONTINUED) #########################
+# author, year, journal, title='', url=None
+bib = s.content_bib("Laurent Itti and Christof Koch", "2000", "Vision Research", url="http://ilab.usc.edu/publications/doc/Itti_Koch00vr.pdf")
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - II.svg')],
         title='Attention vs. Scene Understanding', height=s.meta['height']*height_ratio),
 notes="""
 
-When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
+Given a generative model of the environment, one can define a quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
 Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
 This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological.
 
@@ -338,6 +338,46 @@ If we consider now the information gain metric, it shows an interesting correspo
 """)
 
 ####################### SLIDE B 1 ##################################
+import sys
+sys.path.append('../WhereIsMyMNIST/figures')
+
+N_plot = 3
+if not os.path.isfile('figures/film_FIX.png'):
+    import matplotlib.pyplot as plt
+
+    from main import init
+    #args = init(filename='debug')
+    args = init(filename='../WhereIsMyMNIST/2019-03-27')
+
+    from display import Display
+    d = Display(args)
+    data, label = next(iter(d.loader_test))
+
+    figsize = (16, 10)
+    for i in range(N_plot):
+        fig, ax = plt.subplots(1, 1, figsize=figsize)
+        data_fullfield, i_offset, j_offset = d.draw(data[i, 0, :, :].numpy())
+        ax = d.show(ax, data_fullfield)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        fig.savefig(f'figures/film_display{i}.png')
+
+    fig, axs = plt.subplots(1, 1, figsize=figsize)
+    ax.plot([args.N_pic//2], [args.N_pic//2], '+', color='b', ms=24, markeredgewidth=4)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    fig.savefig(f'figures/film_FIX.png')
+
+    fig, axs = plt.subplots(1, 1, figsize=figsize)
+    ax.text(args.N_pic//2, args.N_pic//2, '?', color='b', fontsize=42, ha='center', va='center')
+    ax.set_xticks([])
+    ax.set_yticks([])
+    fig.savefig(f'figures/film_ANS.png')
+
+for i in range(N_plot):
+    s.add_slide(image_fname='figures/film_FIX.png')
+    s.add_slide(image_fname=f'figures/film_display{i}.png')
+    s.add_slide(image_fname='figures/film_ANS.png')
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
