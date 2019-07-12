@@ -374,25 +374,26 @@ if not os.path.isfile('figures/film_FIX.png'):
         ax.arrow(args.N_pic//2, args.N_pic//2, j_offset, i_offset, width=.3, color='r',
                  head_width=4., length_includes_head=True, edgecolor='k')
         fig.savefig(f'figures/film_display{i}_SAC.png', bbox_inches='tight', pad_inches=0.1)
-        fig.close('all')
+        plt.close('all')
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
     ax.plot([args.N_pic//2], [args.N_pic//2], '+', color='b', ms=24, markeredgewidth=4)
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig(f'figures/film_FIX.png', bbox_inches='tight', pad_inches=0.1)
+    fig.savefig('figures/film_FIX.png', bbox_inches='tight', pad_inches=0.1)
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
     ax.text(args.N_pic//2, args.N_pic//2, '?', color='b', fontsize=42, ha='center', va='center')
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig(f'figures/film_ANS.png', bbox_inches='tight', pad_inches=0.1)
+    fig.savefig('figures/film_ANS.png', bbox_inches='tight', pad_inches=0.1)
 
 for i in [0, 4, 8, 9]:
     s.add_slide(image_fname='figures/film_FIX.png')
     s.add_slide(image_fname=f'figures/film_display{i}.png')
+    s.add_slide(image_fname=f'figures/film_display{i}_SAC.png')
     s.add_slide(image_fname='figures/film_ANS.png')
 
 s.add_slide(content=s.content_figures(
