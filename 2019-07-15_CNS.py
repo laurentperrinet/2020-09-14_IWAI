@@ -414,7 +414,7 @@ Different parameters are controlled, such as the target eccentricity, the backgr
 
 
 
-TODO-LAurent = génére les frames pour un "film"
+DONE-Laurent = génére les frames pour un "film"
 
 """)
 
@@ -454,6 +454,8 @@ for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-wh
     At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
 It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.
 
+    TODO: mettre le résultat de l'accuracy map pour faire la transition?
+
     WHERE :
     Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
     Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
@@ -491,6 +493,8 @@ s.add_slide(content=s.content_figures(
 notes="""
 
 TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+
+TODO Manu : je mettrais plus d'exemple de fakes
 
 """)
 
