@@ -358,7 +358,7 @@ if not os.path.isfile('figures/film_FIX.png'):
 
     for i in range(N_plot):
         opts = dict(ms=24, markeredgewidth=1, alpha=.4)
-        data_fullfield, i_offset, j_offset = d.draw(data[i+42+8, 0, :, :].numpy())
+        data_fullfield, i_offset, j_offset = d.draw(data[i+42+9, 0, :, :].numpy())
 
         fig, ax = plt.subplots(1, 1, figsize=figsize)
         ax = d.show(ax, data_fullfield, do_cross=True)
@@ -375,14 +375,14 @@ if not os.path.isfile('figures/film_FIX.png'):
                  head_width=4., length_includes_head=True, edgecolor='k')
         fig.savefig(f'figures/film_display{i}_SAC.png', bbox_inches='tight', pad_inches=0.1)
 
-    fig, axs = plt.subplots(1, 1, figsize=figsize)
+    fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
     ax.plot([args.N_pic//2], [args.N_pic//2], '+', color='b', ms=24, markeredgewidth=4)
     ax.set_xticks([])
     ax.set_yticks([])
     fig.savefig(f'figures/film_FIX.png', bbox_inches='tight', pad_inches=0.1)
 
-    fig, axs = plt.subplots(1, 1, figsize=figsize)
+    fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
     ax.text(args.N_pic//2, args.N_pic//2, '?', color='b', fontsize=42, ha='center', va='center')
     ax.set_xticks([])
