@@ -198,10 +198,10 @@ systematically scanned and processed in parallel fashion at high computational c
 
 Typical ML processing :
 - bounding boxes around objects of interest
-- (at best) Linear scaing in #pixels 
+- (at best) Linear scaing in #pixels
 
 """)
-    
+
 
 ####################### SLIDE 2bis : GENERAL MOTIVATION #########################
 
@@ -214,14 +214,14 @@ notes="""
 
 When human vision is considered, the things work quite differently.
 Human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor
-resolution at the periphery. 
+resolution at the periphery.
 
 Most importantly, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
-("non isotropic" convolution) 
+("non isotropic" convolution)
 
 """)
-    
+
 
 #s.add_slide(content=s.content_figures(
 #[os.path.join(figpath_talk, 'fig_intro.jpg')],
@@ -242,13 +242,13 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
         title='Statistical Viewpoint', height=s.meta['height']*.825),
 notes="""
-This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of 
-a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to 
-disambiguate the scene. 
+This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of
+a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
+disambiguate the scene.
 
 
-In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the 
-current view point (model inversion).  
+In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the
+current view point (model inversion).
 
 The more viewpoints you have, the more certain you are about the content of the scene.
 
@@ -260,9 +260,9 @@ s.add_slide(content=s.content_figures(
         title='Attention vs. Scene Understanding', height=s.meta['height']*.825),
 notes="""
 
-When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess. 
-Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics. 
-This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological. 
+When you have a generative model of the environment, there is an important quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
+Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
+This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological.
 
 
 - Laurent Itti and Christof Koch. **A saliency-based search mechanism
@@ -271,7 +271,6 @@ This allows to define salient regions in an image and draw saliency maps over an
 - M. Kümmerer, L. Theis, and M. Bethge **Deep Gaze I: Boosting
     Saliency Prediction with Feature Maps Trained on ImageNet** ICLR
     Workshop, 2015
-
 
 
 Top down : (sequential decision)
@@ -316,19 +315,19 @@ url =  'full code @ <a href="https://github.com/SpikeAI/2019-07-15_CNS/">github.
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where-principles.svg' )],
-    title='Principles for central and peripheric vision', 
+    title='Principles for central and peripheric vision',
     height=s.meta['height']*.825),
 notes="""
 
-So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system. 
+So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
 
-Objective : build an effective artificial foveal vision 
+Objective : build an effective artificial foveal vision
 We concentrate her on the foveal vision case
-What is specific with foveal vision? 
-Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)  
+What is specific with foveal vision?
+Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)
 The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
-In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to 
+In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to
 identify the person.
 
 So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
@@ -348,10 +347,10 @@ notes="""
 We reproduce in simulation the conditions of a psychophysic experiment.
 
 The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.  
+This corresponds to a classic environment control in psychophysic experiments.
 Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.
 
-(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target. 
+(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target.
 
 (C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
 
@@ -369,13 +368,13 @@ s.add_slide(content=s.content_figures(
 notes="""
 Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
 
-We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label. 
+We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label.
 The information gain becomes the difference of the future accuracy and the central accuracy.
 The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.
 
 The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
-Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade. 
+Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
 The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?
 """)
 
@@ -388,19 +387,19 @@ for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-wh
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title + subtitle[i], height=s.meta['height']*.825),
     notes="""
-    
+
     COMPUTATIONAL GRAPH :
     Here is the general computational graph of our active vision system.
     Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.
-    
+
     WHAT :
     At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
 It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.
-    
-    WHERE : 
-    Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers. 
-    Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy. 
-    Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets). 
+
+    WHERE :
+    Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
+    Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
+    Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
     """)
 
 s.close_section()
@@ -500,7 +499,7 @@ open questions:
 - IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
 - multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
 - overt/covert attention
-- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding. 
+- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding.
 
 * Thanks for your attention!
 """)
