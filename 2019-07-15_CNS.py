@@ -527,6 +527,15 @@ TODO Manu : insérer résultats avec différents contrastes
 
 """)
 
+s.add_slide(
+
+ content=s.content_figures(
+[os.path.join(figpath_talk, 'CNS-IG-action-selection.svg') ],
+     title="IG-based selection of action",height=s.meta['height']*height_ratio),
+           notes = """
+           done
+           """)
+
 s.close_section()
 
 
@@ -541,10 +550,10 @@ s.add_slide(content="""
 - A new interpretation of Information Gain in visuo-motor action selection :
   - Center-surround interpretation
   - An effective decoding scheme with strong bandwidth reduction
+  - Information-gain based selection of action (saccade/pursuit)
 - Object identity-based monitoring of action
   - Dorsal = ''actor'' (where to look next?)
   - Ventral = ''critic'' (for what to see?)
-- 
 """, md=True)
 
 s.add_slide(content="""
