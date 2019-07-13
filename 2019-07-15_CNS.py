@@ -538,10 +538,12 @@ s.open_section()
 
 s.add_slide(content="""
 ## Main results
-- Center-surround Information gain interpretation
+- A new interpretation of Information Gain in visuo-motor action selection :
+  - Center-surround interpretation
+  - An effective decoding scheme with strong bandwidth reduction
 - Object identity-based monitoring of action
-  - Dorsal = ''actor''
-  - Ventral = ''critic''
+  - Dorsal = ''actor'' (where to look next?)
+  - Ventral = ''critic'' (for what to see?)
 - 
 """, md=True)
 
