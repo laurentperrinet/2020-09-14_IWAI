@@ -535,6 +535,22 @@ s.close_section()
 #############################################################################
 #############################################################################
 s.open_section()
+
+s.add_slide(content="""
+# Bayesian Online Changepoint Detector
+"""
+           )
+
+s.add_slide(content="""
+# Limits and Open questions
+- centering / log polar
+- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
+- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
+- overt/covert attention
+- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding.
+"""
+           )
+            
 # 
 # s.add_slide(content="""
 # # Bayesian Online Changepoint Detector
@@ -565,12 +581,7 @@ s.open_section()
 
 s.add_slide(content=intro,
             notes="""
-open questions:
-- centering / log polar
-- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
-- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
-- overt/covert attention
-- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding.
+
 
 * Thanks for your attention!
 """)
