@@ -581,8 +581,6 @@ s.add_slide(content="""
 
 s.add_slide(content=intro,
             notes="""
-
-
 * Thanks for your attention!
 """)
 
