@@ -354,7 +354,7 @@ if not os.path.isfile('figures/film_FIX.png'):
     from main import init
     #args = init(filename='debug')
     args = init(filename='../WhereIsMyMNIST/2019-03-27')
-
+    args.contrast = 0.5
     from display import Display
     d = Display(args)
     data, label = next(iter(d.loader_test))
