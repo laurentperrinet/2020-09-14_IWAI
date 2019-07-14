@@ -38,10 +38,10 @@ height_ratio = .9
 meta = dict(
  embed = False,
  draft = DEBUG, # show notes etc
- width= 1600,
- height= 1000,
- # width= 1280, #1600,
- # height= 1024, #1000,
+ #width= 1600, # phi ratio
+ #height= 1000,
+ width= 1280, # 4/3 ratio
+ height= 1024,
  margin= 0.1618,#
  reveal_path='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/',
  #reveal_path='https://s3.amazonaws.com/hakim-static/reveal-js/',
@@ -123,11 +123,11 @@ intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
 """.format(**meta)
-intro += s.content_imagelet('figures/ins-logo.png', 
-                            s.meta['height']*.24, 
+intro += s.content_imagelet('figures/ins-logo.png',
+                            s.meta['height']*.24,
                             embed=False)
-intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png', 
-                            s.meta['height']*.32, 
+intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png',
+                            s.meta['height']*.32,
                             embed=False) #bgcolor="black",
 intro += """
 <h4><a href="{conference_url}">{conference}</a>, {DD}/{MM}/{YYYY} </h4>
@@ -572,16 +572,16 @@ s.add_slide(content="""
   - Central object referential
   - log polar scale/rotation invariance
   - (feedback) prediction
-- Information Gain-based décision : 
+- Information Gain-based décision :
   - Sequential info gain converges to zero: in practice 2-3 saccades are enough
-  - Pursuit vs. saccade. 
-  - Maximizing info gain on multiple targets/ddls. 
+  - Pursuit vs. saccade.
+  - Maximizing info gain on multiple targets/ddls.
     - Illustration with z1, z2 axis
     - Overt/covert attention
     - Inhibition of return
 """, md=True)
-            
-# 
+
+#
 # s.add_slide(content="""
 # # Bayesian Online Changepoint Detector
 #
