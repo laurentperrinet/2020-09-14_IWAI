@@ -494,7 +494,7 @@ TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
 """)
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [46, 32] ],
+[os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [46, 47, 32] ],
         title=title + ': failure', height=s.meta['height']*.6, transpose=True),
 notes="""
 
