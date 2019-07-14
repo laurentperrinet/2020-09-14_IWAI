@@ -562,7 +562,10 @@ s.add_slide(content="""
 
 s.add_slide(content="""
 ## Limits and Open questions
-- Importance of centering objects / log polar scale/rotation invariance
+- Importance of centered objects:
+  - reference frame
+  - log polar scale/rotation invariance
+  - (feedback) prediction
 - Information Gain-based décision : 
   - Sequential info gain converges to zero: in practice 2-3 saccades are enough
   - Pursuit vs. saccade. 
@@ -570,8 +573,6 @@ s.add_slide(content="""
     - Illustration with z1, z2 axis
     - Overt/covert attention
     - Inhibition of return
-- Free energy-based control extension? 
-  - Combination of info gain and predictive coding. 
 """, md=True)
             
 # 
