@@ -506,7 +506,7 @@ TODO Manu : je mettrais plus d'exemple de fakes
 """)
 
 
-if True:
+if False:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png'),
     os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
@@ -518,7 +518,7 @@ if True:
 
 else:
     s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png') ],
+    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.svg') ],
     title=title + ': one saccade', height=s.meta['height']*.35, transpose=True),
     notes="""
     TODO Manu : insérer résultats avec différents contrastes
