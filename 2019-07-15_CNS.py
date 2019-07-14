@@ -124,7 +124,7 @@ intro = """
 <h3>{author_link}</h3>
 """.format(**meta)
 intro += s.content_imagelet('figures/ins-logo.png', 
-                            s.meta['height']*.32, 
+                            s.meta['height']*.24, 
                             embed=False)
 intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png', 
                             s.meta['height']*.32, 
