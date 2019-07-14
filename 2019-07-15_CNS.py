@@ -546,7 +546,10 @@ s.close_section()
 s.open_section()
 
 s.add_slide(content="""
-## Main results
+## Main results:
+- A sub-linear object detection for image processing:
+  - A full log-polar processing pathway (from early vision toward action selection)
+  - Ready for up-scaling
 - A new interpretation of Information Gain in visuo-motor action selection :
   - Center-surround interpretation
   - An effective decoding scheme with strong bandwidth reduction
@@ -558,11 +561,16 @@ s.add_slide(content="""
 
 s.add_slide(content="""
 ## Limits and Open questions
-- centering / log polar
-- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
-- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
-- overt/covert attention
-- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding.
+- Importance of centering objects / log polar scale/rotation invariance
+- Information Gain-based décision : 
+  - Sequential info gain converges to zero: in practice 2-3 saccades are enough
+  - Pursuit vs. saccade. 
+  - Maximizing info gain on multiple targets/ddls. 
+    - Illustration with z1, z2 axis
+    - Overt/covert attention
+    - Inhibition of return
+- Free energy-based control extension? 
+  - Combination of info gain and predictive coding. 
 """, md=True)
             
 # 
