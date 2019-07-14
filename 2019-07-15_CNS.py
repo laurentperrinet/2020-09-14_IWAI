@@ -588,7 +588,6 @@ s.add_slide(content="""
   - Sequential info gain converges to zero: in practice 2-3 saccades are enough
   - Pursuit vs. saccade.
   - Maximizing info gain on multiple targets/ddls.
-    - Illustration with z1, z2 axis
     - Overt/covert attention
     - Inhibition of return
 """, md=True)
