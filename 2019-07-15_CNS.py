@@ -564,6 +564,14 @@ s.close_section()
 #############################################################################
 s.open_section()
 
+s.add_slide_outline(i_section,
+notes="""
+Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds
+
+
+""")
+
+
 s.add_slide(content="""
 ## Main results:
 - A new interpretation of Information Gain in visuo-motor action selection :
