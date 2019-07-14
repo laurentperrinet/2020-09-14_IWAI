@@ -87,6 +87,7 @@ s = Slides(meta)
 
 # TODO : adapt Acknowledgements
 # figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
+# TODO : logo INS / Inserm
 url_people = 'https://laurentperrinet.github.io/authors/'
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
 Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
