@@ -506,7 +506,7 @@ TODO Manu : je mettrais plus d'exemple de fakes
 """)
 
 
-if True:
+if False:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.svg'),
     os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
