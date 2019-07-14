@@ -192,7 +192,7 @@ notes="""
 ####################### SLIDE 2 : GENERAL MOTIVATION #########################
 
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'CNS-general-I.svg')],
+    [os.path.join(figpath_talk, 'CNS-2-general-A.svg')],
     title='Computer vision', height=s.meta['height']*height_ratio),
 notes="""
 * (OBJECTIVE)
@@ -213,7 +213,7 @@ Typical ML processing :
 ####################### SLIDE 2bis : GENERAL MOTIVATION #########################
 
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'CNS-general-II.svg')],
+    [os.path.join(figpath_talk, 'CNS-2-general-B.svg')],
     title='Human vision', height=s.meta['height']*height_ratio),
 notes="""
 * (OBJECTIVE)
@@ -405,7 +405,7 @@ for i in [0, 4, 8, 9]:
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio*.9),
+        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio*.8),
 notes="""
 
 
@@ -487,7 +487,7 @@ Indeed, t...
 #for kind in ['correct', 'error']:
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-saccade-' + str(idx) + '.png') for idx in [8, 20] ],
-        title=title + ': success', height=s.meta['height']*.6, transpose=True),
+        title=title + ': success', height=s.meta['height']*.5, transpose=True),
 notes="""
 
 TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
