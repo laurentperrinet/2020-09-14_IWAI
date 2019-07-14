@@ -359,11 +359,12 @@ if not os.path.isfile('figures/film_FIX.png'):
     d = Display(args)
     data, label = next(iter(d.loader_test))
 
-    figsize = (16, 10)
+    figsize = (16, 12) # (16, 10)
     N_plot = 12
 
     for i in range(N_plot):
         opts = dict(ms=24, markeredgewidth=1, alpha=.4)
+        opts_save = dict(pad_inches=0.03) #
         data_fullfield, i_offset, j_offset = d.draw(data[i+42, 0, :, :].numpy())
 
         fig, ax = plt.subplots(1, 1, figsize=figsize)
@@ -371,7 +372,7 @@ if not os.path.isfile('figures/film_FIX.png'):
         ax.plot([args.N_pic//2], [args.N_pic//2], '*r', **opts)
         ax.set_xticks([])
         ax.set_yticks([])
-        fig.savefig(f'figures/film_display{i}.png', bbox_inches='tight', pad_inches=0.1)
+        fig.savefig(f'figures/film_display{i}.png', **opts_save)
         fig, ax = plt.subplots(1, 1, figsize=figsize)
         ax = d.show(ax, data_fullfield, do_cross=True)
         ax.set_xticks([])
@@ -379,7 +380,7 @@ if not os.path.isfile('figures/film_FIX.png'):
         ax.plot([args.N_pic//2+j_offset], [args.N_pic//2+i_offset], '*r', **opts)
         ax.arrow(args.N_pic//2, args.N_pic//2, j_offset, i_offset, width=.3, color='r',
                  head_width=4., length_includes_head=True, edgecolor='k')
-        fig.savefig(f'figures/film_display{i}_SAC.png', bbox_inches='tight', pad_inches=0.1)
+        fig.savefig(f'figures/film_display{i}_SAC.png', **opts_save)
         plt.close('all')
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
@@ -387,14 +388,14 @@ if not os.path.isfile('figures/film_FIX.png'):
     ax.plot([args.N_pic//2], [args.N_pic//2], '+', color='b', ms=24, markeredgewidth=4)
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig('figures/film_FIX.png', bbox_inches='tight', pad_inches=0.1)
+    fig.savefig('figures/film_FIX.png', **opts_save)
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.imshow(.5 + np.zeros_like(data_fullfield), cmap=plt.gray(), vmin=0, vmax=1)
     ax.text(args.N_pic//2, args.N_pic//2, '?', color='b', fontsize=42, ha='center', va='center')
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig('figures/film_ANS.png', bbox_inches='tight', pad_inches=0.1)
+    fig.savefig('figures/film_ANS.png', **opts_save)
 
 for i in [0, 4, 8, 9]:
     s.add_slide(image_fname='figures/film_FIX.png')
@@ -404,7 +405,7 @@ for i in [0, 4, 8, 9]:
 
 s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio),
+        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio*.9),
 notes="""
 
 
@@ -615,7 +616,7 @@ s.add_slide(content=intro,
 """)
 
 
-s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
+s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio*.9) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code - TODO : use ArXiV instead ")
 
 s.close_section()
