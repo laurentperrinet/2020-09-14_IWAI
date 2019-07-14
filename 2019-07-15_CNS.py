@@ -247,7 +247,7 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
         title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
 notes="""
-This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of
+This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
 a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
 disambiguate the scene.
 
@@ -328,9 +328,10 @@ notes="""
 
 So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
-
 Objective : build an effective artificial foveal vision
 We concentrate her on the foveal vision case
+
+
 What is specific with foveal vision?
 Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)
 The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
@@ -465,7 +466,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
 
     WHERE :
     Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-    Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
+    **Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
     Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
     """)
 
@@ -580,7 +581,7 @@ s.add_slide(content="""
 
 s.add_slide(content="""
 ## Limits and Open questions
-- Importance of centered objects:
+- Importance of centering objects:
   - Central object referential
   - log polar scale/rotation invariance
   - (feedback) prediction

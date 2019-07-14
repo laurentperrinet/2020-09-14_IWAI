@@ -172,7 +172,7 @@ Indeed, human (and animal) vision rely on a non isotropic sensor (the retina) th
         </div>
         
                 <aside class="notes">
-                 <p>This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual scene is couple made of
+                 <p>This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
 a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
 disambiguate the scene.</p>
 <p>In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the
@@ -282,10 +282,10 @@ This allows to define salient regions in an image and draw saliency maps over an
         
                 <aside class="notes">
                  <p>So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
-(Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)</p>
-<p>Objective : build an effective artificial foveal vision
-We concentrate her on the foveal vision case
-What is specific with foveal vision?
+(Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
+Objective : build an effective artificial foveal vision
+We concentrate her on the foveal vision case</p>
+<p>What is specific with foveal vision?
 Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)
 The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
 In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to
@@ -414,7 +414,7 @@ At the core of the vision system is the identification module (the what).   The 
 
 WHERE :
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
+**Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
@@ -450,7 +450,7 @@ At the core of the vision system is the identification module (the what).   The 
 
 WHERE :
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
+**Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
@@ -486,7 +486,7 @@ At the core of the vision system is the identification module (the what).   The 
 
 WHERE :
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-Each possible future saccade has an expected accuracy, that can be trained from the what pathway output. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
+**Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
@@ -707,7 +707,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 <script type="text/template">
         
 ## Limits and Open questions
-- Importance of centered objects:
+- Importance of centering objects:
   - Central object referential
   - log polar scale/rotation invariance
   - (feedback) prediction
