@@ -510,7 +510,7 @@ if True:
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png'),
     os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-    title='', height=s.meta['height']*.35, transpose=True, fragment=True),
+    title='', height=s.meta['height'], transpose=True, fragment=True),
     notes="""
     TODO Manu : insérer résultats avec différents contrastes
 
