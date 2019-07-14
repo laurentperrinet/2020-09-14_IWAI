@@ -123,7 +123,12 @@ intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
 """.format(**meta)
-intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png', s.meta['height']*.32, embed=False) #bgcolor="black",
+intro += s.content_imagelet('figures/ins-logo.png', 
+                            s.meta['height']*.32, 
+                            embed=False)
+intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png', 
+                            s.meta['height']*.32, 
+                            embed=False) #bgcolor="black",
 intro += """
 <h4><a href="{conference_url}">{conference}</a>, {DD}/{MM}/{YYYY} </h4>
 
@@ -564,7 +569,7 @@ s.add_slide(content="""
 s.add_slide(content="""
 ## Limits and Open questions
 - Importance of centered objects:
-  - reference frame
+  - Central object referential
   - log polar scale/rotation invariance
   - (feedback) prediction
 - Information Gain-based décision : 
