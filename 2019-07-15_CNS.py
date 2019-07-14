@@ -506,11 +506,12 @@ TODO Manu : je mettrais plus d'exemple de fakes
 """)
 
 
-if False:
+if True:
     s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png'),
+    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.svg'),
     os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-    title='Results', height=s.meta['height']*height_ratio, transpose=True, fragment=True),
+    title='Results', height=s.meta['height']*height_ratio, transpose=True,
+    fragment=True, list_of_weights=[1., 2.]),
     notes="""
     TODO Manu : insérer résultats avec différents contrastes
 
