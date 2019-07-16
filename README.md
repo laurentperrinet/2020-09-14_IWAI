@@ -4,7 +4,7 @@
 * Who:: Emmanuel Daucé, Pierre Albigès & Laurent Perrinet
 * Where: Barcelona (Spain), see https://laurentperrinet.github.io/talk/2019-07-15-cns
 * When: 15/07/2019, time: 12:20:00-12:40:00
-
+ 
 * What:
   * Slides @ https://SpikeAI.github.io/2019-07-15_CNS
   * Code for slides @ https://github.com/SpikeAI/2019-07-15_CNS/
