@@ -595,7 +595,7 @@ s.add_slide(content="""
   - Central object referential
   - log polar scale/rotation invariance
   - (feedback) prediction
-- Information Gain-based décision :
+- Information Gain-based decision :
   - Sequential info gain converges to zero: in practice 2-3 saccades are enough
   - Pursuit vs. saccade.
   - Maximizing info gain on multiple targets/ddls.
