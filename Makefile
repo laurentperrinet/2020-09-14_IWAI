@@ -38,5 +38,4 @@ github: html
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true
 	#open "https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true"
-	$(CHROMIUM) --headless --disable-gpu --pageWidth=1600 --pageHeight=1000 --print-to-pdf=$(SRC)_16_10.pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
-	$(CHROMIUM) --headless --disable-gpu --pageWidth=1600 --pageHeight=1200 --print-to-pdf=$(SRC)_4_3.pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
+	$(CHROMIUM) --headless --disable-gpu --pageWidth=1600 --pageHeight=1000 --print-to-pdf=$(SRC).pdf "https://SpikeAI.github.io/$(SRC)/?print-pdf"
