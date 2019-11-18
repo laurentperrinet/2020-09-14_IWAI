@@ -1,6 +1,6 @@
 # Learning where to look: a foveated visuomotor control model
 
-* What:: talk @ [conference](https://www.cnsorg.org/cns-2019)
+* What:: talk @ [conference](https://www.cnsorg.org/cns-2019) - get the abstract @ https://bmcneurosci.biomedcentral.com/articles/10.1186/s12868-019-0538-0#Sec73
 * Who:: Emmanuel Daucé, Pierre Albigès & Laurent Perrinet
 * Where: Barcelona (Spain), see https://laurentperrinet.github.io/talk/2019-07-15-cns
 * When: 15/07/2019, time: 12:20:00-12:40:00
