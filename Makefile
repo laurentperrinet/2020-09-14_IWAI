@@ -1,4 +1,4 @@
-default: page
+default: html
 
 SRC=2020-09-14_IWAI
 CHROMIUM=chromium
