@@ -14,26 +14,17 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- General and theme style sheets -->
-        <link rel="stylesheet" href="reveal.js-master/css/reveal.css">
-        <link rel="stylesheet" href="reveal.js-master/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+        <link rel="stylesheet" href="reveal.js-master/dist/theme/simple.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="reveal.js-master/lib/css/zenburn.css">
-
-        <!-- Printing and PDF exports -->
-         <script>
-                 var link = document.createElement( 'link' );
-                 link.rel = 'stylesheet';
-                 link.type = 'text/css';
-                 link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-master/css/print/pdf.css' : 'reveal.js-master/css/print/paper.css';
-                 document.getElementsByTagName( 'head' )[0].appendChild( link );
-         </script>
+        <link rel="stylesheet" href="reveal.js-master/plugin/highlight/zenburn.css">
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
          <script src="reveal.js-master/lib/js/html5shiv.js"></script>
          <![endif]-->
-    
+
         <!-- Get Font-awesome from cdn -->
         <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
     </head>
@@ -59,7 +50,7 @@
 <p>Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
 As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.</p>
                 </aside>
-                
+
 </section>
         <section><h3>Outline</h3>
 <ol>
@@ -71,50 +62,50 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
                     </p>
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Methods
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Results
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Conclusion
                     </li>
                     </h3>
-                    
+
                      </ol>
-                    
+
                 <aside class="notes">
                  <p>During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades twards visual objects and finally offer some perspectives in the conclusion.</p>
 <p>Let's first state the problem faced when</p>
                 </aside>
-                
+
 </section>
         <section><h3>Computer vision</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-2-general-A.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <ul>
 <li>(OBJECTIVE)</li>
@@ -127,25 +118,25 @@ systematically scanned and processed in parallel fashion at high computational c
 - bounding boxes around objects of interest
 - (at best) Linear scaing in #pixels</p>
                 </aside>
-                
+
 </section>
         <section><h3>Human vision</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-2-general-B.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <ul>
 <li>(OBJECTIVE)</li>
@@ -155,25 +146,25 @@ Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that
 <p>Crucially,  human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
 <p>We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects</p>
                 </aside>
-                
+
 </section>
         <section><h3>Statistical Viewpoint</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS - Modelling - I.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
 a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
@@ -182,25 +173,25 @@ disambiguate the scene.</p>
 current view point (model inversion).</p>
 <p>The more viewpoints you have, the more certain you are about the content of the scene.</p>
                 </aside>
-                
+
 </section>
         <section><h3>Attention vs. Scene Understanding</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS - Modelling - II.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>Given a generative model of the environment, one can define a quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
 Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
@@ -226,9 +217,9 @@ This allows to define salient regions in an image and draw saliency maps over an
 <li>Fu, J., Zheng, H., &amp; Mei, T. (2017). Look closer to see better: Recurrent attention convolutional neural network for fine-grained image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 4438-4446).</li>
 </ul>
                 </aside>
-                
+
 </section>
-        
+
 </section>
 <section><section><h3>Outline</h3>
 <ol>
@@ -238,7 +229,7 @@ This allows to define salient regions in an image and draw saliency maps over an
                     Motivation
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     <p class="fragment highlight-red">
@@ -246,43 +237,43 @@ This allows to define salient regions in an image and draw saliency maps over an
                     </p>
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Results
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Conclusion
                     </li>
                     </h3>
-                    
+
                      </ol>
-                    
+
                 <aside class="notes">
                  <p>Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds</p>
                 </aside>
-                
+
 </section>
         <section><h3>Principles for central and peripheric vision</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where-principles.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
@@ -296,57 +287,57 @@ identify the person.</p>
 <p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.</p>
 <p>If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.</p>
                 </aside>
-                
+
 </section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+        <section data-background="figures/film_FIX.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display0.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display0.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display0_SAC.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display0_SAC.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+        <section data-background="figures/film_ANS.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+        <section data-background="figures/film_FIX.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display4.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display4.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display4_SAC.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display4_SAC.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+        <section data-background="figures/film_ANS.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+        <section data-background="figures/film_FIX.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display8.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display8.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display8_SAC.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display8_SAC.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+        <section data-background="figures/film_ANS.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+        <section data-background="figures/film_FIX.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display9.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display9.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_display9_SAC.png" data-background-size="1280px"> 
+        <section data-background="figures/film_display9_SAC.png" data-background-size="1280px">
 </section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+        <section data-background="figures/film_ANS.png" data-background-size="1280px">
 </section>
         <section><h3>Methods - ''Experimental'' setup</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=737.2800000000001>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=737 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/fig_intro.jpg"  height="737px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
@@ -356,25 +347,25 @@ Different parameters are controlled, such as the target eccentricity, the backgr
 <p>(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.</p>
 <p>DONE-Laurent = génére les frames pour un "film"</p>
                 </aside>
-                
+
 </section>
         <section><h3>Methods: What/Where separation</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.</p>
 <p>We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label.
@@ -385,25 +376,25 @@ Importantly, the future accuracy is a score that does not predict the future lab
 Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
 The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?</p>
                 </aside>
-                
+
 </section>
         <section><h3>Methods: Computational Graph</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>COMPUTATIONAL GRAPH :
 Here is the general computational graph of our active vision system.
@@ -421,25 +412,25 @@ Here we make the assumption that the same logpolar compression pattern is conser
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
-                
+
 </section>
         <section><h3>Methods: What</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-diagram.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>COMPUTATIONAL GRAPH :
 Here is the general computational graph of our active vision system.
@@ -457,25 +448,25 @@ Here we make the assumption that the same logpolar compression pattern is conser
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
-                
+
 </section>
         <section><h3>Methods: Where</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-where-diagram.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>COMPUTATIONAL GRAPH :
 Here is the general computational graph of our active vision system.
@@ -493,9 +484,9 @@ Here we make the assumption that the same logpolar compression pattern is conser
 Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
 </code></pre>
                 </aside>
-                
+
 </section>
-        
+
 </section>
 <section><section><h3>Outline</h3>
 <ol>
@@ -505,13 +496,13 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     Motivation
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Methods
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     <p class="fragment highlight-red">
@@ -519,24 +510,24 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Conclusion
                     </li>
                     </h3>
-                    
+
                      </ol>
-                    
+
                 <aside class="notes">
                  <p>Indeed, t...</p>
                 </aside>
-                
+
 </section>
         <section><h3>Results: success</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=512.0>
-            
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="256px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -544,7 +535,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="256px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -552,19 +543,19 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)</p>
                 </aside>
-                
+
 </section>
         <section><h3>Results: failure</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=614.4>
-            
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -572,7 +563,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -580,7 +571,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -588,20 +579,20 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)</p>
 <p>TODO Manu : je mettrais plus d'exemple de fakes</p>
                 </aside>
-                
+
 </section>
         <section><h3>Results: one saccade</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=512.0>
-            
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="512px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -609,20 +600,20 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>TODO Manu : insérer résultats avec différents contrastes
 </code></pre>
                 </aside>
-                
+
 </section>
         <section><h3>Results: role of contrast</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="921px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -630,20 +621,20 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>TODO Manu : insérer résultats avec différents contrastes
 </code></pre>
                 </aside>
-                
+
 </section>
         <section><h3>Results: more saccades</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
                 <tr style="vertical-align:middle" bgcolor="white"  height="921px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
                     <p>
@@ -651,39 +642,39 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </td>
                 </tr>
-                
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <p>TODO Manu : insérer résultats avec différents contrastes</p>
                 </aside>
-                
+
 </section>
         <section><h3>IG-based selection of action</h3>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=921.6>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-IG-action-selection.svg"  height="921px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
-        
+
                 <aside class="notes">
                  <pre><code>       done
 </code></pre>
                 </aside>
-                
+
 </section>
-        
+
 </section>
 <section><section><h3>Outline</h3>
 <ol>
@@ -693,19 +684,19 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     Motivation
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Methods
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     Results
                     </li>
                     </h3>
-                    
+
                     <h3>
                     <li>
                     <p class="fragment highlight-red">
@@ -713,18 +704,18 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                     </p>
                     </li>
                     </h3>
-                    
+
                      </ol>
-                    
+
                 <aside class="notes">
                  <p>Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds</p>
                 </aside>
-                
+
 </section>
-        
+
 <section data-markdown>
 <script type="text/template">
-        
+
 ## Main results:
 - A new interpretation of Information Gain in visuo-motor action selection :
   - Center-surround interpretation
@@ -739,12 +730,12 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
   - Ventral = ''critic'' (for what to see?)
 
 </script>
-            
+
 </section>
-        
+
 <section data-markdown>
 <script type="text/template">
-        
+
 ## Limits and Open questions
 - Importance of centering objects:
   - Central object referential
@@ -758,7 +749,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
     - Inhibition of return
 
 </script>
-            
+
 </section>
         <section>
 <h2 class="title">Visual search as active inference</h2>
@@ -775,47 +766,49 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 <li>Thanks for your attention!</li>
 </ul>
                 </aside>
-                
+
 </section>
         <section>
             <div align="center">
             <table border=0px VALIGN="center" bgcolor=white height=829.44>
-            
+
             <tr padding=0px style="vertical-align:middle" bgcolor=white>
-            
+
                 <td height=829 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/qr.png"  height="829px"   />
                 </p>
                 </td>
-                
+
             </tr>
-            
+
         </table>
         </div>
         <BR><a href="https://laurentperrinet.github.io/talk/2020-09-14-iwai"> https://laurentperrinet.github.io/talk/2020-09-14-iwai </a>
                 <aside class="notes">
                  <p>All the material is available online - please flash this code this leads to a page with links to further references and code - TODO : use ArXiV instead </p>
                 </aside>
-                
+
 </section>
-        
+
 </section>
 
         </div>
     </div>
 
-    <script src="reveal.js-master/lib/js/head.min.js"></script>
-    <script src="reveal.js-master/js/reveal.js"></script>
+    // <script src="reveal.js-master/lib/js/head.min.js"></script>
+    <script src="reveal.js-master/dist/reveal.js"></script>
+    <script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js-master/plugin/highlight/highlight.js"></script>
 
-        
+
 	<script>
 
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
 
-        
+
                 // The "normal" size of the presentation, aspect ratio will be preserved
                 // when the presentation is scaled to fit different resolutions. Can be
                 // specified using percentage units.
@@ -824,7 +817,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 
                 // Factor of the display size that should remain empty around the content
                 margin: 0.1618,
-        
+
                 // Display a presentation progress bar
                 progress: true,
                 slideNumber: 'c/t',
@@ -884,9 +877,9 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 fragments: true,
 
                 // Theme
-                theme: 'simple', // available themes are in /css/theme
+                theme: 'simple', // available themes are in /dist/theme
 
-        
+
                 math: {
             		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
@@ -906,7 +899,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                         { src: 'reveal.js-master/plugin/notes/notes.js', async: true },
                         { src: 'reveal.js-master/plugin/math/math.js', async: true },
                         { src: 'reveal.js-master/plugin/mathsvg/math.js', async: true },
-        
+
                 ],
 	keyboard: {
 	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
@@ -922,4 +915,3 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 
     </body>
 </html>
-        
