@@ -123,7 +123,7 @@ intro = """
 # intro += s.content_imagelet('figures/ins-logo.png',
 #                             s.meta['height']*.24,
 #                             embed=False)
-intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png',
+intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures/troislogos.png',
                             s.meta['height']*.32,
                             embed=False) #bgcolor="black",
 intro += """
