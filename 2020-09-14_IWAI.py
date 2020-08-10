@@ -186,9 +186,9 @@ title = meta['sections'][i_section]
 
 s.add_slide_outline(i_section,
 notes="""
-During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades twards visual objects and finally offer some perspectives in the conclusion.
+During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades towards visual objects and finally offer some perspectives in the conclusion.
 
-Let's first state the problem faced when
+Let's first state the problem faced when adressing visual search in computer vision
 """)
 
 
