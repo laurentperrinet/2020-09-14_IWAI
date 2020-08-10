@@ -330,6 +330,7 @@ notes="""
 
 So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)
+
 Objective : build an effective artificial foveal vision
 We concentrate her on the foveal vision case
 
@@ -422,9 +423,6 @@ Different parameters are controlled, such as the target eccentricity, the backgr
 
 (C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
 
-
-
-DONE-Laurent = génére les frames pour un "film"
 
 """)
 
@@ -572,6 +570,15 @@ s.add_slide_outline(i_section,
 notes="""
 Indeed, we will use the separation of the 2 problemes (where and what) as they are confronted to nuisances of different kinds
 
+
+Open questions:
+- centering / log polar
+- IG décision : fixation/following or saccade. After some Time the info gain is zéro:  it is not interesting any more to issue a saccade regarding this particular target.
+- multi - targets? Maximizing info gain on multiple targets/ddls. Illustration with z1, z2 axis
+- overt/covert attention
+- free energy extension? Combination of info gain and predictive coding. 1. Maximize predicted info gain. 2. Read data. 3. Optimize predictive coding.
+
+* Thanks for your attention!
 
 """)
 
