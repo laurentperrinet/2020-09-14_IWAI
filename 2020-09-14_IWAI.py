@@ -34,7 +34,7 @@ height_ratio = .9
 
 meta = dict(
  embed = False,
- draft = True, # show notes etc
+ draft = False, # show notes etc
  #width= 1600, # phi ratio
  #height= 1000,
  width= 1280, # 4/3 ratio
