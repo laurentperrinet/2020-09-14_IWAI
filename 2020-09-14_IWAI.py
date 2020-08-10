@@ -52,7 +52,7 @@ meta = dict(
  conference='1st International Workshop on Active Inference',
  short_conference='IWAI*2020',
  location='Ghent (Belgium), gone virtual',
- abstract="""Visual search is an essential cognitive ability, offering a prototypical control problem to be addressed with Active Inference. Under a Naive Bayes assumption, the maximization of the information gain objective is consistent with the separation of the visual sensory flow in two independent pathways, namely the ``What'' and the ``Where'' pathways. On the ``What'' side, the processing of the central part of the visual field (the fovea) provides the current interpretation of the scene, here the category of the target. On the ``Where'' side, the processing of the full visual field (at lower resolution) is expected to provide hints about future central foveal processing given the potential realization of saccadic movements. A map of the classification accuracies, as obtained by such counterfactual saccades, defines a utility function on the motor space, whose maximal argument prescribes the next saccade. The comparison of the foveal and the peripheral predictions finally forms an estimate of the future information gain, providing a simple and resource-efficient way to implement information gain seeking policies in active vision. This dual-pathway information processing framework is found efficient on a synthetic visual search task and we show here quantitatively the role of the precision encoded within the accuracy map. More importantly, it is expected to draw connections toward a more general actor-critic principle in action selection, with the accuracy of the central processing taking the role of a value (or intrinsic reward) of the previous saccade. """,
+ abstract="""Visual search is an essential cognitive ability, offering a prototypical control problem to be addressed with Active Inference. Under a Naive Bayes assumption, the maximization of the information gain objective is consistent with the separation of the visual sensory flow in two independent pathways, namely the "What" and the "Where" pathways. On the "What" side, the processing of the central part of the visual field (the fovea) provides the current interpretation of the scene, here the category of the target. On the "Where" side, the processing of the full visual field (at lower resolution) is expected to provide hints about future central foveal processing given the potential realization of saccadic movements. A map of the classification accuracies, as obtained by such counterfactual saccades, defines a utility function on the motor space, whose maximal argument prescribes the next saccade. The comparison of the foveal and the peripheral predictions finally forms an estimate of the future information gain, providing a simple and resource-efficient way to implement information gain seeking policies in active vision. This dual-pathway information processing framework is found efficient on a synthetic visual search task and we show here quantitatively the role of the precision encoded within the accuracy map. More importantly, it is expected to draw connections toward a more general actor-critic principle in action selection, with the accuracy of the central processing taking the role of a value (or intrinsic reward) of the previous saccade.""",
  YYYY=YYYY, MM=MM, DD=DD,
  tag=tag,
  projects='laurentperrinet',
@@ -84,7 +84,6 @@ s = Slides(meta)
 
 # TODO : adapt Acknowledgements
 # figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
-# TODO : logo INS / Inserm
 url_people = 'https://laurentperrinet.github.io/authors/'
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
 Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
@@ -169,7 +168,12 @@ intro += """
 
 s.add_slide(content=intro,
             notes="""
-* (AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences of Systems in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Pierre Albiges and Laurent Perrinet from the Institute of Neurosciences of la Timone also in Marseille
+* (AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences la Timone in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Laurent Perrinet
+
+Many thanks to the organizers for setting up this first conference on Active Inference
+
+Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
+As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
 
 """)
 
@@ -181,8 +185,9 @@ title = meta['sections'][i_section]
 
 s.add_slide_outline(i_section,
 notes="""
+During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades twards visual objects and finally offer some perspectives in the conclusion.
 
-
+Let's first state the problem faced when
 """)
 
 
@@ -194,8 +199,7 @@ s.add_slide(content=s.content_figures(
 notes="""
 * (OBJECTIVE)
 
-Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by
-the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
+Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
 through weight sharing  in convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.
@@ -216,11 +220,11 @@ notes="""
 * (OBJECTIVE)
 
 In contrast, when human vision is considered, things work quite differently.
-Indeed, human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.
+Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.
 
-Crucially, the human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+Crucially,  human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
-We propose here that such a strategy ("non isotropic" convolution) allows for an economic processing of images by processing independently the position from the category of objects
+We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects
 
 """)
 
