@@ -84,8 +84,8 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
                      </ol>
 
                 <aside class="notes">
-                 <p>During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades twards visual objects and finally offer some perspectives in the conclusion.</p>
-<p>Let's first state the problem faced when</p>
+                 <p>During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades towards visual objects and finally offer some perspectives in the conclusion.</p>
+<p>Let's first state the problem faced when adressing visual search in computer vision</p>
                 </aside>
 
 </section>
@@ -798,6 +798,9 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 
     // <script src="reveal.js-master/lib/js/head.min.js"></script>
     <script src="reveal.js-master/dist/reveal.js"></script>
+    <script src="reveal.js-master/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js-master/plugin/notes/notes.js"></script>
+    <script src="reveal.js-master/plugin/search/search.js"></script>
     <script src="reveal.js-master/plugin/markdown/markdown.js"></script>
     <script src="reveal.js-master/plugin/highlight/highlight.js"></script>
 
@@ -880,38 +883,21 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 theme: 'simple', // available themes are in /dist/theme
 
 
+                // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations.
+                showNotes: true,
+
                 math: {
             		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                 },
-            	chalkboard: {
-            		// optionally load pre-recorded chalkboard drawing from file
-            		src: "chalkboard.json",
-            	},
-                // Optional reveal.js plugins
-                dependencies: [
-                        { src: 'reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                        { src: 'reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        { src: 'reveal.js-master/plugin/chalkboard/chalkboard.js' },
-                        { src: 'reveal.js-master/plugin/zoom-js/zoom.js', async: true },
-                        { src: 'reveal.js-master/plugin/notes/notes.js', async: true },
-                        { src: 'reveal.js-master/plugin/math/math.js', async: true },
-                        { src: 'reveal.js-master/plugin/mathsvg/math.js', async: true },
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+
 
                 ],
-	keyboard: {
-	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
-	    66: function() {{ RevealChalkboard.toggleChalkboard() }},	// toggle chalkboard when 'b' is pressed
-	    46: function() {{ RevealChalkboard.clear() }},	// clear chalkboard when 'DEL' is pressed
-	     8: function() {{ RevealChalkboard.reset() }},	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-	    68: function() {{ RevealChalkboard.download() }},	// downlad recorded chalkboard drawing when 'd' is pressed
-	},
         });
         </script>
-
-
 
     </body>
 </html>
