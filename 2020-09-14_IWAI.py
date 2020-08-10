@@ -246,7 +246,8 @@ We propose here that such a strategy ("non uniform" convolution) allows for an e
 ####################### SLIDE 3 : MODELLING #########################
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
+# [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
+[os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
         title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
 notes="""
 This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
