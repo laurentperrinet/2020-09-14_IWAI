@@ -1,4 +1,4 @@
-default: github
+default: page
 
 SRC=2020-09-14_IWAI
 CHROMIUM=chromium
@@ -12,7 +12,8 @@ edit:
 
 page:
 	python3 $(SRC).py
-	# cat /tmp/talk.bib |pbcopy
+	#
+	cat /tmp/talk.bib |pbcopy
 	#atom ~/pool/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib
 	# academic ...
 
