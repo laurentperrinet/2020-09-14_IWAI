@@ -14,24 +14,24 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- General and theme style sheets -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/css/reveal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/css/theme/simple.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/css/zenburn.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/lib/css/zenburn.css">
 
         <!-- Printing and PDF exports -->
          <script>
                  var link = document.createElement( 'link' );
                  link.rel = 'stylesheet';
                  link.type = 'text/css';
-                 link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/paper.css';
+                 link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/css/print/paper.css';
                  document.getElementsByTagName( 'head' )[0].appendChild( link );
          </script>
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/html5shiv.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/lib/js/html5shiv.js"></script>
          <![endif]-->
     
         <!-- Get Font-awesome from cdn -->
@@ -53,8 +53,11 @@
 
                 <aside class="notes">
                  <ul>
-<li>(AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences of Systems in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Pierre Albiges and Laurent Perrinet from the Institute of Neurosciences of la Timone also in Marseille</li>
+<li>(AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences la Timone in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Laurent Perrinet</li>
 </ul>
+<p>Many thanks to the organizers for setting up this first conference on Active Inference</p>
+<p>Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
+As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.</p>
                 </aside>
                 
 </section>
@@ -90,7 +93,8 @@
                      </ol>
                     
                 <aside class="notes">
-                 
+                 <p>During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades twards visual objects and finally offer some perspectives in the conclusion.</p>
+<p>Let's first state the problem faced when</p>
                 </aside>
                 
 </section>
@@ -115,8 +119,7 @@
                  <ul>
 <li>(OBJECTIVE)</li>
 </ul>
-<p>Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by
-the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
+<p>Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
 through weight sharing  in convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
 to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
 systematically scanned and processed in parallel fashion at high computational cost.</p>
@@ -148,9 +151,9 @@ systematically scanned and processed in parallel fashion at high computational c
 <li>(OBJECTIVE)</li>
 </ul>
 <p>In contrast, when human vision is considered, things work quite differently.
-Indeed, human (and animal) vision rely on a non isotropic sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.</p>
-<p>Crucially, the human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
-<p>We propose here that such a strategy ("non isotropic" convolution) allows for an economic processing of images by processing independently the position from the category of objects</p>
+Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.</p>
+<p>Crucially,  human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
+<p>We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects</p>
                 </aside>
                 
 </section>
@@ -802,8 +805,8 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/js/reveal.js"></script>
 
         
 	<script>
@@ -894,15 +897,15 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
             	},
                 // Optional reveal.js plugins
                 dependencies: [
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/chalkboard/chalkboard.js' },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/zoom-js/zoom.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/notes/notes.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/math/math.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/mathsvg/math.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/chalkboard/chalkboard.js' },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/zoom-js/zoom.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/notes/notes.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/math/math.js', async: true },
+                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/mathsvg/math.js', async: true },
         
                 ],
 	keyboard: {
