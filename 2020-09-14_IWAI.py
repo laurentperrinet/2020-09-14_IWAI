@@ -173,12 +173,14 @@ s.add_slide(content=intro,
 
 Many thanks to the organizers for setting up this first conference on Active Inference
 
+
 Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
 As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
 
+
 """)
 
-
+# TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event
 
 ####################### OUTLINE ########################
 
@@ -246,8 +248,8 @@ We propose here that such a strategy ("non uniform" convolution) allows for an e
 ####################### SLIDE 3 : MODELLING #########################
 
 s.add_slide(content=s.content_figures(
-# [os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
-[os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
+#[os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
+  [os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
         title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
 notes="""
 This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
