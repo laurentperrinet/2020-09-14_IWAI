@@ -132,29 +132,6 @@ intro += """
 {Acknowledgements}
 """.format(**meta)
 #############################################################################
-# s.add_slide(content=intro)
-#
-# s.add_slide(content=s.content_figures(
-#     #[os.path.join(figpath_talk, 'qr.png')], bgcolor="black",
-#     [os.path.join(figpath_slides, 'mire.png')], bgcolor=meta['bgcolor'],
-#     height=s.meta['height']*1.),
-#     #image_fname=os.path.join(figpath_aSPEM, 'mire.png'),
-#     notes="""
-# Check-list:
-# -----------
-#
-# * (before) bring VGA adaptors, AC plug, remote, pointer
-# * (avoid distractions) turn off airport, screen-saver, mobile, sound, ... other running applications...
-# * (VP) open monitor preferences / calibrate / title page
-# * (timer) start up timer
-# * (look) @ audience
-#
-# http://pne.people.si.umich.edu/PDF/howtotalk.pdf
-#
-#  """)
-#
-# s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
-#             notes="All the material is available online - please flash this QRcode this leads to a page with links to further references and code ")
 
 #############################################################################
 #############################################################################
@@ -171,11 +148,11 @@ s.add_slide(content=intro,
             notes="""
 * (AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences la Timone in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Laurent Perrinet
 
-Many thanks to the organizers for setting up this first conference on Active Inference
+Many thanks to the organizers for setting up this first conference on Active Inference which...
 
 
 Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
-As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. 
+As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...
 
 """)
 
@@ -188,7 +165,7 @@ s.add_slide(content=s.content_figures(
 
 TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event
 
-We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
+... We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
 Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
 To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.
 
@@ -216,14 +193,17 @@ s.add_slide(content=s.content_figures(
 notes="""
 * (OBJECTIVE)
 
-Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, indeed artificial vision has been revolutioned by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. Their success relies on a reduction of parameter complexity
-through weight sharing  in convolutional neural networks applied over the full image. In order to increase the recognition capability, there has been an inflation in the number of layers needed
-to process the pixel information. Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. All regions, even the “boring” ones are
-systematically scanned and processed in parallel fashion at high computational cost.
+Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, 
+indeed artificial vision has been revolutioned by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. 
+Their success relies on a reduction of parameter complexity through weight sharing  in convolutional neural networks applied over the full image. 
+In order to increase the recognition capability, there has been an inflation in the number of layers needed to process the pixel information. 
+Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. 
+All regions, even the “boring” ones are systematically scanned and processed in parallel fashion at high computational cost.
 
+TODO : put in words
 Typical ML processing :
 - bounding boxes around objects of interest
-- (at best) Linear scaing in #pixels
+- (at best) Linear scaling in #pixels
 
 """)
 
@@ -239,7 +219,7 @@ notes="""
 In contrast, when human vision is considered, things work quite differently.
 Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.
 
-Crucially,  human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
+Crucially,  human vision is **dynamic**. The scanning of a full visual scene is not done in parallel but sequentially saccade after saccade, and only scene-relevant regions of interest are scanned through saccades. This implies a **decision process** at each step that decides **where to look next**.
 
 We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects
 
@@ -266,13 +246,9 @@ s.add_slide(content=s.content_figures(
   [os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
         title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
 notes="""
-This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of
-a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to
-disambiguate the scene.
+This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to disambiguate the scene.
 
-
-In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the
-current view point (model inversion).
+In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the current view point (model inversion).
 
 The more viewpoints you have, the more certain you are about the content of the scene.
 
