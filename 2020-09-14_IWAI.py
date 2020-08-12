@@ -175,12 +175,25 @@ Many thanks to the organizers for setting up this first conference on Active Inf
 
 
 Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
-As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
-
+As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment. 
 
 """)
 
-# TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event
+
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'CNS-what-where-diagram.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+
+TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event
+
+We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
+Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
+To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.
+
+
+""")
 
 ####################### OUTLINE ########################
 
@@ -189,6 +202,7 @@ title = meta['sections'][i_section]
 s.add_slide_outline(i_section,
 notes="""
 During this talk, I will briefly motivate the study, then detail the formalization path that we have taken here. Then we will present some results of our framework applied on modelling sacades towards visual objects and finally offer some perspectives in the conclusion.
+
 
 Let's first state the problem faced when adressing visual search in computer vision
 """)
