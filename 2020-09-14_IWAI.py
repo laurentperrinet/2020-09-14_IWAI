@@ -173,6 +173,21 @@ To lerarn such dual network we use the success (or not) of this classification t
 
 """)
 
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'scene-observer.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+
+TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event
+
+... We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
+Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
+To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.
+
+
+""")
+
 ####################### OUTLINE ########################
 
 title = meta['sections'][i_section]
