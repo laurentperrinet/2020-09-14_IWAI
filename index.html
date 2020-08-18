@@ -49,32 +49,6 @@
 <p>Many thanks to the organizers for setting up this first conference on Active Inference which...</p>
 <p>Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
 As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...</p>
-<p>Push test</p>
-                </aside>
-                
-</section>
-        <section><h3>Visual search as active inference</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=921.6>
-            
-            <tr padding=0px style="vertical-align:top" bgcolor=white>
-            
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <p>TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event</p>
-<p>... We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.
-Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
-To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.</p>
                 </aside>
                 
 </section>
@@ -96,14 +70,43 @@ To lerarn such dual network we use the success (or not) of this classification t
         </div>
         
                 <aside class="notes">
-                 <p>This work is about the design of an artificial vision system that ulilizes active vision principles to guide the eye toward visual targets. 
-At the heart of active inference is a generative model that explains how the sensory data is generated from extarnal sources and body movements. 
+                 <p>This work is about the design of an artificial vision system that utilizes active vision principles to guide the eye toward visual targets. </p>
+<p>In contrast to computer vision, human and animal vision is active. Eye movements are necessary to analyze a visual scene, and the combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. </p>
+<p>At the heart of active inference is a generative model that explains how the sensory data is generated from external sources and body movements. 
 The active inference consists in controlling the effectors so as to minimize the surprise. </p>
-<p>In the case of human (or animal) vision, the visual sensor (the retina) is non-isotropic, with a central fovea having lot of photoreceptors and a scarce density at the periphery.
+<p>In the case of human (or animal) vision, the visual sensor (the retina) is non-isotropic, with a central fovea having lot of photoreceptors at the center and a scarce receptor density at the periphery.
 The effect of moving the eye is to bring new visual data at the fovea, where the number of photoreceptors is higher.</p>
-<p>The agent expects its saccade to improve its understanding of the visual scene (identity of the target).</p>
-<p>For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. In prcatice, the surprise reduction can only be measured once the saccade is issued. </p>
-<p>This reduction of surprise is well measured by a quantity called the information gain. </p>
+<p>The agent then expects its saccade to improve its understanding of the visual scene (identity of the target).</p>
+<p>For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. </p>
+<p>This reduction of surprise thus needs to be guessed before the actual data read-out. 
+is well measured by a quantity called the information gain, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity (It is expected that the future belief will be more accurate than the present one). 
+For that, the eye movement must maximize the information gain. in other words, it must bring the fovea toward visual data that will increase the belief accuracy. </p>
+<p>We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.
+  because it is easier to predict the increase of belief acciracy than the category itself.</p>
+                </aside>
+                
+</section>
+        <section><h3>Visual search as active inference</h3>
+            <div align="center">
+            <table border=0px valign="top" bgcolor=white height=921.6>
+            
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
+            
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
+                <p>
+                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
+                </p>
+                </td>
+                
+            </tr>
+            
+        </table>
+        </div>
+        
+                <aside class="notes">
+                 <p>...
+Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
+To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.</p>
                 </aside>
                 
 </section>
