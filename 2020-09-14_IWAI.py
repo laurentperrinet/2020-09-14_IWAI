@@ -228,7 +228,12 @@ To learn such dual network we use the success (or not) of this classification to
 
 """)
 
-
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'lightning-results.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+""")
 
 ####################### OUTLINE ########################
 
