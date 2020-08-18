@@ -14,20 +14,11 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- General and theme style sheets -->
-        <link rel="stylesheet" href="reveal.js-master/css/reveal.css">
-        <link rel="stylesheet" href="reveal.js-master/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+        <link rel="stylesheet" href="reveal.js-master/dist/theme/simple.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="reveal.js-master/lib/css/zenburn.css">
-
-        <!-- Printing and PDF exports -->
-         <script>
-                 var link = document.createElement( 'link' );
-                 link.rel = 'stylesheet';
-                 link.type = 'text/css';
-                 link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-master/css/print/pdf.css' : 'reveal.js-master/css/print/paper.css';
-                 document.getElementsByTagName( 'head' )[0].appendChild( link );
-         </script>
+        <link rel="stylesheet" href="reveal.js-master/plugin/highlight/zenburn.css">
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
@@ -64,11 +55,11 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
 </section>
         <section><h3>Visual search as active inference</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
                 </p>
@@ -89,11 +80,11 @@ To lerarn such dual network we use the success (or not) of this classification t
 </section>
         <section><h3>Visual search as active inference</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/scene-observer.svg"  height="921px"   />
                 </p>
@@ -105,10 +96,14 @@ To lerarn such dual network we use the success (or not) of this classification t
         </div>
         
                 <aside class="notes">
-                 <p>TODO : rajouter une slide "lightning talk" : For the 15 and 30 minute talks, the first 3 minutes should consist of a self-contained, high-level overview of the contribution, similar to a spotlight presentation. The workshop organizers may choose to stream just this part of your presentation (depending on the format of the workshop), with the complete recording available for offline viewing before or after the event</p>
-<p>... We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.
-Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
-To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.</p>
+                 <p>This work is about the design of an artificial vision system that ulilizes active vision principles to guide the eye toward visual targets. 
+At the heart of active inference is a generative model that explains how the sensory data is generated from extarnal sources and body movements. 
+The active inference consists in controlling the effectors so as to minimize the surprise. </p>
+<p>In the case of human (or animal) vision, the visual sensor (the retina) is non-isotropic, with a central fovea having lot of photoreceptors and a scarce density at the periphery.
+The effect of moving the eye is to bring new visual data at the fovea, where the number of photoreceptors is higher.</p>
+<p>The agent expects its saccade to improve its understanding of the visual scene (identity of the target).</p>
+<p>For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. In prcatice, the surprise reduction can only be measured once the saccade is issued. </p>
+<p>This reduction of surprise is well measured by a quantity called the information gain. </p>
                 </aside>
                 
 </section>
@@ -151,11 +146,11 @@ To lerarn such dual network we use the success (or not) of this classification t
 </section>
         <section><h3>Computer vision</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-2-general-A.svg"  height="921px"   />
                 </p>
@@ -185,11 +180,11 @@ Typical ML processing :
 </section>
         <section><h3>Human vision</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-2-general-B.svg"  height="921px"   />
                 </p>
@@ -213,11 +208,11 @@ Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that
 </section>
         <section><h3>Statistical Viewpoint</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS - Modelling - I.png"  height="921px"   />
                 </p>
@@ -237,11 +232,11 @@ Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that
 </section>
         <section><h3>Attention vs. Scene Understanding</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS - Modelling - II.svg"  height="921px"   />
                 </p>
@@ -319,11 +314,11 @@ This allows to define salient regions in an image and draw saliency maps over an
 </section>
         <section><h3>Principles for central and peripheric vision</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where-principles.svg"  height="921px"   />
                 </p>
@@ -383,11 +378,11 @@ identify the person.</p>
 </section>
         <section><h3>Methods - ''Experimental'' setup</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=737.2800000000001>
+            <table border=0px valign="top" bgcolor=white height=737.2800000000001>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=737 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=737 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/fig_intro.jpg"  height="737px"   />
                 </p>
@@ -410,11 +405,11 @@ Different parameters are controlled, such as the target eccentricity, the backgr
 </section>
         <section><h3>Methods: What/Where separation</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where.svg"  height="921px"   />
                 </p>
@@ -439,11 +434,11 @@ The "Where" is not exactly where but rather: where should I look next in order t
 </section>
         <section><h3>Methods: Computational Graph</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
                 </p>
@@ -475,11 +470,11 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Methods: What</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-what-diagram.svg"  height="921px"   />
                 </p>
@@ -511,11 +506,11 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Methods: Where</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-where-diagram.svg"  height="921px"   />
                 </p>
@@ -585,10 +580,10 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Results: success</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=512.0>
+            <table border=0px valign="top" bgcolor=white height=512.0>
             
                 <tr style="vertical-align:middle" bgcolor="white"  height="256px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-saccade-8.png"  height="256px"  />
                     </p>
@@ -596,7 +591,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 </tr>
                 
                 <tr style="vertical-align:middle" bgcolor="white"  height="256px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-saccade-20.png"  height="256px"  />
                     </p>
@@ -613,10 +608,10 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Results: failure</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=614.4>
+            <table border=0px valign="top" bgcolor=white height=614.4>
             
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-saccade-46.png"  height="204px"  />
                     </p>
@@ -624,7 +619,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 </tr>
                 
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-saccade-47.png"  height="204px"  />
                     </p>
@@ -632,7 +627,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 </tr>
                 
                 <tr style="vertical-align:middle" bgcolor="white"  height="204px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-saccade-32.png"  height="204px"  />
                     </p>
@@ -650,10 +645,10 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Results: one saccade</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=512.0>
+            <table border=0px valign="top" bgcolor=white height=512.0>
             
                 <tr style="vertical-align:middle" bgcolor="white"  height="512px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/fig_result_robust_contrast_linear_0.7_1.svg"  height="512px"  />
                     </p>
@@ -671,10 +666,10 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Results: role of contrast</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
                 <tr style="vertical-align:middle" bgcolor="white"  height="921px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-results-contrast.svg"  height="921px"  />
                     </p>
@@ -692,10 +687,10 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>Results: more saccades</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
                 <tr style="vertical-align:middle" bgcolor="white"  height="921px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="white" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
                         <img class="plain" data-src="figures/CNS-results-saccades.svg"  height="921px"  />
                     </p>
@@ -712,11 +707,11 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section><h3>IG-based selection of action</h3>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=921.6>
+            <table border=0px valign="top" bgcolor=white height=921.6>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/CNS-IG-action-selection.svg"  height="921px"   />
                 </p>
@@ -838,11 +833,11 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
 </section>
         <section>
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor=white height=829.44>
+            <table border=0px valign="top" bgcolor=white height=829.44>
             
-            <tr padding=0px style="vertical-align:middle" bgcolor=white>
+            <tr padding=0px style="vertical-align:top" bgcolor=white>
             
-                <td height=829 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="white" >
+                <td height=829 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
                     <img class="plain" data-src="figures/qr.png"  height="829px"   />
                 </p>
@@ -864,8 +859,12 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
         </div>
     </div>
 
-    <script src="reveal.js-master/lib/js/head.min.js"></script>
-    <script src="reveal.js-master/js/reveal.js"></script>
+    <script src="reveal.js-master/dist/reveal.js"></script>
+    <script src="reveal.js-master/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js-master/plugin/notes/notes.js"></script>
+    <script src="reveal.js-master/plugin/search/search.js"></script>
+    <script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js-master/plugin/highlight/highlight.js"></script>
 
         
 	<script>
@@ -873,7 +872,6 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
-
         
                 // The "normal" size of the presentation, aspect ratio will be preserved
                 // when the presentation is scaled to fit different resolutions. Can be
@@ -892,7 +890,7 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 //history: false,
 
                 // Vertical centering of slides
-                center: false,
+                center: true,
 
                 // Enables touch navigation on devices with touch input
                 touch: true,
@@ -910,26 +908,6 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 // Enable the slide overview mode
                 overview: true,
 
-                // Loop the presentation
-                //loop: false,
-
-                // Change the presentation direction to be RTL
-                //rtl: false,
-
-                // Number of milliseconds between automatically proceeding to the
-                // next slide, disabled when set to 0, this value can be overwritten
-                // by using a data-autoslide attribute on your slides
-                //autoSlide: 0,
-
-                // Enable slide navigation via mouse wheel
-                //mouseWheel: false,
-
-                // Parallax background image
-                //parallaxBackgroundImage: '/Users/laurentperrinet/cloud_nas/2015_RTC/2014-04-17_HDR/figures/p4100011.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
-
-                // Parallax background size
-                //parallaxBackgroundSize: '3200px 2000px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
-
                 // This slide transition gives best results:
                 transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
@@ -943,41 +921,14 @@ Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compressio
                 fragments: true,
 
                 // Theme
-                theme: 'simple', // available themes are in /css/theme
+                theme: 'simple', // available themes are in /dist/theme
 
         
-                math: {
-            		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-                },
-            	chalkboard: {
-            		// optionally load pre-recorded chalkboard drawing from file
-            		src: "chalkboard.json",
-            	},
-                // Optional reveal.js plugins
-                dependencies: [
-                        { src: 'reveal.js-master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                        { src: 'reveal.js-master/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'reveal.js-master/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'reveal.js-master/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        { src: 'reveal.js-master/plugin/chalkboard/chalkboard.js' },
-                        { src: 'reveal.js-master/plugin/zoom-js/zoom.js', async: true },
-                        { src: 'reveal.js-master/plugin/notes/notes.js', async: true },
-                        { src: 'reveal.js-master/plugin/math/math.js', async: true },
-                        { src: 'reveal.js-master/plugin/mathsvg/math.js', async: true },
-        
-                ],
-	keyboard: {
-	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
-	    66: function() {{ RevealChalkboard.toggleChalkboard() }},	// toggle chalkboard when 'b' is pressed
-	    46: function() {{ RevealChalkboard.clear() }},	// clear chalkboard when 'DEL' is pressed
-	     8: function() {{ RevealChalkboard.reset() }},	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-	    68: function() {{ RevealChalkboard.download() }},	// downlad recorded chalkboard drawing when 'd' is pressed
-	},
-        });
-        </script>
 
-
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+            });
+    </script>
 
     </body>
 </html>
