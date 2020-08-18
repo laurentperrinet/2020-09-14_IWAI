@@ -160,14 +160,30 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'scene-observer.svg')],
+    [os.path.join(figpath_talk, 'scene-observer-1.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
 This work is about the design of an artificial vision system that utilizes active vision principles to guide the eye toward visual targets. 
+""")
+
+
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'scene-observer-1-1.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
 
 In contrast to computer vision, human and animal vision is active. Eye movements are necessary to analyze a visual scene, and the combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. 
+""")
 
+
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'scene-observer-2.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+    
 At the heart of active inference is a generative model that explains how the sensory data is generated from external sources and body movements. 
 The active inference consists in controlling the effectors so as to minimize the surprise. 
 
@@ -175,7 +191,13 @@ In the case of human (or animal) vision, the visual sensor (the retina) is non-i
 The effect of moving the eye is to bring new visual data at the fovea, where the number of photoreceptors is higher.
 
 The agent then expects its saccade to improve its understanding of the visual scene (identity of the target).
+""")
 
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'scene-observer-3.svg')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
 For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. 
 
 This reduction of surprise thus needs to be guessed before the actual data read-out. 
@@ -183,7 +205,7 @@ is well measured by a quantity called the information gain, that is a log differ
 For that, the eye movement must maximize the information gain. in other words, it must bring the fovea toward visual data that will increase the belief accuracy. 
 
   We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
-  because it is easier to predict the increase of belief acciracy than the category itself.
+  because it is easier to predict the recognition accuracy than the category itself.
 """)
 
 
@@ -193,10 +215,15 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
-
+In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background. The visual data is separated in two pathway, with the foveal data processed separately from the preipheral data. 
 ...
-Translated into a computational graph, we propose in a simplified paradigm that visual search amounts to transform the retinotopic representation of visual space into an accuracy map. This drives the eye toward a new position where the object is categorized.
-To lerarn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network in a supervised reinforcement scheme.
+On the one side, a ventral pathway predicts the target identity.
+On the other side, a dorsal pathway, that utilizes all the visual data, predicts an acuracy maps, that is the predicted increase of accuracy for different possible saccades. 
+This accuracy map is organized retinotopically, with a higher spatial definition at the center than at the periphery. 
+This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
+This drives the eye toward a new position where the target is categorized from the new foveal data.
+ 
+To learn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network, in a supervised way.
 
 
 """)
