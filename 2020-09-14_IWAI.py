@@ -154,6 +154,7 @@ Many thanks to the organizers for setting up this first conference on Active Inf
 Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
 As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...
 
+Push test
 """)
 
 
