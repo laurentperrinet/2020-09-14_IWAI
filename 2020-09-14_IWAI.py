@@ -644,8 +644,6 @@ s.add_slide(
            done
            """)
 
-s.close_section()
-
 s.add_slide(
 
  content=s.content_figures(
