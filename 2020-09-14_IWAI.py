@@ -221,15 +221,10 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
+
+we manipulate the contrast and the eccentricity...
 """)
 
-####################### SLIDE LIGHTNING ##################################
-s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'film_display9_SAC.png')],
-            title='Visual search as active inference', height=s.meta['height']*height_ratio),
-    notes="""
-In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
-""")
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
@@ -237,7 +232,7 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
- The visual data is separated in two pathway, with the foveal data processed separately from the preipheral data. 
+ The visual processing is separated in two pathway, with the foveal data processed separately from the preipheral data. 
 ...
 On the one side, a ventral pathway predicts the target identity.
 
