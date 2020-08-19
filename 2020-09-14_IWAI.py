@@ -647,8 +647,8 @@ s.add_slide(
 s.add_slide(
 
  content=s.content_figures(
-[os.path.join(figpath_talk, 'iwai-saccade-precision.pdf') ],
-     title="Saccades distribution",height=s.meta['height']*height_ratio),
+[os.path.join(figpath_talk, 'iwai-saccade-precision.png') ],
+     title="Saccades distribution",height=s.meta['height']*.4),
            notes = """
            done
            """)
@@ -689,7 +689,6 @@ s.add_slide(content="""
   - Information-gain based selection of action (saccade/pursuit)
 - A sub-linear object detection for image processing:
   - A full log-polar processing pathway (from early vision toward action selection)
-  - Sequential info gain converges to zero: in practice 2-3 saccades are enough
   - Ready for up-scaling
 - Object identity-based monitoring of action
   - Dorsal = ''actor'' (where to look next?)
@@ -705,7 +704,7 @@ s.add_slide(content="""
 - Information Gain-based decision :
   - Sequential info gain converges to zero: in practice 2-3 saccades are enough
   - Pursuit vs. saccade.
-  - Maximizing info gain on multiple targets/ddls.
+  - Maximizing info gain on multiple targets/DOFs.
     - Overt/covert attention
     - Inhibition of return
 """, md=True)
