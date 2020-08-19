@@ -635,19 +635,22 @@ TODO Manu : je mettrais plus d'exemple de fakes
 
 
 
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.pdf') ],
-title=title + ': more saccades', height=s.meta['height']*height_ratio, transpose=True),
-notes="""
-TODO 
-
-""")
-
 s.add_slide(
 
  content=s.content_figures(
 [os.path.join(figpath_talk, 'results-IG.png') ],
-     title="IG-based selection of action",height=s.meta['height']*height_ratio),
+     title="Effect of eccentricity",height=s.meta['height']*.6),
+           notes = """
+           done
+           """)
+
+s.close_section()
+
+s.add_slide(
+
+ content=s.content_figures(
+[os.path.join(figpath_talk, 'iwai-saccade-precision.pdf') ],
+     title="Saccades distribution",height=s.meta['height']*height_ratio),
            notes = """
            done
            """)
