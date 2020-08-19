@@ -44,11 +44,11 @@
 
                 <aside class="notes">
                  <ul>
-<li>(AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences la Timone in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Laurent Perrinet</li>
+<li>(AUTHOR) Hi, I am Emmanuel Daucé. I will present this work about <strong>modelling</strong>  visual search as active inference. This is a joint work with Laurent Perrinet, from the Institute of Neurosciences la Timone, in Marseille.</li>
 </ul>
-<p>Many thanks to the organizers for setting up this first conference on Active Inference which...</p>
-<p>Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
-As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...</p>
+<p>Many thanks to the organizers for setting up this first conference on Active Inference.</p>
+<p>This work is about the design of an artificial vision system that utilizes active vision principles to guide a visual sensor toward visual targets, like in a classic visual search task.</p>
+<p>Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories. As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...</p>
                 </aside>
                 
 </section>
@@ -70,7 +70,7 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
         </div>
         
                 <aside class="notes">
-                 <p>This work is about the design of an artificial vision system that utilizes active vision principles to guide the eye toward visual targets. </p>
+                 <p>So, in visual search, an observer is expected to find a target (cat, a tree or a person...) in a cluttered scene. </p>
                 </aside>
                 
 </section>
@@ -92,7 +92,9 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
         </div>
         
                 <aside class="notes">
-                 <p>In contrast to computer vision, human and animal vision is active. Eye movements are necessary to analyze a visual scene, and the combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. </p>
+                 <p>So, in contrast to computer vision, human and animal vision is active. Eye movements (e.g. saccades) are necessary to analyze a visual scene.
+The effect of a saccade is to bring new visual data at the fovea, where the number of photoreceptors is higher. 
+This combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. </p>
                 </aside>
                 
 </section>
@@ -114,11 +116,9 @@ As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visu
         </div>
         
                 <aside class="notes">
-                 <p>At the heart of active inference is a generative model that explains how the sensory data is generated from external sources and body movements. 
-The active inference consists in controlling the effectors so as to minimize the surprise. </p>
-<p>In the case of human (or animal) vision, the visual sensor (the retina) is non-isotropic, with a central fovea having lot of photoreceptors at the center and a scarce receptor density at the periphery.
-The effect of moving the eye is to bring new visual data at the fovea, where the number of photoreceptors is higher.</p>
-<p>The agent then expects its saccade to improve its understanding of the visual scene (identity of the target).</p>
+                 <p>In order to apply the active inference principles,</p>
+<p>First one need a <strong>generative model</strong> that explains how the sensory data is generated from external sources and body movements. 
+(in vision, the cause of the visual data is both the content of the scene and the orientation of the eye)</p>
                 </aside>
                 
 </section>
@@ -140,12 +140,15 @@ The effect of moving the eye is to bring new visual data at the fovea, where the
         </div>
         
                 <aside class="notes">
-                 <p>For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. </p>
-<p>This reduction of surprise thus needs to be guessed before the actual data read-out. 
-is well measured by a quantity called the information gain, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity (It is expected that the future belief will be more accurate than the present one). 
-For that, the eye movement must maximize the information gain. in other words, it must bring the fovea toward visual data that will increase the belief accuracy. </p>
-<p>We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing what it is, a difficult computational task perfectly encompassed by active inference.
-  because it is easier to predict the recognition accuracy than the category itself.</p>
+                 <p>Second, one needs <strong>to make predictions</strong>.
+In general, the observer predicts that its saccade will improve its understanding of the visual data.</p>
+<p>More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. </p>
+<p>In order to guess the surprise reduction before the actual data read-out, we need to <strong>train</strong> a model.</p>
+<p>The model is constructed around a quantity called the <strong>information gain</strong>, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity.
+<strong> both quantities need to be trained from the current visual data </strong></p>
+<p>Then, the agent must bring the fovea toward visual data that will <strong>maximize</strong> the information gain. </p>
+<p>We will see that -given the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing axactly what it is,
+because it is easier to predict the recognition accuracy than the category itself.</p>
                 </aside>
                 
 </section>
@@ -157,7 +160,7 @@ For that, the eye movement must maximize the information gain. in other words, i
             
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
+                    <img class="plain" data-src="figures/fig_methods.svg"  height="921px"   />
                 </p>
                 </td>
                 

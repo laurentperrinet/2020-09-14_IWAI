@@ -146,13 +146,14 @@ intro += """
 
 s.add_slide(content=intro,
             notes="""
-* (AUTHOR) Hello, I am Emmanuel Daucé from the Institute of Neurosciences la Timone in Marseille, a joint unit from the CNRS and the AMU. This is joint work with Laurent Perrinet
+* (AUTHOR) Hi, I am Emmanuel Daucé. I will present this work about **modelling**  visual search as active inference. This is a joint work with Laurent Perrinet, from the Institute of Neurosciences la Timone, in Marseille.
 
-Many thanks to the organizers for setting up this first conference on Active Inference which...
+Many thanks to the organizers for setting up this first conference on Active Inference.
+
+This work is about the design of an artificial vision system that utilizes active vision principles to guide a visual sensor toward visual targets, like in a classic visual search task.
 
 
-Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories.
-As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...
+  Today, I wish to view an important aspect of visual cognitive functions, Visual search, in light of active inference theories. As classicly formalized by past authors like Anne Treisman or Jeremy Wolfe, visual search is the common task of looking for a visual object in a cluttered visual environment...
 
 """)
 
@@ -164,7 +165,7 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
-This work is about the design of an artificial vision system that utilizes active vision principles to guide the eye toward visual targets. 
+ So, in visual search, an observer is expected to find a target (cat, a tree or a person...) in a cluttered scene. 
 """)
 
 
@@ -174,7 +175,9 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
-In contrast to computer vision, human and animal vision is active. Eye movements are necessary to analyze a visual scene, and the combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. 
+So, in contrast to computer vision, human and animal vision is active. Eye movements (e.g. saccades) are necessary to analyze a visual scene.
+The effect of a saccade is to bring new visual data at the fovea, where the number of photoreceptors is higher. 
+This combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. 
 """)
 
 
@@ -184,13 +187,11 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
     
-At the heart of active inference is a generative model that explains how the sensory data is generated from external sources and body movements. 
-The active inference consists in controlling the effectors so as to minimize the surprise. 
+In order to apply the active inference principles,
 
-In the case of human (or animal) vision, the visual sensor (the retina) is non-isotropic, with a central fovea having lot of photoreceptors at the center and a scarce receptor density at the periphery.
-The effect of moving the eye is to bring new visual data at the fovea, where the number of photoreceptors is higher.
+First one need a **generative model** that explains how the sensory data is generated from external sources and body movements. 
+(in vision, the cause of the visual data is both the content of the scene and the orientation of the eye)
 
-The agent then expects its saccade to improve its understanding of the visual scene (identity of the target).
 """)
 
 ####################### SLIDE LIGHTNING ##################################
@@ -198,20 +199,26 @@ s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'scene-observer-3.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
-For that, it needs a predictive model, that predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. 
+Second, one needs **to make predictions**.
+In general, the observer predicts that its saccade will improve its understanding of the visual data.
 
-This reduction of surprise thus needs to be guessed before the actual data read-out. 
-is well measured by a quantity called the information gain, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity (It is expected that the future belief will be more accurate than the present one). 
-For that, the eye movement must maximize the information gain. in other words, it must bring the fovea toward visual data that will increase the belief accuracy. 
+ More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. 
 
-  We will see that -taken the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing what it is, a difficult computational task perfectly encompassed by active inference.
-  because it is easier to predict the recognition accuracy than the category itself.
+In order to guess the surprise reduction before the actual data read-out, we need to **train** a model.
+
+The model is constructed around a quantity called the **information gain**, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity.
+** both quantities need to be trained from the current visual data **
+
+Then, the agent must bring the fovea toward visual data that will **maximize** the information gain. 
+
+We will see that -given the retinotopic arrangment of photoreceptor, this amounts to guess where an object is *before* knowing axactly what it is,
+because it is easier to predict the recognition accuracy than the category itself.
 """)
 
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'CNS-what-where-diagram.svg')],
+    [os.path.join(figpath_talk, 'fig_methods.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
