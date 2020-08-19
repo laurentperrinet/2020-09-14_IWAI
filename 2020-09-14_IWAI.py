@@ -232,7 +232,7 @@ we manipulate the contrast and the eccentricity...
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_methods.svg')],
+    [os.path.join(figpath_talk, 'CNS-what-where-diagram.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
@@ -243,16 +243,11 @@ s.add_slide(content=s.content_figures(
 On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.
 
 On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
-
-Like in mammals, the full visual field is stongly compressed using a retinotopic log-polar encoding.  
 This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
 
 This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
 This drives the eye toward a new position where the target is categorized from the new foveal data.
  
-To learn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network, in a supervised way.
-
-
 """)
 
 ####################### SLIDE LIGHTNING ##################################
@@ -549,9 +544,9 @@ The "Where" is not exactly where but rather: where should I look next in order t
 
 
 
-####################### SLIDE B 2, 3 & 4 ##################################
-subtitle = [': Computational Graph', ': What', ': Where']
-for i, fname in enumerate(['CNS-what-where-diagram', 'CNS-what-diagram', 'CNS-where-diagram']):
+####################### SLIDE B 2 ##################################
+subtitle = [': Computational Graph']
+for i, fname in enumerate(['CNS-what-where-diagram']):
     s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, fname + '.svg')],
             title=title + subtitle[i], height=s.meta['height']*height_ratio),
@@ -562,6 +557,19 @@ COMPUTATIONAL GRAPH :
 Here is the general computational graph of our active vision system.
 Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.
 
+
+    """)
+    
+
+####################### SLIDE B 3 ##################################
+subtitle = [': What']
+for i, fname in enumerate(['CNS-what-diagram']):
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, fname + '.svg')],
+            title=title + subtitle[i], height=s.meta['height']*height_ratio),
+    notes="""
+
+
 WHAT :
 
 At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
@@ -569,11 +577,24 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
 
     TODO: mettre le résultat de l'accuracy map pour faire la transition?
 
+
+    """)
+
+
+####################### SLIDE B 4 ##################################
+subtitle = [': Where']
+for i, fname in enumerate(['fig_where']):
+    s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, fname + '.svg')],
+            title=title + subtitle[i], height=s.meta['height']*height_ratio),
+    notes="""
+
 WHERE :
 
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 **Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
     """)
+
 
 s.close_section()
 
@@ -612,49 +633,20 @@ TODO Manu : je mettrais plus d'exemple de fakes
 """)
 
 
-if False:
-    s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.svg'),
-    os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-    title='Results', height=s.meta['height']*height_ratio, transpose=True,
-    fragment=True, list_of_weights=[1., 2.]),
-    notes="""
-    TODO Manu : insérer résultats avec différents contrastes
-
-    """)
-
-else:
-    s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.svg') ],
-    title=title + ': one saccade', height=s.meta['height']*.5, transpose=True),
-    notes="""
-    TODO Manu : insérer résultats avec différents contrastes
-
-    """)
-
-
-    s.add_slide(content=s.content_figures(
-    [#os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.png'),
-    os.path.join(figpath_talk, 'CNS-results-contrast.svg') ],
-    title=title + ': role of contrast', height=s.meta['height']*height_ratio, transpose=True),
-    notes="""
-    TODO Manu : insérer résultats avec différents contrastes
-
-    """)
 
 
 s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-results-saccades.svg') ],
+[os.path.join(figpath_talk, 'fig_result_robust_contrast_linear_0.7_1.pdf') ],
 title=title + ': more saccades', height=s.meta['height']*height_ratio, transpose=True),
 notes="""
-TODO Manu : insérer résultats avec différents contrastes
+TODO 
 
 """)
 
 s.add_slide(
 
  content=s.content_figures(
-[os.path.join(figpath_talk, 'CNS-IG-action-selection.svg') ],
+[os.path.join(figpath_talk, 'results-IG.png') ],
      title="IG-based selection of action",height=s.meta['height']*height_ratio),
            notes = """
            done

@@ -185,7 +185,7 @@ because it is easier to predict the recognition accuracy than the category itsel
             
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/fig_methods.svg"  height="921px"   />
+                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
                 </p>
                 </td>
                 
@@ -199,12 +199,10 @@ because it is easier to predict the recognition accuracy than the category itsel
 <p>The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
 ...
 On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.</p>
-<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an <strong>acuracy map</strong>, that predicts the increase of accuracy for different possible saccades. </p>
-<p>Like in mammals, the full visual field is stongly compressed using a retinotopic log-polar encoding.<br />
+<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an <strong>acuracy map</strong>, that predicts the increase of accuracy for different possible saccades. 
 This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. </p>
 <p>This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
 This drives the eye toward a new position where the target is categorized from the new foveal data.</p>
-<p>To learn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network, in a supervised way.</p>
                 </aside>
                 
 </section>
@@ -597,14 +595,6 @@ The "Where" is not exactly where but rather: where should I look next in order t
                  <p>COMPUTATIONAL GRAPH :</p>
 <p>Here is the general computational graph of our active vision system.
 Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.</p>
-<p>WHAT :</p>
-<p>At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
-It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.</p>
-<pre><code>TODO: mettre le résultat de l'accuracy map pour faire la transition?
-</code></pre>
-<p>WHERE :</p>
-<p>Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-<strong>Each possible future saccade has an expected accuracy, that can be trained from the what pathway output</strong>. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a <strong>logpolar accuracy map</strong>, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).</p>
                 </aside>
                 
 </section>
@@ -626,17 +616,11 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         </div>
         
                 <aside class="notes">
-                 <p>COMPUTATIONAL GRAPH :</p>
-<p>Here is the general computational graph of our active vision system.
-Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.</p>
-<p>WHAT :</p>
+                 <p>WHAT :</p>
 <p>At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
 It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.</p>
 <pre><code>TODO: mettre le résultat de l'accuracy map pour faire la transition?
 </code></pre>
-<p>WHERE :</p>
-<p>Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
-<strong>Each possible future saccade has an expected accuracy, that can be trained from the what pathway output</strong>. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a <strong>logpolar accuracy map</strong>, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).</p>
                 </aside>
                 
 </section>
@@ -648,7 +632,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
             
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/CNS-where-diagram.svg"  height="921px"   />
+                    <img class="plain" data-src="figures/fig_where.svg"  height="921px"   />
                 </p>
                 </td>
                 
@@ -658,15 +642,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         </div>
         
                 <aside class="notes">
-                 <p>COMPUTATIONAL GRAPH :</p>
-<p>Here is the general computational graph of our active vision system.
-Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.</p>
-<p>WHAT :</p>
-<p>At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
-It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.</p>
-<pre><code>TODO: mettre le résultat de l'accuracy map pour faire la transition?
-</code></pre>
-<p>WHERE :</p>
+                 <p>WHERE :</p>
 <p>Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 <strong>Each possible future saccade has an expected accuracy, that can be trained from the what pathway output</strong>. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a <strong>logpolar accuracy map</strong>, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).</p>
                 </aside>
@@ -775,48 +751,6 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
                 </aside>
                 
 </section>
-        <section><h3>Results: one saccade</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=512.0>
-            
-                <tr style="vertical-align:middle" bgcolor="white"  height="512px">
-                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
-                    <p>
-                        <img class="plain" data-src="figures/fig_result_robust_contrast_linear_0.7_1.svg"  height="512px"  />
-                    </p>
-                    </td>
-                </tr>
-                
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <pre><code>TODO Manu : insérer résultats avec différents contrastes
-</code></pre>
-                </aside>
-                
-</section>
-        <section><h3>Results: role of contrast</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=921.6>
-            
-                <tr style="vertical-align:middle" bgcolor="white"  height="921px">
-                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
-                    <p>
-                        <img class="plain" data-src="figures/CNS-results-contrast.svg"  height="921px"  />
-                    </p>
-                    </td>
-                </tr>
-                
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <pre><code>TODO Manu : insérer résultats avec différents contrastes
-</code></pre>
-                </aside>
-                
-</section>
         <section><h3>Results: more saccades</h3>
             <div align="center">
             <table border=0px valign="top" bgcolor=white height=921.6>
@@ -824,7 +758,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
                 <tr style="vertical-align:middle" bgcolor="white"  height="921px">
                     <td width="100%" style="text-align:top; vertical-align:top" bgcolor="white" >
                     <p>
-                        <img class="plain" data-src="figures/CNS-results-saccades.svg"  height="921px"  />
+                        <img class="plain" data-src="figures/fig_result_robust_contrast_linear_0.7_1.pdf"  height="921px"  />
                     </p>
                     </td>
                 </tr>
@@ -833,7 +767,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         </div>
         
                 <aside class="notes">
-                 <p>TODO Manu : insérer résultats avec différents contrastes</p>
+                 <p>TODO </p>
                 </aside>
                 
 </section>
@@ -845,7 +779,7 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
             
                 <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
                 <p>
-                    <img class="plain" data-src="figures/CNS-IG-action-selection.svg"  height="921px"   />
+                    <img class="plain" data-src="figures/results-IG.png"  height="921px"   />
                 </p>
                 </td>
                 
