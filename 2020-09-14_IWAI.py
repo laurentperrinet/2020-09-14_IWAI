@@ -507,7 +507,7 @@ if not os.path.isfile('figures/film_FIX.png'):
 for i in [0, 4, 8, 9]:
     s.add_slide(image_fname='figures/film_FIX.png')
     s.add_slide(image_fname=f'figures/film_display{i}.png')
-    s.add_slide(image_fname=f'figures/film_display{i}_SAC.png')
+    #s.add_slide(image_fname=f'figures/film_display{i}_SAC.png')
     s.add_slide(image_fname='figures/film_ANS.png')
 
 s.add_slide(content=s.content_figures(
