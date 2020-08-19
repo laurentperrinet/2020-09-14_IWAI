@@ -215,6 +215,21 @@ We will see that -given the retinotopic arrangment of photoreceptor, this amount
 because it is easier to predict the recognition accuracy than the category itself.
 """)
 
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'film_display9.png')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
+""")
+
+####################### SLIDE LIGHTNING ##################################
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath_talk, 'film_display9_sac.png')],
+            title='Visual search as active inference', height=s.meta['height']*height_ratio),
+    notes="""
+In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
+""")
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
@@ -222,10 +237,12 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
-In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background. The visual data is separated in two pathway, with the foveal data processed separately from the preipheral data. 
+ The visual data is separated in two pathway, with the foveal data processed separately from the preipheral data. 
 ...
 On the one side, a ventral pathway predicts the target identity.
-On the other side, a dorsal pathway, that utilizes all the visual data, predicts an acuracy maps, that is the predicted increase of accuracy for different possible saccades. 
+
+On the other side, a dorsal pathway, that utilizes all the peripheral visual data, predicts an acuracy map, that is the predicted increase of accuracy for different possible saccades. 
+
 This accuracy map is organized retinotopically, with a higher spatial definition at the center than at the periphery. 
 This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
 This drives the eye toward a new position where the target is categorized from the new foveal data.
