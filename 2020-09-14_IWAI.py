@@ -225,7 +225,7 @@ In order to test those ideas, we consider a simple visual search task, where an 
 
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'film_display9_sac.png')],
+    [os.path.join(figpath_talk, 'film_display9_SAC.png')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
