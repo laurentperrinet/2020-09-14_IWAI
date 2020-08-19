@@ -144,8 +144,10 @@ This combination of eye movements with visual data processing makes it an ideal 
 In general, the observer predicts that its saccade will improve its understanding of the visual data.</p>
 <p>More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. </p>
 <p>In order to guess the surprise reduction before the actual data read-out, we need to <strong>train</strong> a model.</p>
-<p>The model is constructed around a quantity called the <strong>information gain</strong>, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity.
-<strong> both quantities need to be trained from the current visual data </strong></p>
+<p>Assume that the category (or identity) of the stimulus is a variable explaining the visual data, predicting a certain distribution of pixels on the fovea. </p>
+<p>The model is constructed around a quantity called the <strong>information gain</strong>, that is a log difference between two scalar quantities, that is a probability on the target category as it is guessed from the future foveal data (after the saccade) minus the target category as it is guessed from the current foveal data.
+(or the future accuracy minus the current accuracy)</p>
+<p><strong> each quantity needs to be trained/guessed from the current visual data </strong></p>
 <p>Then, the agent must bring the fovea toward visual data that will <strong>maximize</strong> the information gain. </p>
 <p>We will see that -given the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing axactly what it is,
 because it is easier to predict the recognition accuracy than the category itself.</p>
@@ -193,12 +195,14 @@ because it is easier to predict the recognition accuracy than the category itsel
         </div>
         
                 <aside class="notes">
-                 <p>The visual processing is separated in two pathway, with the foveal data processed separately from the preipheral data. 
+                 <p><strong>The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.</strong> </p>
+<p>The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
 ...
-On the one side, a ventral pathway predicts the target identity.</p>
-<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data, predicts an acuracy map, that is the predicted increase of accuracy for different possible saccades. </p>
-<p>This accuracy map is organized retinotopically, with a higher spatial definition at the center than at the periphery. 
-This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
+On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.</p>
+<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an <strong>acuracy map</strong>, that predicts the increase of accuracy for different possible saccades. </p>
+<p>Like in mammals, the full visual field is stongly compressed using a retinotopic log-polar encoding.<br />
+This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. </p>
+<p>This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
 This drives the eye toward a new position where the target is categorized from the new foveal data.</p>
 <p>To learn such dual network we use the success (or not) of this classification to backpropagate the error gradient back in the Where network, in a supervised way.</p>
                 </aside>
@@ -222,7 +226,36 @@ This drives the eye toward a new position where the target is categorized from t
         </div>
         
                 <aside class="notes">
-                 
+                 <p>(from left to right)</p>
+<ol>
+<li>
+<p>The full visual field</p>
+</li>
+<li>
+<p>After a log polar encoding, the peripheral target is less visible</p>
+</li>
+<li>
+<p>this is the true acuracy map</p>
+</li>
+<li>
+<p>this is the predicted acc map</p>
+</li>
+<li>
+<p>this is the visual data collected at the fovea after the saccade.</p>
+</li>
+</ol>
+<p>Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.</p>
+<ul>
+<li>
+<p>Considerable increase of the surface of the fovea</p>
+</li>
+<li>
+<p>Sub linear processing of the full image</p>
+</li>
+<li>
+<p>an increase of the information content, with now both the position and identity information  </p>
+</li>
+</ul>
                 </aside>
                 
 </section>

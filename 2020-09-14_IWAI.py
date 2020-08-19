@@ -206,8 +206,12 @@ In general, the observer predicts that its saccade will improve its understandin
 
 In order to guess the surprise reduction before the actual data read-out, we need to **train** a model.
 
-The model is constructed around a quantity called the **information gain**, that is a log difference between two scalar quantities, that are the future and the current beliefs about visual target identity.
-** both quantities need to be trained from the current visual data **
+Assume that the category (or identity) of the stimulus is a variable explaining the visual data, predicting a certain distribution of pixels on the fovea. 
+
+The model is constructed around a quantity called the **information gain**, that is a log difference between two scalar quantities, that is a probability on the target category as it is guessed from the future foveal data (after the saccade) minus the target category as it is guessed from the current foveal data.
+(or the future accuracy minus the current accuracy)
+
+** each quantity needs to be trained/guessed from the current visual data **
 
 Then, the agent must bring the fovea toward visual data that will **maximize** the information gain. 
 
@@ -232,13 +236,17 @@ s.add_slide(content=s.content_figures(
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
 
- The visual processing is separated in two pathway, with the foveal data processed separately from the preipheral data. 
+**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
+
+ The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
 ...
-On the one side, a ventral pathway predicts the target identity.
+On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.
 
-On the other side, a dorsal pathway, that utilizes all the peripheral visual data, predicts an acuracy map, that is the predicted increase of accuracy for different possible saccades. 
+On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
 
-This accuracy map is organized retinotopically, with a higher spatial definition at the center than at the periphery. 
+Like in mammals, the full visual field is stongly compressed using a retinotopic log-polar encoding.  
+This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
+
 This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
 This drives the eye toward a new position where the target is categorized from the new foveal data.
  
@@ -252,6 +260,26 @@ s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'lightning-results.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
+(from left to right)
+
+1. The full visual field
+
+2. After a log polar encoding, the peripheral target is less visible
+
+3. this is the true acuracy map
+
+4. this is the predicted acc map
+
+5. this is the visual data collected at the fovea after the saccade.
+
+Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
+
+- Considerable increase of the surface of the fovea
+
+- Sub linear processing of the full image
+
+- an increase of the information content, with now both the position and identity information  
+    
 """)
 
 ####################### OUTLINE ########################
