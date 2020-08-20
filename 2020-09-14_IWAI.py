@@ -206,13 +206,11 @@ Second, one needs **to make predictions**.
 In general, the observer predicts that its saccade will improve its understanding of the visual data.
 
 
-** each quantity needs to be trained/guessed from the current visual data **
+Starting from the information gain metric, We make the assumption that the  visual processing separates in two parts, namely a ventral and a dorsal pathway. 
 
-Starting from the information gain metric, We make the very assumption that the calculation separates in two parts the visual processing into a ventral and a dorsal pathway. 
+The ventral (or identity) predics the target identity from the current foveal data 
 
-The venral (or identity) extracts the target identity from the current foveal data 
-
-the dorsal (position) pathways predicts the future classificatin accuracy from the 
+the dorsal (position) pathways predicts the future classificatin accuracy from the peripheral data
 
 This is very specific : in the current visual field you don't have enough informatio to identify the peripheral target, but you have enough information to guess that if you move the eye, then you will be good at recognizing the target. you don't know what it is but you guess that its important looking there.
 
