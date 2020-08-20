@@ -403,7 +403,7 @@ This allows to define salient regions in an image and draw saliency maps over an
 
 Top down : (sequential decision)
 
-A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field (an ideal observer that knows everything about how the visual data is generated), and given a statistics over the hypothesis space (Where is Waldo?), the model decides **where to look next** : choose the next viewpoint that will provide the best **information gain**. The selection is reiterated several times until enough evidence is gathered.
+A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field, the model decides **where to look next** : choose the next viewpoint that will provide the best **information gain**. The selection is reiterated several times until enough evidence is gathered.
 
 In general, the active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the **posterior entropy** given an history of past actions (viewpoints), that corresponds to a better understanding of the visual scene.
 
@@ -457,10 +457,9 @@ We concentrate her on the foveal vision case
 What is specific with foveal vision?
 Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)
 The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field
-In a foveal vision setting, the current view may allow you to tell there is an object of interest in your peripheral vision (for instance a face),that you can not identify, and you need to make a saccade to
-identify the person.
 
-So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. This basically means making a choice of “what’s interesting next”. You do not necessarily need to know what it is, but you need to that it’s interesting enough, and of course you need to know what action to take to move the center of fixation at the right position.
+
+So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. 
 
 If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.
 
@@ -562,23 +561,22 @@ s.add_slide(content=s.content_figures(
 notes="""
 
 
-We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
+We consider a separate processing of the central part of the visual field and the periphery.
 
 
-We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label.
+IN order to predict the information gain, we consider a slight simplification, that is sampling the prior and the posterior on the true label.
 The information gain becomes the difference of the future accuracy and the central accuracy.
-The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.
 
-
-**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
 
 The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
 Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
 The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?
 """)
 
-
+"""
+**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
+"""
 
 ####################### SLIDE B 2 ##################################
 subtitle = [': Computational Graph']
@@ -596,8 +594,7 @@ Here is the general computational graph of our active vision system.
 Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.
 
 
-This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
-This drives the eye toward a new position where the target is categorized from the new foveal data.
+This allows to implement a simple accuracy-seeking policy, that drives the eye toward a new position where the target is categorized from the new foveal data.
 
     """)
     
@@ -613,10 +610,15 @@ for i, fname in enumerate(['CNS-what-diagram']):
 
 WHAT :
 
-On the one side, a ventral pathway predicts the target identity,  inspecting the current foveal data.
+On the one side, a ventral pathway predicts the target identity from the current foveal data.
 
-At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
-It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.
+The what pathway is a classic convolutional clasifier.
+
+It shows some translation invariance. 
+
+It can quantify its uncertainty. 
+
+It monitors the where pathway.
 
     TODO: mettre le résultat de l'accuracy map pour faire la transition?
 
@@ -634,15 +636,15 @@ for i, fname in enumerate(['fig_where']):
 
 WHERE :
 
-On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
-
-This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
+On the other side, a dorsal pathway, that utilizes all the peripheral visual data. 
 
 
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 **Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
     """)
+"""The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
 
+This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. """
 
 s.close_section()
 
@@ -705,10 +707,10 @@ notes = """
 Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
            
            
-** The effect of a saccade is to consderably increase the surface of the visual scene where you ca recognize a target **
+** The effect of a saccade is to consderably increase the diameter of the visual scene region where you can recognize a target **
            
            
-- Considerable increase of the surface of the fovea
+- Considerable increase of amount of visual information you can process (it is sort of like increasing the surface of the fovea)
 
 - Sub linear processing of the full image
 
