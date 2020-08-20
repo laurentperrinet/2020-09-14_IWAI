@@ -365,19 +365,20 @@ Crucially,  human vision is **dynamic**. The scanning of a full visual scene is 
 #""")
 
 ####################### SLIDE 3 : MODELLING #########################
+if False:
+	s.add_slide(content=s.content_figures(
+	#[os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
+	  [os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
+			title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
+	notes="""
+	This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to disambiguate the scene.
 
-s.add_slide(content=s.content_figures(
-#[os.path.join(figpath_talk, 'CNS - Modelling - I.svg')],
-  [os.path.join(figpath_talk, 'CNS - Modelling - I.png')],
-        title='Statistical Viewpoint', height=s.meta['height']*height_ratio),
-notes="""
-This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to disambiguate the scene.
+	(In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the current view point (model inversion).)
 
-(In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the current view point (model inversion).)
+	(The more viewpoints you have, the more certain you are about the content of the scene.)
 
-(The more viewpoints you have, the more certain you are about the content of the scene.)
-
-""")
+	""")
+	
 ####################### SLIDE 4 : MODELLING (CONTINUED) #########################
 # author, year, journal, title='', url=None
 bib = s.content_bib("Laurent Itti and Christof Koch", "2000", "Vision Research", url="http://ilab.usc.edu/publications/doc/Itti_Koch00vr.pdf")
