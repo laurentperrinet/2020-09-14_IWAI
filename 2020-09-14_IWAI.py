@@ -750,28 +750,29 @@ s.add_slide(content="""
 - A new interpretation of Information Gain in visuo-motor action selection :
   - Center-surround interpretation
   - An effective decoding scheme with strong bandwidth reduction
-  - Information-gain based selection of action (saccade/pursuit)
+  - Information-gain based selection of action (actor/critic)
 - A sub-linear object detection for image processing:
   - A full log-polar processing pathway (from early vision toward action selection)
   - Ready for up-scaling
-- Object identity-based monitoring of action
-  - Dorsal = ''actor'' (where to look next?)
-  - Ventral = ''critic'' (for what to see?)
+- The combination of accuracy predition and accuracy-seeking policies can be formally recast 
+in an active inference framework (see paper)
+
 """, md=True)
 
-s.add_slide(content="""
-## Limits and Open questions
-- Importance of centering objects:
-  - Central object referential
-  - log polar scale/rotation invariance
-  - (feedback) prediction
-- Information Gain-based decision :
-  - Sequential info gain converges to zero: in practice 2-3 saccades are enough
-  - Pursuit vs. saccade.
-  - Maximizing info gain on multiple targets/DOFs.
-    - Overt/covert attention
-    - Inhibition of return
-""", md=True)
+if False:
+	s.add_slide(content="""
+	## Limits and Open questions
+	- Importance of centering objects:
+	  - Central object referential
+	  - log polar scale/rotation invariance
+	  - (feedback) prediction
+	- Information Gain-based decision :
+	  - Sequential info gain converges to zero: in practice 2-3 saccades are enough
+	  - Pursuit vs. saccade.
+	  - Maximizing info gain on multiple targets/DOFs.
+		- Overt/covert attention
+		- Inhibition of return
+	""", md=True)
 
 #
 # s.add_slide(content="""
