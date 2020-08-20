@@ -94,7 +94,7 @@
                 <aside class="notes">
                  <p>So, in contrast to computer vision, human and animal vision is active. Eye movements (e.g. saccades) are necessary to analyze a visual scene.
 The effect of a saccade is to bring new visual data at the fovea, where the number of photoreceptors is higher. 
-This combination of eye movements with visual data processing makes it an ideal testbed for the active inference principles. </p>
+This combination of eye movements with visual data processing makes it an excellent example to test the active inference principles. </p>
                 </aside>
                 
 </section>
@@ -117,8 +117,7 @@ This combination of eye movements with visual data processing makes it an ideal 
         
                 <aside class="notes">
                  <p>In order to apply the active inference principles,</p>
-<p>First one need a <strong>generative model</strong> that explains how the sensory data is generated from external sources and body movements. 
-(in vision, the cause of the visual data is both the content of the scene and the orientation of the eye)</p>
+<p>First one need a <strong>generative model</strong> that explains how the sensory data is generated from external sources and body movements. </p>
                 </aside>
                 
 </section>
@@ -214,7 +213,7 @@ because it is easier to predict the recognition accuracy than the category itsel
 <p>Past 10 years have seen a huge development of machine learning/deep learning based image processing. 
 The field of artificial vision has been recast by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. </p>
 <p>UNfortunately, the processing of large images is done at a cost that scales linearly with the number of pixels (that scale quadratically with the image resolution). 
-All regions, even the “boring” ones are systematically scanned and processed in parallel fashion at high computational cost.</p>
+(All regions, even the “boring” ones are systematically scanned and processed in parallel fashion at high computational cost.)</p>
 <p>TODO : put in words
 Typical ML processing :
 - bounding boxes around objects of interest
@@ -246,7 +245,7 @@ Typical ML processing :
 <p>In contrast, when human vision is considered, things work quite differently.
 Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that has a very high resolution at the center of fixation and a very poor resolution at the periphery.</p>
 <p>Crucially,  human vision is <strong>dynamic</strong>. The scanning of a full visual scene is not done in parallel but sequentially saccade after saccade, and only scene-relevant regions of interest are scanned through saccades. This implies a <strong>decision process</strong> at each step that decides <strong>where to look next</strong>.</p>
-<p>We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects</p>
+<p>(We propose here that such a strategy ("non uniform" convolution) allows for an economic processing of images by processing independently the position from the category of objects)</p>
                 </aside>
                 
 </section>
@@ -269,8 +268,8 @@ Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that
         
                 <aside class="notes">
                  <p>This kind of reasoning can be captured by a statistical framework called a POMDP (partially observed Markov Decision Process) where the cause of a visual field is couple made of a viewpoint and scene elements. Changing the viewpoint will conduct to a different scene rendering. Knowing the current view, you need to choose the next viewpoint that will help you to disambiguate the scene.</p>
-<p>In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the current view point (model inversion).</p>
-<p>The more viewpoints you have, the more certain you are about the content of the scene.</p>
+<p>(In a classic inference framework, a (generative) model tells how typically looks the visual field knowing the scene elements and a certain viewpoint . Using bayes rule, you may then infer the scene elements from the current view point (model inversion).)</p>
+<p>(The more viewpoints you have, the more certain you are about the content of the scene.)</p>
                 </aside>
                 
 </section>
@@ -293,7 +292,7 @@ Indeed, human (and animal) vision rely on a non uniform sensor (the retina) that
         
                 <aside class="notes">
                  <p>Given a generative model of the environment, one can define a quantity called the bayesian surprise that tells how different is the visual data from your initial guess.
-Itti and Koch predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
+Itti and Baldi predict that that the eye is attracted by the bayesian surprise, i.e. by the regions of the image that depart the most from the baseline image statistics.
 This allows to define salient regions in an image and draw saliency maps over an image that can predict where the eye is attracted the most.  This may explain up to 50% of the human scan path, but it is purely phenomenological.</p>
 <ul>
 <li>Laurent Itti and Christof Koch. <strong>A saliency-based search mechanism
@@ -305,7 +304,7 @@ This allows to define salient regions in an image and draw saliency maps over an
 </ul>
 <p>Top down : (sequential decision)</p>
 <p>A more detailed modelling originally proposed by Najemnik and Geisler proposes a sequential model of natural vision in a visual search task. Given a generative model of the visual field, the model decides <strong>where to look next</strong> : choose the next viewpoint that will provide the best <strong>information gain</strong>. The selection is reiterated several times until enough evidence is gathered.</p>
-<p>In general, the active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the <strong>posterior entropy</strong> given an history of past actions (viewpoints), that corresponds to a better understanding of the visual scene.</p>
+<p>(In general, the active inference setup means using a generative model to quantify the benefit of doing a certain action (changing viewpoint) to reduce the <strong>posterior entropy</strong> given an history of past actions (viewpoints), that corresponds to a better understanding of the visual scene.)</p>
 <ul>
 <li>J Najemnik and Wilson S. Geisler. <strong>Optimal eye movement
         strategies in visual search</strong>. In: Nature reviews. Neuroscience
@@ -376,157 +375,108 @@ This allows to define salient regions in an image and draw saliency maps over an
                 <aside class="notes">
                  <p>So what we propose here is to go a little further in a biomimetic implementation of an artificial vision system.
 (Why : biomimetic systems are the result of a continual optimization throughout ages of evolution: they optimize signal processing under strong material and energy constraints, for specific surfival purposes.)</p>
-<p>Objective : build an effective artificial foveal vision
-We concentrate her on the foveal vision case</p>
+<p>We concentrate her on the foveal vision case</p>
 <p>What is specific with foveal vision?
 Foveal vision is a trick that was selected by natural selection : a compromise between resource saving and accuracy (budgeted vision)
 The fovea that concentrates most of the photoreceptors, represents less than 2% of the total visual field</p>
 <p>So in order to analyze a complex visual scene, there are two types of processing that need to be done. On the one side, you need  to process in detail what is at the center of fixation, that is the region of interest currently processed. On the other side, you also need to analyze the surrounding part, even if the resolution is low, in order to choose what is the next position of fixation. </p>
-<p>If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.</p>
+<p>(If we consider now the information gain metric, it shows an interesting correspondence with the central/peripheral processing trade-off. In a sequential setup, the rightmost term can be interpreted as the current state if understanding before the saccade is actuated, that is the information present at the center of the retina -- and the left term can be seen as the future state of understanding after the saccade is executed, that relies on interpreting the peripheral information.)</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_display0.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_display4.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_display8.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_display9.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
         <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
                 <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<pre><code>we manipulate the contrast and the eccentricity...
-</code></pre>
-<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, We reproduce in simulation the conditions of a psychophysic experiment, where an agent is asked to identify a target from a cluttered background.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
-This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to vary the difficulty of the task.</p>
                 </aside>
                 
 </section>
@@ -549,12 +499,12 @@ Different parameters are controlled, such as the target eccentricity, the backgr
         
                 <aside class="notes">
                  <p>We consider a separate processing of the central part of the visual field and the periphery.</p>
-<p>IN order to predict the information gain, we consider a slight simplification, that is sampling the prior and the posterior on the true label.
+<p>(IN order to predict the information gain, we consider a slight simplification, that is sampling the prior and the posterior on the true label.)
 The information gain becomes the difference of the future accuracy and the central accuracy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.</p>
-<p>The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
-Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
-The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?</p>
+<p>The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.</p>
+<p>(//Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
+The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?//)</p>
                 </aside>
                 
 </section>
@@ -631,7 +581,7 @@ Two streams of information are separated from the visual primary layers, one str
         
                 <aside class="notes">
                  <p>WHERE :</p>
-<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. </p>
+<p>On the other side, a dorsal pathway utilizes all the peripheral visual data. </p>
 <p>Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 <strong>Each possible future saccade has an expected accuracy, that can be trained from the what pathway output</strong>. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a <strong>logpolar accuracy map</strong>, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).</p>
                 </aside>
