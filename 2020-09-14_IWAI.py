@@ -320,11 +320,10 @@ s.add_slide(content=s.content_figures(
 notes="""
 * (OBJECTIVE)
 
-Past 5-10 years have seen a huge development of machine learning/deep learning based image processing, 
-indeed artificial vision has been revolutioned by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. 
-Their success relies on a reduction of parameter complexity through weight sharing  in convolutional neural networks applied over the full image. 
-In order to increase the recognition capability, there has been an inflation in the number of layers needed to process the pixel information. 
-Finally, the processing of large images can be done at a cost that scales quadratically with the image resolution. 
+Past 10 years have seen a huge development of machine learning/deep learning based image processing. 
+The field of artificial vision has been recast by the incredible capability of convolution-based deep networks to capture the semantic content of images/photographs. 
+
+UNfortunately, the processing of large images is done at a cost that scales linearly with the number of pixels (that scale quadratically with the image resolution). 
 All regions, even the “boring” ones are systematically scanned and processed in parallel fashion at high computational cost.
 
 TODO : put in words
