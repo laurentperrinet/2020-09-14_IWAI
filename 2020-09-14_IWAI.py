@@ -194,6 +194,9 @@ First one need a **generative model** that explains how the sensory data is gene
 
 """)
 
+
+
+
 ####################### SLIDE LIGHTNING ##################################
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'scene-observer-3.svg')],
@@ -202,16 +205,21 @@ s.add_slide(content=s.content_figures(
 Second, one needs **to make predictions**.
 In general, the observer predicts that its saccade will improve its understanding of the visual data.
 
- More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. 
-
-In order to guess the surprise reduction before the actual data read-out, we need to **train** a model.
-
-Assume that the category (or identity) of the stimulus is a variable explaining the visual data, predicting a certain distribution of pixels on the fovea. 
-
-The model is constructed around a quantity called the **information gain**, that is a log difference between two scalar quantities, that is a probability on the target category as it is guessed from the future foveal data (after the saccade) minus the target category as it is guessed from the current foveal data.
-(or the future accuracy minus the current accuracy)
 
 ** each quantity needs to be trained/guessed from the current visual data **
+
+Starting from the information gain metric, We make the very assumption that the calculation separates in two parts the visual processing into a ventral and a dorsal pathway. 
+
+The venral (or identity) extracts the target identity from the current foveal data 
+
+the dorsal (position) pathways predicts the future classificatin accuracy from the 
+
+This is very specific : in the current visual field you don't have enough informatio to identify the peripheral target, but you have enough information to guess that if you move the eye, then you will be good at recognizing the target. you don't know what it is but you guess that its important looking there.
+
+so if you want the detail of our implementation, you have to listen to the full presentation. 
+ 
+
+
 
 Then, the agent must bring the fovea toward visual data that will **maximize** the information gain. 
 
@@ -219,63 +227,79 @@ We will see that -given the retinotopic arrangment of photoreceptor, this amount
 because it is easier to predict the recognition accuracy than the category itself.
 """)
 
-####################### SLIDE LIGHTNING ##################################
-s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_talk, 'film_display9.png')],
-            title='Visual search as active inference', height=s.meta['height']*height_ratio),
-    notes="""
-In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
+""" More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. 
 
-we manipulate the contrast and the eccentricity...
-""")
+In order to guess the surprise reduction before the actual data read-out, we need to **train** a model.
 
+Assume that the category (or identity) of the stimulus is a variable explaining the visual data, predicting a certain distribution of pixels on the fovea. 
+
+The model is constructed around a quantity called the **information gain**, that is a log difference between two scalar quantities, that is a probability on the target category as it is guessed from the future foveal data (after the saccade) minus the target category as it is guessed from the current foveal data.
+(or the future accuracy minus the current accuracy)"""
 
 ####################### SLIDE LIGHTNING ##################################
-s.add_slide(content=s.content_figures(
+if False:
+	s.add_slide(content=s.content_figures(
+		[os.path.join(figpath_talk, 'film_display9.png')],
+				title='Visual search as active inference', height=s.meta['height']*height_ratio),
+		notes="""
+	In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
+
+	we manipulate the contrast and the eccentricity...
+	""")
+
+
+####################### SLIDE LIGHTNING ##################################
+if False:
+	s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'CNS-what-where-diagram.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
+	**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
 
-**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
+	 The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
+	...
+	On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.
 
- The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
-...
-On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.
+	On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
+	This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
 
-On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
-This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
-
-This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
-This drives the eye toward a new position where the target is categorized from the new foveal data.
- 
-""")
+	This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
+	This drives the eye toward a new position where the target is categorized from the new foveal data.
+	 
+	""")
 
 ####################### SLIDE LIGHTNING ##################################
-s.add_slide(content=s.content_figures(
+if False:
+	s.add_slide(content=s.content_figures(
     [os.path.join(figpath_talk, 'lightning-results.svg')],
             title='Visual search as active inference', height=s.meta['height']*height_ratio),
     notes="""
-(from left to right)
+		
+	** 1. The effect of a saccade is to bring relevant visual data at the fovea**
 
-1. The full visual field
+	** 2. The effect of a saccade is to consderably increase the surface of the visual scene where you ca recognize a target **
+		
+	(from left to right)
 
-2. After a log polar encoding, the peripheral target is less visible
+	1. The full visual field
 
-3. this is the true acuracy map
+	2. After a log polar encoding, the peripheral target is less visible
 
-4. this is the predicted acc map
+	3. this is the true acuracy map
 
-5. this is the visual data collected at the fovea after the saccade.
+	4. this is the predicted acc map
 
-Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
+	5. this is the visual data collected at the fovea after the saccade.
 
-- Considerable increase of the surface of the fovea
+	Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
 
-- Sub linear processing of the full image
+	- Considerable increase of the surface of the fovea
 
-- an increase of the information content, with now both the position and identity information  
-    
-""")
+	- Sub linear processing of the full image
+
+	- an increase of the information content, with now both the position and identity information  
+		
+	""")
 
 ####################### OUTLINE ########################
 
@@ -498,31 +522,40 @@ if not os.path.isfile('figures/film_FIX.png'):
     ax.set_xticks([])
     ax.set_yticks([])
     fig.savefig('figures/film_ANS.png', **opts_save)
+    
+notes="""In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.
 
-for i in [0, 4, 8, 9]:
-    s.add_slide(image_fname='figures/film_FIX.png')
-    s.add_slide(image_fname=f'figures/film_display{i}.png')
-    #s.add_slide(image_fname=f'figures/film_display{i}_SAC.png')
-    s.add_slide(image_fname='figures/film_ANS.png')
-
-s.add_slide(content=s.content_figures(
-[os.path.join(figpath_talk, 'fig_intro.jpg')],
-        title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio*.8),
-notes="""
-
+	we manipulate the contrast and the eccentricity...
 
 We reproduce in simulation the conditions of a psychophysic experiment.
 
 The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.
-Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task."""
 
-(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target.
+for i in [0, 4, 8, 9]:
+    s.add_slide(image_fname='figures/film_FIX.png', notes=notes)
+    s.add_slide(image_fname=f'figures/film_display{i}.png', notes=notes)
+    #s.add_slide(image_fname=f'figures/film_display{i}_SAC.png')
+    s.add_slide(image_fname='figures/film_ANS.png', notes=notes)
+    
+if False:
+	s.add_slide(content=s.content_figures(
+	[os.path.join(figpath_talk, 'fig_intro.jpg')],
+			title=title + " - ''Experimental'' setup", height=s.meta['height']*height_ratio*.8),
+	notes="""
 
-(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
+
+	The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+	This corresponds to a classic environment control in psychophysic experiments.
+	Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.
+
+	(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target.
+
+	(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.
 
 
-""")
+	""")
 
 ####################### SLIDE B 1.5 ##################################
 
@@ -530,12 +563,18 @@ s.add_slide(content=s.content_figures(
 [os.path.join(figpath_talk, 'CNS-what-where.svg')],
         title=title + ": What/Where separation", height=s.meta['height']*height_ratio),
 notes="""
-Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
+
+
+We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.
+
 
 We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label.
 The information gain becomes the difference of the future accuracy and the central accuracy.
 The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.
+
+
+**The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.** 
 
 The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
 Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
@@ -553,10 +592,15 @@ for i, fname in enumerate(['CNS-what-where-diagram']):
     notes="""
 
 COMPUTATIONAL GRAPH :
+
+
     
 Here is the general computational graph of our active vision system.
 Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.
 
+
+This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
+This drives the eye toward a new position where the target is categorized from the new foveal data.
 
     """)
     
@@ -571,6 +615,8 @@ for i, fname in enumerate(['CNS-what-diagram']):
 
 
 WHAT :
+
+On the one side, a ventral pathway predicts the target identity,  inspecting the current foveal data.
 
 At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
 It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.
@@ -590,6 +636,11 @@ for i, fname in enumerate(['fig_where']):
     notes="""
 
 WHERE :
+
+On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades. 
+
+This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. 
+
 
 Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 **Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
@@ -617,7 +668,19 @@ s.add_slide(content=s.content_figures(
         title=title + ': success', height=s.meta['height']*.5, transpose=True),
 notes="""
 
-TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+** The effect of a saccade is to bring relevant visual data at the fovea**
+
+(from left to right)
+
+1. The full visual field
+
+2. After a log polar encoding, the peripheral target is less visible
+
+3. this is the true acuracy map
+
+4. this is the predicted acc map
+
+5. this is the visual data collected at the fovea after the saccade.
 
 """)
 
@@ -640,8 +703,19 @@ s.add_slide(
  content=s.content_figures(
 [os.path.join(figpath_talk, 'results-IG.png') ],
      title="Effect of eccentricity",height=s.meta['height']*.6),
-           notes = """
-           done
+notes = """
+           
+Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
+           
+           
+** The effect of a saccade is to consderably increase the surface of the visual scene where you ca recognize a target **
+           
+           
+- Considerable increase of the surface of the fovea
+
+- Sub linear processing of the full image
+
+- an increase of the information content, with now both the position and identity information  
            """)
 
 s.add_slide(

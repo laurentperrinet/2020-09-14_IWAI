@@ -142,118 +142,15 @@ This combination of eye movements with visual data processing makes it an ideal 
                 <aside class="notes">
                  <p>Second, one needs <strong>to make predictions</strong>.
 In general, the observer predicts that its saccade will improve its understanding of the visual data.</p>
-<p>More precisely, it needs predicts the reduction of surprise after the next saccade. Unfortunately, the surprise reduction can only be measured once the saccade is issued. </p>
-<p>In order to guess the surprise reduction before the actual data read-out, we need to <strong>train</strong> a model.</p>
-<p>Assume that the category (or identity) of the stimulus is a variable explaining the visual data, predicting a certain distribution of pixels on the fovea. </p>
-<p>The model is constructed around a quantity called the <strong>information gain</strong>, that is a log difference between two scalar quantities, that is a probability on the target category as it is guessed from the future foveal data (after the saccade) minus the target category as it is guessed from the current foveal data.
-(or the future accuracy minus the current accuracy)</p>
 <p><strong> each quantity needs to be trained/guessed from the current visual data </strong></p>
+<p>Starting from the information gain metric, We make the very assumption that the calculation separates in two parts the visual processing into a ventral and a dorsal pathway. </p>
+<p>The venral (or identity) extracts the target identity from the current foveal data </p>
+<p>the dorsal (position) pathways predicts the future classificatin accuracy from the </p>
+<p>This is very specific : in the current visual field you don't have enough informatio to identify the peripheral target, but you have enough information to guess that if you move the eye, then you will be good at recognizing the target. you don't know what it is but you guess that its important looking there.</p>
+<p>so if you want the detail of our implementation, you have to listen to the full presentation. </p>
 <p>Then, the agent must bring the fovea toward visual data that will <strong>maximize</strong> the information gain. </p>
 <p>We will see that -given the retinotopic arrangment of photoreceptor, this amounts to guess where an object is <em>before</em> knowing axactly what it is,
 because it is easier to predict the recognition accuracy than the category itself.</p>
-                </aside>
-                
-</section>
-        <section><h3>Visual search as active inference</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=921.6>
-            
-            <tr padding=0px style="vertical-align:top" bgcolor=white>
-            
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/film_display9.png"  height="921px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
-<p>we manipulate the contrast and the eccentricity...</p>
-                </aside>
-                
-</section>
-        <section><h3>Visual search as active inference</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=921.6>
-            
-            <tr padding=0px style="vertical-align:top" bgcolor=white>
-            
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/CNS-what-where-diagram.svg"  height="921px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <p><strong>The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.</strong> </p>
-<p>The visual processing is separated in two pathway, with the foveal data processed separately from the peripheral data. 
-...
-On the one side, a ventral pathway predicts the target identity  inspecting the cuirrent foveal data.</p>
-<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an <strong>acuracy map</strong>, that predicts the increase of accuracy for different possible saccades. 
-This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. </p>
-<p>This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
-This drives the eye toward a new position where the target is categorized from the new foveal data.</p>
-                </aside>
-                
-</section>
-        <section><h3>Visual search as active inference</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=921.6>
-            
-            <tr padding=0px style="vertical-align:top" bgcolor=white>
-            
-                <td height=921 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/lightning-results.svg"  height="921px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
-                <aside class="notes">
-                 <p>(from left to right)</p>
-<ol>
-<li>
-<p>The full visual field</p>
-</li>
-<li>
-<p>After a log polar encoding, the peripheral target is less visible</p>
-</li>
-<li>
-<p>this is the true acuracy map</p>
-</li>
-<li>
-<p>this is the predicted acc map</p>
-</li>
-<li>
-<p>this is the visual data collected at the fovea after the saccade.</p>
-</li>
-</ol>
-<p>Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.</p>
-<ul>
-<li>
-<p>Considerable increase of the surface of the fovea</p>
-</li>
-<li>
-<p>Sub linear processing of the full image</p>
-</li>
-<li>
-<p>an increase of the information content, with now both the position and identity information  </p>
-</li>
-</ul>
                 </aside>
                 
 </section>
@@ -495,53 +392,146 @@ identify the person.</p>
                 
 </section>
         <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_display0.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_display4.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_display8.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_display9.png" data-background-size="1280px"> 
-</section>
-        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
-</section>
-        <section><h3>Methods - ''Experimental'' setup</h3>
-            <div align="center">
-            <table border=0px valign="top" bgcolor=white height=737.2800000000001>
-            
-            <tr padding=0px style="vertical-align:top" bgcolor=white>
-            
-                <td height=737 width="1280" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="white" >
-                <p>
-                    <img class="plain" data-src="figures/fig_intro.jpg"  height="737px"   />
-                </p>
-                </td>
-                
-            </tr>
-            
-        </table>
-        </div>
-        
                 <aside class="notes">
-                 <p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
 <p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
 This corresponds to a classic environment control in psychophysic experiments.
 Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
-<p>(B) the agent can make a saccade, in which case the center of fixation moves toward the expected location of the target.</p>
-<p>(C) The agent subjective perception is shown on the lower right part. The larger the target eccentrity, the more difficult the identifiction. There is a range of eccentricities for wich it is impossible to identify the target from a single glance, so that a sacade is necessary to issue a propoer response.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_display0.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_display4.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_display8.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_FIX.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_display9.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
+                </aside>
+                
+</section>
+        <section data-background="figures/film_ANS.png" data-background-size="1280px"> 
+                <aside class="notes">
+                 <p>In order to test those ideas, we consider a simple visual search task, where an agent tries to identify a target from a cluttered background.</p>
+<pre><code>we manipulate the contrast and the eccentricity...
+</code></pre>
+<p>We reproduce in simulation the conditions of a psychophysic experiment.</p>
+<p>The problem is to identify a digit that is placed at random over a noisy background, that is : finding the target identity. The agent fixates the center of the screen should give an answer about which digit was present in the image.
+This corresponds to a classic environment control in psychophysic experiments.
+Different parameters are controlled, such as the target eccentricity, the background noise and the contrast, in order to var the difficulty of the task.</p>
                 </aside>
                 
 </section>
@@ -563,11 +553,12 @@ Different parameters are controlled, such as the target eccentricity, the backgr
         </div>
         
                 <aside class="notes">
-                 <p>Consider our simplified visual scene containing a non-centered digit over a noisy background. We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.</p>
+                 <p>We consider a separate processing of the central part of the visual field and the periphery, corresponding to a central and peripheral processing consistently with information-gain based action selection.</p>
 <p>We consider in our setup a slight simplification, that is sampling the prior and the posterior on the true label.
 The information gain becomes the difference of the future accuracy and the central accuracy.
 The accuracy here takes the role of a proxy for the posterior entropy.
 Importantly, the future accuracy is a score that does not predict the future label. It just tells how correct the response will be while doing saccade a.</p>
+<p><strong>The information gain metric defines a computational architecture, that fits well with the separation of the visual processing into a ventral and a dorsal pathway, with the ventral pathway making a prediction about the current visual data and the dorsal pathway making predictions about the future visual data, for different possible saccades.</strong> </p>
 <p>The separation into current accuracy and future accuracy is reminiscent of the What/where visual processing separation observed in monkeys and humans... with a separate processing of the object detailed shape and identity through the ventral pathway and the visuo-spatial information through the dorsal pathway.
 Here we interpret the what/where separation in a slightly different manner, with the what devoted to analyzing the central part of the visual field, and the where devoted to choosing the next saccade.
 The "Where" is not exactly where but rather: where should I look next in order to increase my accuracy?</p>
@@ -595,6 +586,8 @@ The "Where" is not exactly where but rather: where should I look next in order t
                  <p>COMPUTATIONAL GRAPH :</p>
 <p>Here is the general computational graph of our active vision system.
 Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.</p>
+<p>This allows to implement a simple accuracy-seeking policy, that drives the eye toward regions with higher visual information. 
+This drives the eye toward a new position where the target is categorized from the new foveal data.</p>
                 </aside>
                 
 </section>
@@ -617,6 +610,7 @@ Two streams of information are separated from the visual primary layers, one str
         
                 <aside class="notes">
                  <p>WHAT :</p>
+<p>On the one side, a ventral pathway predicts the target identity,  inspecting the current foveal data.</p>
 <p>At the core of the vision system is the identification module (the what).   The what pathway is a classic convolutional clasifier.
 It shows some translation invariance. It can quantify its uncertainty. It monitors the where pathway.</p>
 <pre><code>TODO: mettre le résultat de l'accuracy map pour faire la transition?
@@ -643,6 +637,8 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         
                 <aside class="notes">
                  <p>WHERE :</p>
+<p>On the other side, a dorsal pathway, that utilizes all the peripheral visual data. The prediction takes the form of an <strong>acuracy map</strong>, that predicts the increase of accuracy for different possible saccades. </p>
+<p>This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. </p>
 <p>Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
 <strong>Each possible future saccade has an expected accuracy, that can be trained from the what pathway output</strong>. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a <strong>logpolar accuracy map</strong>, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).</p>
                 </aside>
@@ -710,7 +706,25 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         </div>
         
                 <aside class="notes">
-                 <p>TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)</p>
+                 <p><strong> The effect of a saccade is to bring relevant visual data at the fovea</strong></p>
+<p>(from left to right)</p>
+<ol>
+<li>
+<p>The full visual field</p>
+</li>
+<li>
+<p>After a log polar encoding, the peripheral target is less visible</p>
+</li>
+<li>
+<p>this is the true acuracy map</p>
+</li>
+<li>
+<p>this is the predicted acc map</p>
+</li>
+<li>
+<p>this is the visual data collected at the fovea after the saccade.</p>
+</li>
+</ol>
                 </aside>
                 
 </section>
@@ -769,8 +783,19 @@ It shows some translation invariance. It can quantify its uncertainty. It monito
         </div>
         
                 <aside class="notes">
-                 <pre><code>       done
-</code></pre>
+                 <p>Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.</p>
+<p><strong> The effect of a saccade is to consderably increase the surface of the visual scene where you ca recognize a target </strong></p>
+<ul>
+<li>
+<p>Considerable increase of the surface of the fovea</p>
+</li>
+<li>
+<p>Sub linear processing of the full image</p>
+</li>
+<li>
+<p>an increase of the information content, with now both the position and identity information  </p>
+</li>
+</ul>
                 </aside>
                 
 </section>
