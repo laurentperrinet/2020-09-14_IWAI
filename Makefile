@@ -1,4 +1,4 @@
-default: html
+default: video
 
 SRC=2020-09-14_IWAI
 CHROMIUM=chromium
@@ -24,6 +24,9 @@ get_figures:
 
 html:
 	python3 $(SRC).py index.html
+
+video:
+	python3 video.py
 
 show: html
 #	open -a firefox $(SRC).html
