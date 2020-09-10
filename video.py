@@ -11,7 +11,7 @@ slides = [] # a list of slides
 ################################################################################
 ################################################################################
 slides.append(Slide(
-    texts = ["""
+    contents = ["""
     A dual foveal-peripheral visual processing
     model implements efficient saccade selection
 
@@ -31,7 +31,7 @@ slides.append(Slide(
 
     by Daucé, Albigès and Perrinet
 
-    Journal of Vision (2020)
+    *Journal of Vision* (2020)
     """],
     duration=6,
     ))
@@ -40,23 +40,39 @@ slides.append(Slide(
 # INTRO
 ################################################################################
 ################################################################################
-filenames = []
-for i in [0, 4, 8, 9]:
-    filenames.append('film_FIX.png')
-    filenames.append(f'film_display{i}.png')
-    filenames.append(f'film_display{i}_SAC.png')
-    filenames.append('film_ANS.png')
-
 
 slides.append(Slide(
-    filenames=filenames,
+    type='figures',
+    contents=['charlie_mnist_ZOOM.jpeg', 'charlie_mnist_FOCAL.jpeg'],
     subtitles = ["Visual search is the common task of looking ...",
                "...for a visual object in a cluttered environment...",
+               "...such as finding the familiar shape of a ...",
+               "...digit taken from the MNIST database and overlaid on ...",
+               "...the back of this character. Finding a model for ...",
+               "...such a cognitive process is still open...",
+               ],
+    duration=8,
+    ))
+
+contents = []
+for i in [0, 4, 8, 9]:
+    contents.append('film_FIX.png')
+    contents.append(f'film_display{i}.png')
+    contents.append(f'film_display{i}_SAC.png')
+    # contents.append('film_ANS.png')
+
+slides.append(Slide(
+    type='figures',
+    contents=contents,
+    subtitles = [
                "In order to test a model of visual search, ",
                "...we consider a simple visual search task, ...",
-               "...where an agent tries to identify a target ...",
-               "...from a cluttered background..",],
-    duration=15,
+               "...where an agent tries to identify such a target ...",
+               "...from a noisy background.",
+               "Inspired by the physiology of biological vision...",
+               "...we will design a dual foveal-peripheral visual processing.",
+                ],
+    duration=9,
     ))
 ################################################################################
 ################################################################################
@@ -64,12 +80,15 @@ slides.append(Slide(
 ################################################################################
 ################################################################################
 slides.append(Slide(
-    filenames=['CNS-what-where.png', 'CNS-where-diagram.png'],
-    subtitles = ["We consider a separate processing of the central part...",
+    type='figures',
+    contents=['CNS-what-where.png', 'CNS-where-diagram.png'],
+    subtitles = ["Indeed, we consider a separate processing of the central part...",
                "...of the visual field and the periphery...",
-               "...similarly to the What and What pathways found ...",
+               "...similarly to the ''What'' and ''Where'' pathways found ...",
                "...in vision. Finally,  we end up with a simple computational...",
-               "...graph for inferring location and identity.",],
+               "...graph for inferring location and identity...",
+               "...into two independent yet collaborating models.",
+               ],
     duration=15,
     ))
 ################################################################################
@@ -79,8 +98,9 @@ slides.append(Slide(
 ################################################################################
 
 slides.append(Slide(
-    filenames=[f'CNS-saccade-{i}.png' for i in [8, 17, 12, 32, 20, 46, 47]],
-    subtitles = ["In most cases, the ``Where'' network can correctly infer...",
+    type='figures',
+    contents=[f'CNS-saccade-{i}.png' for i in [8, 17, 12, 32, 20, 46, 47]],
+    subtitles = ["In most cases, the ''Where'' network can correctly infer...",
                "...the accuracy map of counter-factual saccades (that is, ...",
                "... *before* they are actuated). Sometime, the model will ...",
                "...infer an incorrect prediction, looking for  a digit in noise...",
@@ -96,7 +116,7 @@ slides.append(Slide(
 ################################################################################
 ################################################################################
 slides.append(Slide(
-    texts = ["""
+    contents = ["""
 For more info, and the full, open-sourced code... visit
 
 
@@ -106,7 +126,7 @@ For more info, and the full, open-sourced code... visit
 https://laurentperrinet.github.io/publication/dauce-20/
 """,
 ],
-    fontsizes = [30, 24],
+    fontsizes = [30, 30],
     color='orange',
     duration=6,
 ))
