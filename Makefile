@@ -26,7 +26,7 @@ html:
 	python3 $(SRC).py index.html
 
 video:
-	python3 video.py
+	python3 2020-09-10_video-abstract.py
 
 show: html
 #	open -a firefox $(SRC).html
