@@ -120,6 +120,19 @@ slides.append(Slide(
     duration=15,
     ))
 
+slides.append(Slide(
+    type='figures',
+    contents=['results-IG.png'],
+    subtitles = ["Overall, we can quantitatively measure the information gain...",
+                 "...provided by this dual pathway architecture as a function of...",
+                 "...eccentricity. The effect of a saccade is to consderably...",
+                 "...increase the diameter of the visual scene region where you...",
+                 "...can recognize a target, corresponding to a sub linear ...",
+                 "...processing of the full image which we will consider in...",
+                 "...the future.",],
+    duration=8,
+    ))
+
 
 ################################################################################
 ################################################################################
@@ -139,7 +152,7 @@ https://laurentperrinet.github.io/publication/dauce-20/
 ],
     fontsizes = [30, 30],
     color='orange',
-    duration=6,
+    duration=4,
 ))
 ################################################################################
 ################################################################################

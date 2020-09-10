@@ -21,11 +21,11 @@ class Deck:
     def __init__(self,
                  videoname = "video-abstract", fps = 3,
                  figpath = 'figures',
-                 H=500, W=800, border_ratio=3):
+                 H=500, W=800, border_ratio=1.618*2):
 
         # self.W = W
         # self.H = H
-        self.H_fig, self.W_fig = int(H-H/(1.618*border_ratio)), int(W-W/(1.618*border_ratio))
+        self.H_fig, self.W_fig = int(H-H/border_ratio), int(W-W/border_ratio)
 
         self.videoname = videoname
         self.gifname = videoname + ".gif"
@@ -33,10 +33,14 @@ class Deck:
         self.fps = fps
 
 
-        self.txt_opts = dict(font="Open-Sans-Regular", align='center', color='white',
+        self.txt_opts = dict(font="Open-Sans-Regular", align='center',
+                             color='white',
                              size=(W,H), method='caption')
         #self.txt_opts = dict(fontsize=65, bg_color='white', align='center', **opt_st)
-        self.sub_opts = dict(font="Open-Sans-SemiBold", fontsize=28, align='South', color='yellow', size=(W,H), method='caption')
+        self.sub_opts = dict(font="Open-Sans-SemiBold", fontsize=28, align='South',
+                                #bg_color='white',
+                                color='yellow',
+                                size=(W,H), method='caption')
 
     def compositing(self, slides):
         t = 0
@@ -54,7 +58,8 @@ class Deck:
                         else:
                             fontsize = slide.fontsizes[i_]
 
-                        clip = TextClip(content, fontsize=fontsize, **self.txt_opts)
+                        clip = TextClip(content, bg_color=slide.bg_color,
+                                        fontsize=fontsize, **self.txt_opts)
                     else:
                         # drawing the list of figures
                         clip = ImageClip(os.path.join(self.figpath, content))
@@ -69,14 +74,20 @@ class Deck:
 
             if len(slide.subtitles)>0:
                 # overlaying subtitles
-                t_sub = t - slide.duration # be kind, rewind
+                t -= slide.duration # be kind, rewind
                 sub_duration = slide.duration / len(slide.subtitles)
                 for subtitle in slide.subtitles:
                     sub = TextClip(subtitle, **self.sub_opts)
-                    sub = sub.set_start(t_sub).set_duration(sub_duration)
+                    # time
+                    sub = sub.set_start(t).set_duration(sub_duration)
+                    # space
+                    sub = sub.resize(height=self.H_fig, width=self.W_fig)
+                    sub = sub.set_pos('center')
 
                     clips.append(sub)
-                    t_sub += sub_duration
+                    t += sub_duration
+            else:
+                print('no subtitle', slide.contents)
 
         return clips
 
