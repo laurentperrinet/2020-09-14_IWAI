@@ -43,7 +43,7 @@ slides.append(Slide(
 
 slides.append(Slide(
     type='figures',
-    contents=['charlie_mnist_ZOOM.jpeg', 'charlie_mnist_FOCAL.jpeg'],
+    contents=['charlie_mnist_ZOOM.jpeg', 'charlie_mnist_FOCAL.jpeg',],
     subtitles = ["Visual search is the common task of looking ...",
                "...for a visual object in a cluttered environment...",
                "...such as finding the familiar shape of a ...",
@@ -69,9 +69,11 @@ slides.append(Slide(
                "...we consider a simple visual search task, ...",
                "...where an agent tries to identify such a target ...",
                "...from a noisy background.",
-               "Inspired by the physiology of biological vision...",
-               "...we will design a dual foveal-peripheral visual processing.",
-                ],
+               "",
+               "",
+               "",
+               "",
+               ],
     duration=9,
     ))
 ################################################################################
@@ -81,11 +83,17 @@ slides.append(Slide(
 ################################################################################
 slides.append(Slide(
     type='figures',
-    contents=['CNS-what-where.png',
+    contents=[
+              'CNS-general-II-A.png',
+              'CNS-general-II-B.png',
+              'CNS-what-where.png',
               # 'CNS-where-diagram.png',
               'fig_methods.png',
               ],
-    subtitles = ["Indeed, we consider a separate processing of the central part...",
+    subtitles = [
+                "Inspired by the physiology of biological vision...",
+                "...we will design a dual foveal-peripheral visual processing.",
+                "Indeed, we consider a separate processing of the central part...",
                "...of the visual field and the periphery...",
                "...similarly to the ''What'' and ''Where'' pathways found ...",
                "...in vision. Finally,  we end up with a simple computational...",

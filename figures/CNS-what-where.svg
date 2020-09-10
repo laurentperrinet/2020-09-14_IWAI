@@ -68,6 +68,13 @@
        clip-rule="nonzero"
        d="M 0,0 H 890 V 586 H 0 Z" />
   </clipPath>
+  <rect
+     style="fill:#ffffff;stroke-width:6"
+     id="rect323"
+     width="797.10938"
+     height="527.39655"
+     x="0"
+     y="-0.84600759" />
   <path
      id="path1339"
      fill-rule="evenodd"

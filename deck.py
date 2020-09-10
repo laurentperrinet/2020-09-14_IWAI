@@ -69,12 +69,14 @@ class Deck:
 
             if len(slide.subtitles)>0:
                 # overlaying subtitles
-                t_sub = t - slide.duration
+                t_sub = t - slide.duration # be kind, rewind
                 sub_duration = slide.duration / len(slide.subtitles)
                 for subtitle in slide.subtitles:
-                    sub = TextClip(subtitle, **self.sub_opts).set_start(t_sub).set_duration(sub_duration)
-                    t_sub += sub_duration
+                    sub = TextClip(subtitle, **self.sub_opts)
+                    sub = sub.set_start(t_sub).set_duration(sub_duration)
+
                     clips.append(sub)
+                    t_sub += sub_duration
 
         return clips
 
