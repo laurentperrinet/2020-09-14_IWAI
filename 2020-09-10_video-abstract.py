@@ -89,7 +89,7 @@ slides.append(Slide(
               ],
     subtitles = [
                 "Inspired by the physiology of biological vision...",
-                "...and the fact that eyes move in visual space using saccades",
+                "and the fact that eyes move in visual space using saccades",
                 "...we will design a dual foveal-peripheral visual processing.",
                 "Indeed, we consider a separate processing of the center...",
                "...of the visual field from that of the periphery...",
