@@ -81,7 +81,10 @@ slides.append(Slide(
 ################################################################################
 slides.append(Slide(
     type='figures',
-    contents=['CNS-what-where.png', 'CNS-where-diagram.png'],
+    contents=['CNS-what-where.png',
+              # 'CNS-where-diagram.png',
+              'fig_methods.png',
+              ],
     subtitles = ["Indeed, we consider a separate processing of the central part...",
                "...of the visual field and the periphery...",
                "...similarly to the ''What'' and ''Where'' pathways found ...",
