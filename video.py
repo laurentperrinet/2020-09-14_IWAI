@@ -110,7 +110,8 @@ slides.append(Slide(
 
 slides.append(Slide(
     type='figures',
-    contents=[f'CNS-saccade-{i}.png' for i in [8, 17, 12, 32, 20, 46, 47]],
+    # contents=[f'CNS-saccade-{i}.png' for i in [8, 17, 12, 32, 20, 46, 47]],
+    contents=[f'CNS-saccade-{i}.png' for i in ['success', 'failure']],
     subtitles = ["In most cases, the ''Where'' network can correctly infer...",
                "...the accuracy map of counter-factual saccades (that is, ...",
                "... *before* they are actuated). Sometime, the model will ...",
