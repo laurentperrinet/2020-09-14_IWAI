@@ -70,9 +70,6 @@ slides.append(Slide(
                "...where an agent tries to identify such a target ...",
                "...from a noisy background.",
                "",
-               "",
-               "",
-               "",
                ],
     duration=9,
     ))
@@ -93,10 +90,10 @@ slides.append(Slide(
     subtitles = [
                 "Inspired by the physiology of biological vision...",
                 "...we will design a dual foveal-peripheral visual processing.",
-                "Indeed, we consider a separate processing of the central part...",
-               "...of the visual field and the periphery...",
+                "Indeed, we consider a separate processing of the center...",
+               "...of the visual field from that of the periphery...",
                "...similarly to the ''What'' and ''Where'' pathways found ...",
-               "...in vision. Finally,  we end up with a simple computational...",
+               "...in vision. Finally, we designed a simple computational...",
                "...graph for inferring location and identity...",
                "...into two independent yet collaborating models.",
                ],
@@ -115,22 +112,22 @@ slides.append(Slide(
     subtitles = ["In most cases, the ''Where'' network can correctly infer...",
                "...the accuracy map of counter-factual saccades (that is, ...",
                "... *before* they are actuated). Sometime, the model will ...",
-               "...infer an incorrect prediction, looking for  a digit in noise...",
-               "...and sometimes it is the ``What'' network that will fail ...",
-               "...to give a correct identification.",],
+               "...infer an incorrect prediction, looking for the digit in noise...",
+               "...or in some cases it is the ''What'' network that will fail ...",
+               "...to give the correct identification of the digit.",],
     duration=15,
     ))
 
 slides.append(Slide(
     type='figures',
     contents=['results-IG.png'],
-    subtitles = ["Overall, we can quantitatively measure the information gain...",
-                 "...provided by this dual pathway architecture as a function of...",
+    subtitles = ["Overall, we can quantitatively measure the information gain",
+                 "provided by this dual pathway architecture as a function of",
                  "...eccentricity. The effect of a saccade is to consderably...",
-                 "...increase the diameter of the visual scene region where you...",
+                 "...increase the area of the visual scene region where you",
                  "...can recognize a target, corresponding to a sub linear ...",
                  "...processing of the full image which we will consider in...",
-                 "...the future.",],
+                 "...future developments of this model.",],
     duration=8,
     ))
 

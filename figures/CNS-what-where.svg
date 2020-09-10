@@ -42,7 +42,7 @@
      inkscape:window-y="23"
      inkscape:window-x="0"
      inkscape:cy="269.39451"
-     inkscape:cx="410.25251"
+     inkscape:cx="405.59947"
      inkscape:zoom="1.1820225"
      showgrid="false"
      id="namedview1453"
@@ -74,7 +74,10 @@
      width="797.10938"
      height="527.39655"
      x="0"
-     y="-0.84600759" />
+     y="-0.84600759"
+     inkscape:export-filename="./CNS-what-where.png"
+     inkscape:export-xdpi="302"
+     inkscape:export-ydpi="302" />
   <path
      id="path1339"
      fill-rule="evenodd"

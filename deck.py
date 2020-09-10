@@ -15,20 +15,21 @@ class Slide:
 
 ################################################################################
 # http://zulko.github.io/moviepy/ref/VideoClip/VideoClip.html
-from moviepy.editor import VideoFileClip, ImageClip, TextClip, CompositeVideoClip
+from moviepy.editor import VideoFileClip, ImageClip, TextClip, CompositeVideoClip, ColorClip
 ################################################################################
 class Deck:
     def __init__(self,
-                 videoname = "video-abstract", fps = 3,
+                 videoname = "2020-09-10_video-abstract", fps=6, do_gif=True,
                  figpath = 'figures',
-                 H=500, W=800, border_ratio=1.618*2):
+                 H=500, W=800, border_ratio=.12):
 
-        # self.W = W
-        # self.H = H
-        self.H_fig, self.W_fig = int(H-H/border_ratio), int(W-W/border_ratio)
+        self.W = W
+        self.H = H
+        self.H_fig, self.W_fig = int(H-H*border_ratio), int(W-W*border_ratio)
 
         self.videoname = videoname
-        self.gifname = videoname + ".gif"
+        self.do_gif = do_gif
+        if self.do_gif: self.gifname = videoname + ".gif"
         self.figpath = figpath
         self.fps = fps
 
@@ -37,9 +38,9 @@ class Deck:
                              color='white',
                              size=(W,H), method='caption')
         #self.txt_opts = dict(fontsize=65, bg_color='white', align='center', **opt_st)
-        self.sub_opts = dict(font="Open-Sans-SemiBold", fontsize=28, align='South',
+        self.sub_opts = dict(font="Open-Sans-SemiBold", fontsize=30, align='South',
                                 #bg_color='white',
-                                color='yellow',
+                                color='orange',
                                 size=(W,H), method='caption')
 
     def compositing(self, slides):
@@ -48,6 +49,11 @@ class Deck:
         for slide in slides:
             # contains figures or text
             if len(slide.contents)>0:
+                # background
+                clip = ColorClip(color=(0, 0, 0), size=(self.W, self.H))
+                clip = clip.set_start(t).set_duration(slide.duration)
+                clips.append(clip)
+
                 sub_duration = slide.duration / len(slide.contents)
                 for i_, content in enumerate(slide.contents):
                     if slide.type == 'text':
@@ -67,7 +73,7 @@ class Deck:
                     clip = clip.set_start(t).set_duration(sub_duration)
                     # space
                     clip = clip.resize(height=self.H_fig, width=self.W_fig)
-                    clip = clip.set_pos('center')
+                    clip = clip.set_pos(("center", "top"))
 
                     clips.append(clip)
                     t += sub_duration
@@ -83,11 +89,13 @@ class Deck:
                     # space
                     sub = sub.resize(height=self.H_fig, width=self.W_fig)
                     sub = sub.set_pos('center')
+                    #sub = sub.on_color(size=(clip.w + sub.w, sub.h-10),
+                    #                   color=(0,0,0), pos=(6,'center'), col_opacity=0.6)
 
                     clips.append(sub)
                     t += sub_duration
             else:
-                print('no subtitle', slide.contents)
+                print('/!\ no subtitle', slide.contents)
 
         return clips
 
@@ -96,8 +104,9 @@ class Deck:
         video = CompositeVideoClip(clips)
         print('Writing', self.videoname + '.mp4')
         video.write_videofile(self.videoname + '.mp4', fps=self.fps)
-        print('Writing', self.gifname)
-        video.write_gif(self.gifname, fps=self.fps)
-        from pygifsicle import optimize
-        optimize(self.gifname)
-        print('Done')
+        if self.do_gif:
+            print('Writing', self.gifname)
+            video.write_gif(self.gifname, fps=self.fps)
+            from pygifsicle import optimize
+            optimize(self.gifname)
+            print('Done')
