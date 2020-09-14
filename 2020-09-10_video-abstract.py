@@ -48,8 +48,8 @@ slides.append(Slide(
                "...for a visual object in a cluttered environment...",
                "...such as finding the familiar shape of a...",
                "...digit taken from the MNIST database and overlaid on...",
-               "...the back of this character. Finding a model for...",
-               "...such a cognitive process is still open...",
+               "...the back of this character. Finding a unified model for...",
+               "...such a cognitive process is still largely open...",
                ],
     duration=9,
     ))
